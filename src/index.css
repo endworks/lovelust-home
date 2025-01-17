@@ -2524,7 +2524,11 @@ select {
 }
 
 .fill-gray-50 {
-  fill: #f9fafb;
+  fill: rgb(249, 250, 251);
+}
+
+.fill-gray-950 {
+  fill: rgb(6, 5, 4);
 }
 
 .fill-indigo-500 {
@@ -2537,6 +2541,10 @@ select {
 
 .stroke-gray-400 {
   stroke: #9ca3af;
+}
+
+.stroke-gray-800 {
+  stroke: rgb(31 41 55);
 }
 
 .object-cover {
@@ -3927,6 +3935,14 @@ select {
 
   .dark\:fill-white {
     fill: #fff;
+  }
+
+  .dark\:fill-gray-950 {
+    fill: rgb(6, 5, 4);
+  }
+
+  .dark\:stroke-gray-800 {
+    stroke: rgb(31 41 55);
   }
 
   .dark\:text-gray-100 {
