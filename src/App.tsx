@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { Link } from "react-router";
 import "./App.css";
 import downloadAppStore from "/downloadAppStore.svg";
 import downloadAppStoreSpanish from "/downloadAppStoreSpanish.svg";
@@ -146,12 +147,12 @@ function App() {
         </main>
       </div>
       <footer className="sm:absolute mt-5 sm:mt-0 inset-x-0 bottom-0 z-50 w-full text-center mb-5">
-        <a
-          href="privacy"
+        <Link
+          to="/privacy"
           className="text-sm font-semibold leading-6 mr-2 text-gray-900 dark:text-gray-100 hover:underline"
         >
           Privacy Policy
-        </a>
+        </Link>
         <a
           href={import.meta.env.VITE_SUPPORT_URL}
           target="_blank"
@@ -163,9 +164,6 @@ function App() {
           <small className="text-xs font-thin leading-6 text-gray-800 dark:text-gray-200">
             2025 <strong>end.works</strong>. All Rights Reserved
           </small>
-        </div>
-        <div>
-          <small>'{import.meta.env.BASE_URL}'</small>
         </div>
       </footer>
     </>
