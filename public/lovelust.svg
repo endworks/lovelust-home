@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   aria-hidden="true"
+   role="img"
+   class="iconify iconify--logos"
+   width="34"
+   height="31.405001"
+   preserveAspectRatio="xMidYMid"
+   viewBox="0 0 273.02385 252.22141"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="lovelust.svg"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="5.5751549"
+     inkscape:cx="-8.3405754"
+     inkscape:cy="29.685274"
+     inkscape:window-width="1200"
+     inkscape:window-height="1186"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg6" />
+  <defs
+     id="defs5">
+    <linearGradient
+       id="IconifyId1813088fe1fbc01fb466"
+       x1="-0.0082799997"
+       x2="0.57635999"
+       y1="0.076519996"
+       y2="0.78411001">
+      <stop
+         offset="0%"
+         stop-color="#41D1FF"
+         id="stop1" />
+      <stop
+         offset="100%"
+         stop-color="#BD34FE"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
+       id="IconifyId1813088fe1fbc01fb467"
+       x1="0.43375999"
+       x2="0.50316"
+       y1="0.02242"
+       y2="0.89029998">
+      <stop
+         offset="0%"
+         stop-color="#FFEA83"
+         id="stop3" />
+      <stop
+         offset="8.333%"
+         stop-color="#FFDD35"
+         id="stop4" />
+      <stop
+         offset="100%"
+         stop-color="#FFA800"
+         id="stop5" />
+    </linearGradient>
+  </defs>
+  <path
+     d="m 136.51196,232.76503 -4.13217,-3.5911 C 92.427866,195.2607 65.567706,171.22414 48.104036,151.12044 26.733566,126.51935 19.434026,107.80758 19.434026,84.09329 c 0,-35.91105 27.54769,-64.63994 61.98244,-64.63994 28.236494,0 44.076374,16.5191 55.095494,29.4471 11.01928,-12.928 26.85914,-29.4471 55.09552,-29.4471 34.43478,0 61.98239,28.72889 61.98239,64.63994 0,43.0933 -24.10425,69.66744 -112.94577,145.08064 z"
+     id="path49"
+     style="display:inline;fill:#fb2372;fill-opacity:1;stroke:#fb2372;stroke-width:22.8442;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     inkscape:label="Heart"
+     sodipodi:nodetypes="ccssscsscc" />
+  <path
+     style="display:inline;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:31.4108;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     d="m 113.66754,119.39692 22.84435,22.8433 45.68874,-45.6866"
+     id="path50"
+     sodipodi:nodetypes="ccc"
+     inkscape:label="Check" />
+</svg>
