@@ -5,11 +5,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --port 3000",
+    "dev": "vite",
     "build": "tsc -b && vite build",
-    "build:pages": "tsc -b && vite build --base /lovelust-home/",
+    "build:pages": "tsc -b && vite build --base /lovelust-home",
     "lint": "eslint .",
-    "preview": "vite preview --port 3000"
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.3.1",
