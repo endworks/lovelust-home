@@ -7,20 +7,20 @@ import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    {import.meta.env.BASE_URL !== "/" ? (
+    {import.meta.env.BASE_URL == "/" ? (
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <Routes>
+          <Route index path="/" element={<App />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+        </Routes>
+      </BrowserRouter>
+    ) : (
       <HashRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route index path="/" element={<App />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
         </Routes>
       </HashRouter>
-    ) : (
-      <BrowserRouter>
-        <Routes>
-          <Route index path="/" element={<App />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
-        </Routes>
-      </BrowserRouter>
     )}
   </StrictMode>
 );
