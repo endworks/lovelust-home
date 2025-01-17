@@ -6,6 +6,8 @@ import downloadAppStore from "/downloadAppStore.svg";
 import downloadAppStoreSpanish from "/downloadAppStoreSpanish.svg";
 import downloadAppStoreWhite from "/downloadAppStoreWhite.svg";
 import downloadAppStoreWhiteSpanish from "/downloadAppStoreWhiteSpanish.svg";
+import downloadTestFlight from "/downloadTestFlight.png";
+import downloadTestFlightSpanish from "/downloadTestFlightSpanish.png";
 import getItOnGooglePlay from "/getItOnGooglePlay.png";
 import getItOnGooglePlaySpanish from "/getItOnGooglePlaySpanish.png";
 import screenshot from "/screenshot.png";
@@ -59,6 +61,13 @@ function App() {
       return downloadAppStoreWhite;
     }
   }, [isDark, i18n]);
+
+  const downloadTestFlightButton = useMemo(() => {
+    if (i18n.language === "es") {
+      return downloadTestFlightSpanish;
+    }
+    return downloadTestFlight;
+  }, [i18n]);
 
   const getItOnGooglePlayButton = useMemo(() => {
     if (i18n.language === "es") {
@@ -115,13 +124,26 @@ function App() {
                   {t("Description")}
                 </div>
                 <div className="mt-10 flex items-center gap-x-6 justify-center sm:justify-start">
-                  <a href={import.meta.env.VITE_APPSTORE_URL} target="_blank">
-                    <img
-                      src={downloadAppStoreButton}
-                      alt={t("DownloadOnTheAppStore")}
-                      className="download-app"
-                    />
-                  </a>
+                  {import.meta.env.VITE_BETA == "true" ? (
+                    <a
+                      href={import.meta.env.VITE_TESTFLIGHT_URL}
+                      target="_blank"
+                    >
+                      <img
+                        src={downloadTestFlightButton}
+                        alt={t("AvailableOnTestFlight")}
+                        className="download-app"
+                      />
+                    </a>
+                  ) : (
+                    <a href={import.meta.env.VITE_APPSTORE_URL} target="_blank">
+                      <img
+                        src={downloadAppStoreButton}
+                        alt={t("DownloadOnTheAppStore")}
+                        className="download-app"
+                      />
+                    </a>
+                  )}
 
                   <a
                     href={import.meta.env.VITE_GOOGLE_PLAY_STORE_URL}
