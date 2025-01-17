@@ -62,7 +62,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-white">
+      <div className="light:bg-white dark:bg-black">
         <main>
           <div className="relative isolate pt-14">
             <svg
@@ -97,10 +97,10 @@ function App() {
             <div className="mx-auto max-w-7xl px-6 lg:flex lg:items-center">
               <div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto text-center sm:text-start">
                 <div className="flex"></div>
-                <h1 className="mt-10 max-w-lg text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                <h1 className="mt-10 max-w-lg text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-6xl">
                   LoveLust
                 </h1>
-                <div className="mt-6 text-lg leading-8 text-gray-600 prose-slate text-wrap whitespace-pre">
+                <div className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400 prose-slate text-wrap whitespace-pre">
                   LoveLust lets you have track of your sexual encounters and the
                   birth control methods, to ensure you have a healthy sexual
                   life.
@@ -148,10 +148,22 @@ function App() {
       <footer className="sm:absolute mt-5 sm:mt-0 inset-x-0 bottom-0 z-50 w-full text-center mb-5">
         <a
           href="privacy"
-          className="text-sm font-semibold leading-6 text-gray-900 hover:underline"
+          className="text-sm font-semibold leading-6 mr-2 text-gray-900 dark:text-gray-100 hover:underline"
         >
           Privacy Policy
         </a>
+        <a
+          href={import.meta.env.VITE_SUPPORT_URL}
+          target="_blank"
+          className="text-sm font-semibold leading-6 ml-2 text-gray-900 dark:text-gray-100 hover:underline"
+        >
+          Support
+        </a>
+        <div>
+          <small className="text-xs font-thin leading-6 text-gray-800 dark:text-gray-200">
+            2025 <strong>end.works</strong>. All Rights Reserved
+          </small>
+        </div>
       </footer>
     </>
   );
