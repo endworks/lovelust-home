@@ -10,15 +10,15 @@ createRoot(document.getElementById("root")!).render(
     {import.meta.env.BASE_URL !== "/" ? (
       <HashRouter basename={import.meta.env.BASE_URL}>
         <Routes>
-          <Route index element={<App />} />
-          <Route path="privacy" element={<PrivacyPolicy />} />
+          <Route index path="/" element={<App />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
         </Routes>
       </HashRouter>
     ) : (
       <BrowserRouter>
         <Routes>
-          <Route index element={<App />} />
-          <Route path="privacy" element={<PrivacyPolicy />} />
+          <Route index path="/" element={<App />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
         </Routes>
       </BrowserRouter>
     )}
