@@ -164,6 +164,9 @@ function App() {
             2025 <strong>end.works</strong>. All Rights Reserved
           </small>
         </div>
+        <div>
+          <small>'{import.meta.env.BASE_URL}'</small>
+        </div>
       </footer>
     </>
   );

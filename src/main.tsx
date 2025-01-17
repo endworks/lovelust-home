@@ -7,12 +7,10 @@ import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
-        <Route path={import.meta.env.BASE_URL}>
-          <Route index element={<App />} />
-          <Route path="privacy" element={<PrivacyPolicy />} />
-        </Route>
+        <Route path="/" element={<App />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
