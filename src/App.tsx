@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 import "./App.css";
 import downloadAppStore from "/downloadAppStore.svg";
@@ -13,6 +14,7 @@ import screenshotDarkSpanish from "/screenshotDarkSpanish.png";
 import screenshotSpanish from "/screenshotSpanish.png";
 
 function App() {
+  const { t, i18n } = useTranslation();
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -26,40 +28,44 @@ function App() {
     mq.addEventListener("change", (evt) => setIsDark(evt.matches));
   }, []);
 
+  useEffect(() => {
+    document.title = t("Title") + ": " + t("Subtitle");
+  }, [i18n]);
+
   const screenshotImage = useMemo(() => {
     if (isDark) {
-      if (navigator.language === "es") {
+      if (i18n.language === "es") {
         return screenshotDarkSpanish;
       }
       return screenshotDark;
     } else {
-      if (navigator.language === "es") {
+      if (i18n.language === "es") {
         return screenshotSpanish;
       }
       return screenshot;
     }
-  }, [isDark]);
+  }, [isDark, i18n]);
 
   const downloadAppStoreButton = useMemo(() => {
     if (isDark) {
-      if (navigator.language === "es") {
+      if (i18n.language === "es") {
         return downloadAppStoreSpanish;
       }
       return downloadAppStore;
     } else {
-      if (navigator.language === "es") {
+      if (i18n.language === "es") {
         return downloadAppStoreWhiteSpanish;
       }
       return downloadAppStoreWhite;
     }
-  }, [isDark]);
+  }, [isDark, i18n]);
 
   const getItOnGooglePlayButton = useMemo(() => {
-    if (navigator.language === "es") {
+    if (i18n.language === "es") {
       return getItOnGooglePlaySpanish;
     }
     return getItOnGooglePlay;
-  }, []);
+  }, [i18n]);
 
   return (
     <>
@@ -103,18 +109,16 @@ function App() {
               <div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto text-center sm:text-start">
                 <div className="flex"></div>
                 <h1 className="mt-10 max-w-lg text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-6xl">
-                  LoveLust
+                  {t("LoveLust")}
                 </h1>
                 <div className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400 prose-slate text-wrap whitespace-pre">
-                  LoveLust lets you have track of your sexual encounters and the
-                  birth control methods, to ensure you have a healthy sexual
-                  life.
+                  {t("Description")}
                 </div>
                 <div className="mt-10 flex items-center gap-x-6 justify-center sm:justify-start">
                   <a href={import.meta.env.VITE_APPSTORE_URL} target="_blank">
                     <img
                       src={downloadAppStoreButton}
-                      alt="Download on the AppStore"
+                      alt={t("DownloadOnTheAppStore")}
                       className="download-app"
                     />
                   </a>
@@ -125,7 +129,7 @@ function App() {
                   >
                     <img
                       src={getItOnGooglePlayButton}
-                      alt="Get it on Google Play"
+                      alt={t("GetItOnGooglePlay")}
                       className="download-app"
                     />
                   </a>
@@ -155,18 +159,18 @@ function App() {
           to="/privacy"
           className="text-sm font-semibold leading-6 mr-2 text-gray-900 dark:text-gray-100 hover:underline"
         >
-          Privacy Policy
+          {t("PrivacyPolicy")}
         </Link>
         <a
           href={import.meta.env.VITE_SUPPORT_URL}
           target="_blank"
           className="text-sm font-semibold leading-6 ml-2 text-gray-900 dark:text-gray-100 hover:underline"
         >
-          Support
+          {t("Support")}
         </a>
         <div>
           <small className="text-xs font-thin leading-6 text-gray-800 dark:text-gray-200">
-            2025 <strong>end.works</strong>. All Rights Reserved
+            2025 <strong>end.works</strong>. {t("AllRightsReserved")}
           </small>
         </div>
       </footer>

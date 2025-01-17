@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 function PrivacyPolicy() {
+  const { t, i18n } = useTranslation();
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -14,6 +16,10 @@ function PrivacyPolicy() {
     mq.addEventListener("change", (evt) => setIsDark(evt.matches));
   }, []);
 
+  useEffect(() => {
+    document.title = t("Title") + ": " + t("Subtitle");
+  }, [i18n]);
+
   return (
     <div className="text-center mt-20">
       <h1
@@ -24,10 +30,10 @@ function PrivacyPolicy() {
             : "var(--tw-prose-headings)",
         }}
       >
-        LoveLust
+        {t("LoveLust")}
       </h1>
       <h1 className="text-5xl font-extrabold tracking-tight light:text-slate-900 dark:text-gray-100">
-        Privacy policy
+        {t("PrivacyPolicy")}
       </h1>
       <div className="mx-auto max-w-4xl mb-10 px-6">
         <div
