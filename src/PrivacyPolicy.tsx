@@ -29,7 +29,7 @@ function PrivacyPolicy() {
       <h1 className="text-5xl font-extrabold tracking-tight light:text-slate-900 dark:text-gray-100">
         Privacy policy
       </h1>
-      <div className="mx-auto max-w-4xl mb-10">
+      <div className="mx-auto max-w-4xl mb-10 px-6">
         <div
           className="prose-slate text-wrap whitespace-pre mt-14 text-start mx-auto"
           style={{
