@@ -118,7 +118,7 @@ function App() {
               <div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto text-center sm:text-start">
                 <div className="flex"></div>
                 <h1 className="mt-10 max-w-lg text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-6xl">
-                  {t("LoveLust")}
+                  {t("Title")}
                 </h1>
                 <div className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400 prose-slate text-wrap whitespace-pre">
                   {t("Description")}
