@@ -183,13 +183,12 @@ function App() {
         >
           {t("PrivacyPolicy")}
         </Link>
-        <a
-          href={import.meta.env.VITE_SUPPORT_URL}
-          target="_blank"
+        <Link
+          to="/support"
           className="text-sm font-semibold leading-6 ml-2 text-gray-900 dark:text-gray-100 hover:underline"
         >
           {t("Support")}
-        </a>
+        </Link>
         <div>
           <small className="text-xs font-thin leading-6 text-gray-800 dark:text-gray-200">
             2025 <strong>end.works</strong>. {t("AllRightsReserved")}

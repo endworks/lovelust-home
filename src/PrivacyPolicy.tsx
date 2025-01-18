@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router";
 
 function PrivacyPolicy() {
   const { t, i18n } = useTranslation();
@@ -22,16 +23,18 @@ function PrivacyPolicy() {
 
   return (
     <div className="text-center mt-20">
-      <h1
-        className="text-3xl tracking-tight prose-sm prose prose-slate mx-auto"
-        style={{
-          color: isDark
-            ? "var(--tw-prose-invert-headings)"
-            : "var(--tw-prose-headings)",
-        }}
-      >
-        {t("LoveLust")}
-      </h1>
+      <Link to="/" className="hover:underline">
+        <h1
+          className="text-3xl tracking-tight prose-sm prose prose-slate mx-auto"
+          style={{
+            color: isDark
+              ? "var(--tw-prose-invert-headings)"
+              : "var(--tw-prose-headings)",
+          }}
+        >
+          {t("LoveLust")}
+        </h1>
+      </Link>
       <h1 className="text-5xl font-extrabold tracking-tight light:text-slate-900 dark:text-gray-100">
         {t("PrivacyPolicy")}
       </h1>
@@ -258,7 +261,8 @@ function PrivacyPolicy() {
           </h2>
           <p className="mt-2 mb-4 text-lg text-gray-600 dark:text-gray-400 prose-slate text-wrap whitespace-pre">
             If you have any questions or suggestions about our Privacy Policy,
-            do not hesitate to contact us at <em>ender@end.works</em>.
+            do not hesitate to contact us at{" "}
+            <em>{import.meta.env.VITE_SUPPORT_EMAIL}</em>.
           </p>
         </div>
       </div>
