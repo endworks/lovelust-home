@@ -7,10 +7,15 @@ COPY . .
 RUN yarn install
 RUN yarn build
 
-FROM caddy:alpine
 
-COPY --from=builder /app/dist /usr/share/caddy
+FROM node:latest as server
 
-EXPOSE 80
+WORKDIR /app
 
-CMD ["caddy", "file-server", "--root", "/usr/share/caddy", "--listen", ":80"]
+RUN npm install -g serve
+
+COPY --from=builder /app/dist .
+
+EXPOSE 3000
+
+CMD ["serve", "-s", ".", "-l", "3000"]
