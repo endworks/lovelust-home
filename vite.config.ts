@@ -5,7 +5,6 @@ import { defineConfig } from "vite";
 export default defineConfig({
   plugins: [react()],
   preview: {
-    allowedHosts: "lovelust.end.works",
     port: 3000,
   },
   server: {

@@ -1,16 +1,16 @@
-FROM node:latest
-LABEL org.opencontainers.image.source https://github.com/endworks/lovelust-home
+FROM node:latest as builder
 
 WORKDIR /app
 
-COPY yarn.lock package.json ./
-
-RUN yarn install
-
 COPY . .
 
+RUN yarn install
 RUN yarn build
 
-EXPOSE 3000
+FROM caddy:alpine
 
-CMD [ "yarn", "preview" ]
+COPY --from=builder /app/dist /usr/share/caddy
+
+EXPOSE 80
+
+CMD ["caddy", "file-server", "--root", "/usr/share/caddy", "--listen", ":80"]
