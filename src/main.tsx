@@ -6,6 +6,7 @@ import "./i18n";
 import "./index.css";
 import PrivacyPolicy from "./PrivacyPolicy.tsx";
 import Support from "./Support.tsx";
+import Donations from "./Donations.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -14,6 +15,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/" element={<App />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/support" element={<Support />} />
+        <Route path="/donations" element={<Donations />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

@@ -88,7 +88,7 @@ function Support() {
                 @{import.meta.env.VITE_SUPPORT_TWITTER}
               </a>
             </li>
-            <li>
+            {/* <li>
               <b>{t("Instagram")}</b>:{" "}
               <a
                 href={
@@ -98,7 +98,7 @@ function Support() {
               >
                 @{import.meta.env.VITE_SUPPORT_INSTAGRAM}
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

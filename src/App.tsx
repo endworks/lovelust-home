@@ -185,9 +185,15 @@ function App() {
         </Link>
         <Link
           to="/support"
-          className="text-sm font-semibold leading-6 ml-2 text-gray-900 dark:text-gray-100 hover:underline"
+          className="text-sm font-semibold leading-6 mr-2 ml-2 text-gray-900 dark:text-gray-100 hover:underline"
         >
           {t("Support")}
+        </Link>
+        <Link
+          to="/donations"
+          className="text-sm font-semibold leading-6 ml-2 text-gray-900 dark:text-gray-100 hover:underline"
+        >
+          {t("Donations")}
         </Link>
         <div>
           <small className="text-xs font-thin leading-6 text-gray-800 dark:text-gray-200">
