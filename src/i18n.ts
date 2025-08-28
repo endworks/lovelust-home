@@ -13,6 +13,7 @@ const resources = {
       Description:
         "LoveLust lets you have track of your sexual encounters and the birth control methods, to ensure you have a healthy sexual life.",
       PrivacyPolicy: "Privacy policy",
+      TermsAndConditions: "Terms & Conditions",
       Support: "Support",
       AllRightsReserved: "All Rights Reserved",
       AvailableOnTestFlight: "Available on TestFlight",
@@ -32,13 +33,15 @@ const resources = {
       Issues: "Issues",
       Donations: "Donations",
       SupportOurWork: "Support our Work",
-      SupportOurWorkDescription: "Your support helps us keep building and improving this app. If you find it useful and want to help us grow, you can make a donation using any of the options below. Every contribution, no matter the size, makes a difference. Thank you! 🙏",
+      SupportOurWorkDescription:
+        "Your support helps us keep building and improving this app. If you find it useful and want to help us grow, you can make a donation using any of the options below. Every contribution, no matter the size, makes a difference. Thank you! 🙏",
       DonateViaRevolut: "Donate via Revolut",
       DonateViaRevolutDescription: "You can donate directly via Revolut:",
       RevolutUsername: "Revolut Username",
       RevolutLink: "Or use this link",
       DonateWithCrypto: "Donate with Crypto",
-      DonateWithCryptoDescription: "You can also support us with cryptocurrency. Here are our wallet addresses:",
+      DonateWithCryptoDescription:
+        "You can also support us with cryptocurrency. Here are our wallet addresses:",
       Bitcoin: "Bitcoin (BTC)",
       BitcoinCash: "Bitcoin Cash (BCH)",
       Ethereum: "Ethereum (ETH)",
@@ -47,8 +50,10 @@ const resources = {
       Solana: "Solana (SOL)",
       TON: "The Open Network (TON)",
       SupportedStablecoins: "Supported Stablecoins",
-      SupportedStablecoinsDescription: "We currently accept USDC on the following networks:",
-      SupportedStablecoinsFooter: "If you're donating USDC, please make sure you send it to the correct address and network listed above."
+      SupportedStablecoinsDescription:
+        "We currently accept USDC on the following networks:",
+      SupportedStablecoinsFooter:
+        "If you're donating USDC, please make sure you send it to the correct address and network listed above.",
     },
   },
   es: {
@@ -58,6 +63,7 @@ const resources = {
       Description:
         "LoveLust le permite realizar un seguimiento de sus encuentros sexuales y los métodos anticonceptivos, para garantizar que tengas una vida sexual saludable.",
       PrivacyPolicy: "Política de privacidad",
+      TermsAndConditions: "Términos y condiciones",
       Support: "Soporte",
       AllRightsReserved: "Todos los derechos reservados",
       AvailableOnTestFlight: "Disponible en TestFlight",
@@ -77,16 +83,21 @@ const resources = {
       Issues: "Incidencias",
       Donations: "Donaciones",
       SupportOurWork: "Apoya Nuestro Trabajo",
-      SupportOurWorkDescription: "Tu apoyo nos ayuda a construir y mantener esta app. Si te resulta útil y quieres contribuir a su desarrollo, puedes hacer una donación a través de cualquiera de los siguientes métodos. Cada aporte cuenta ¡gracias! 🙏",
+      SupportOurWorkDescription:
+        "Tu apoyo nos ayuda a construir y mantener esta app. Si te resulta útil y quieres contribuir a su desarrollo, puedes hacer una donación a través de cualquiera de los siguientes métodos. Cada aporte cuenta ¡gracias! 🙏",
       DonateViaRevolut: "Donar a través de Revolut",
-      DonateViaRevolutDescription: "Puedes donar directamente a traves de Revolut:",
+      DonateViaRevolutDescription:
+        "Puedes donar directamente a traves de Revolut:",
       RevolutUsername: "Usuario de Revolut",
       RevolutLink: "O usa este enlace",
       DonateWithCrypto: "Donar con Criptomonedas",
-      DonateWithCryptoDescription: "También puedes apoyarnos con criptomonedas. Aquí están nuestras direcciones de wallet:",
+      DonateWithCryptoDescription:
+        "También puedes apoyarnos con criptomonedas. Aquí están nuestras direcciones de wallet:",
       SupportedStablecoins: "Stablecoins aceptadas",
-      SupportedStablecoinsDescription: "Actualmente aceptamos USDC en las siguientes redes:",
-      SupportedStablecoinsFooter: "Si estas donando USDC, asegúrate de enviarlo a la dirección correcta y la red de la lista de arriba."
+      SupportedStablecoinsDescription:
+        "Actualmente aceptamos USDC en las siguientes redes:",
+      SupportedStablecoinsFooter:
+        "Si estas donando USDC, asegúrate de enviarlo a la dirección correcta y la red de la lista de arriba.",
     },
   },
 };

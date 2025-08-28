@@ -184,6 +184,12 @@ function App() {
           {t("PrivacyPolicy")}
         </Link>
         <Link
+          to="/terms"
+          className="text-sm font-semibold leading-6 mr-2 text-gray-900 dark:text-gray-100 hover:underline"
+        >
+          {t("TermsAndConditions")}
+        </Link>
+        <Link
           to="/support"
           className="text-sm font-semibold leading-6 mr-2 ml-2 text-gray-900 dark:text-gray-100 hover:underline"
         >

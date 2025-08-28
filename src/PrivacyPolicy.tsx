@@ -235,7 +235,7 @@ function PrivacyPolicy() {
             policies, or practices of any third-party sites or services.
           </p>
           <h2 className="text-2xl pt-1 font-bold tracking-tight text-gray-900 dark:text-gray-100">
-            Children’s Privacy
+            Children's Privacy
           </h2>
           <p className="mt-2 mb-4 text-lg text-gray-600 dark:text-gray-400 prose-slate text-wrap whitespace-pre">
             These Services do not address anyone under the age of 13. We do not
