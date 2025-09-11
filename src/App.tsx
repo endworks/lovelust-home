@@ -1,3 +1,4 @@
+import { useAptabase } from "@aptabase/react";
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
@@ -17,6 +18,7 @@ import screenshotSpanish from "/screenshotSpanish.png";
 
 function App() {
   const { t, i18n } = useTranslation();
+  const { trackEvent } = useAptabase();
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -31,8 +33,12 @@ function App() {
   }, []);
 
   useEffect(() => {
+    trackEvent("page", { page: "home" });
+  }, [trackEvent]);
+
+  useEffect(() => {
     document.title = t("Title") + ": " + t("Subtitle");
-  }, [i18n]);
+  }, [i18n, t]);
 
   const screenshotImage = useMemo(() => {
     if (isDark) {

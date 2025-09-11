@@ -1,9 +1,11 @@
+import { useAptabase } from "@aptabase/react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 
 function PrivacyPolicy() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
+  const { trackEvent } = useAptabase();
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -18,8 +20,12 @@ function PrivacyPolicy() {
   }, []);
 
   useEffect(() => {
+    trackEvent("page", { page: "privacy-policy" });
+  }, [trackEvent]);
+
+  useEffect(() => {
     document.title = t("Title") + ": " + t("Subtitle");
-  }, [i18n]);
+  }, [t]);
 
   return (
     <div className="text-center mt-20">

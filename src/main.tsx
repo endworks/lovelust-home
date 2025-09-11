@@ -1,3 +1,4 @@
+import { AptabaseProvider } from "@aptabase/react";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router";
@@ -11,14 +12,19 @@ import Terms from "./Terms.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/privacy" element={<PrivacyPolicy />} />
-        <Route path="/terms" element={<Terms />} />
-        <Route path="/support" element={<Support />} />
-        <Route path="/donations" element={<Donations />} />
-      </Routes>
-    </BrowserRouter>
+    <AptabaseProvider
+      appKey="A-SH-4837179201"
+      options={{ host: "https://analytics.end.works" }}
+    >
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/support" element={<Support />} />
+          <Route path="/donations" element={<Donations />} />
+        </Routes>
+      </BrowserRouter>
+    </AptabaseProvider>
   </StrictMode>
 );

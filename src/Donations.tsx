@@ -1,9 +1,11 @@
+import { useAptabase } from "@aptabase/react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 
 function Donations() {
   const { t } = useTranslation();
+  const { trackEvent } = useAptabase();
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -16,6 +18,10 @@ function Donations() {
     // This callback will fire if the perferred color scheme changes without a reload
     mq.addEventListener("change", (evt) => setIsDark(evt.matches));
   }, []);
+
+  useEffect(() => {
+    trackEvent("page", { page: "donations" });
+  }, [trackEvent]);
 
   useEffect(() => {
     document.title = t("Title") + ": " + t("Subtitle");
@@ -66,13 +72,21 @@ function Donations() {
           <ul>
             <li>
               {t("RevolutUsername")}:{" "}
-              <a href={"https://revolut.me/" + import.meta.env.VITE_DONATION_REVOLUT}>
+              <a
+                href={
+                  "https://revolut.me/" + import.meta.env.VITE_DONATION_REVOLUT
+                }
+              >
                 @{import.meta.env.VITE_DONATION_REVOLUT}
               </a>
             </li>
             <li>
               {t("RevolutLink")}:{" "}
-              <a href={"https://revolut.me/" + import.meta.env.VITE_DONATION_REVOLUT}>
+              <a
+                href={
+                  "https://revolut.me/" + import.meta.env.VITE_DONATION_REVOLUT
+                }
+              >
                 revolut.me/{import.meta.env.VITE_DONATION_REVOLUT}
               </a>
             </li>
@@ -146,20 +160,16 @@ function Donations() {
             {t("SupportedStablecoins")}
           </h4>
 
-          <p>
-            {t("SupportedStablecoinsDescription")}
-          </p>
+          <p>{t("SupportedStablecoinsDescription")}</p>
 
-           <ul>
+          <ul>
             <li>{t("Ethereum")}</li>
             <li>{t("XRPLedger")}</li>
             <li>{t("Stellar")}</li>
             <li>{t("Solana")}</li>
           </ul>
 
-          <p>
-            {t("SupportedStablecoinsFooter")}
-          </p>
+          <p>{t("SupportedStablecoinsFooter")}</p>
         </div>
       </div>
     </div>
