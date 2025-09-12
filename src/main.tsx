@@ -13,7 +13,7 @@ import Terms from "./Terms.tsx";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <AptabaseProvider
-      appKey="A-SH-4837179201"
+      appKey={import.meta.env.VITE_APTABASE_APP_ID}
       options={{ host: "https://analytics.end.works" }}
     >
       <BrowserRouter basename={import.meta.env.BASE_URL}>
