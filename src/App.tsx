@@ -209,7 +209,7 @@ function App() {
         </Link>
         <div>
           <small className="text-xs font-thin leading-6 text-gray-800 dark:text-gray-200">
-            2025 <strong>end.works</strong>. {t("AllRightsReserved")}
+            2025 <strong>end.works LLC</strong>. {t("AllRightsReserved")}
           </small>
         </div>
       </footer>
