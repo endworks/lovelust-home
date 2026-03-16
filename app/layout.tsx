@@ -5,7 +5,22 @@ import "./globals.css";
 import Providers from "./providers";
 
 export const metadata: Metadata = {
-  title: "LoveLust: Sexual Health",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_APP_URL ?? "https://endworks.github.io/lovelust-home"
+  ),
+  title: {
+    template: "%s | LoveLust",
+    default: "LoveLust: Sexual Health",
+  },
+  description:
+    "LoveLust lets you track your sexual encounters and birth control methods, ensuring a healthier sexual life. Available on iOS and Android.",
+  keywords: [
+    "sexual health",
+    "sex tracker",
+    "birth control tracker",
+    "sexual wellness",
+    "intimacy tracker",
+  ],
   icons: {
     icon: "/lovelust.svg",
   },
@@ -15,14 +30,26 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
+    siteName: "LoveLust",
+    title: "LoveLust: Sexual Health",
+    description:
+      "Track your sexual encounters and birth control methods with LoveLust. Available on iOS and Android.",
     images: [
       {
         url: "/icon.png",
         type: "image/png",
         width: 1024,
         height: 1024,
+        alt: "LoveLust app icon",
       },
     ],
+  },
+  twitter: {
+    card: "summary",
+    title: "LoveLust: Sexual Health",
+    description:
+      "Track your sexual encounters and birth control methods with LoveLust. Available on iOS and Android.",
+    images: ["/icon.png"],
   },
 };
 
