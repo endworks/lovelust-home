@@ -1,20 +1,20 @@
-FROM node:latest as builder
+FROM node:latest AS builder
 
 WORKDIR /app
 
 COPY . .
 
-RUN yarn install
-RUN yarn build
+RUN npm install
+RUN npm run build
 
 
-FROM node:latest as server
+FROM node:latest AS server
 
 WORKDIR /app
 
 RUN npm install -g serve
 
-COPY --from=builder /app/dist .
+COPY --from=builder /app/out .
 
 EXPOSE 3000
 

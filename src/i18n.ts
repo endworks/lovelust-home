@@ -8,6 +8,7 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   en: {
     translation: {
+      LoveLust: "LoveLust",
       Title: "LoveLust",
       Subtitle: "Sexual health",
       Description:
@@ -30,6 +31,7 @@ const resources = {
         "Stay connected with the latest updates, announcements, and news:",
       Email: "Email",
       Telegram: "Telegram",
+      Twitter: "Twitter",
       Issues: "Issues",
       Donations: "Donations",
       SupportOurWork: "Support our Work",
@@ -58,6 +60,7 @@ const resources = {
   },
   es: {
     translation: {
+      LoveLust: "LoveLust",
       Title: "LoveLust",
       Subtitle: "Salud sexual",
       Description:
@@ -80,6 +83,7 @@ const resources = {
         "Mantente al día con las últimas actualizaciones, anuncios y noticias:",
       Email: "Correo electrónico",
       Telegram: "Telegram",
+      Twitter: "Twitter",
       Issues: "Incidencias",
       Donations: "Donaciones",
       SupportOurWork: "Apoya Nuestro Trabajo",

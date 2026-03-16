@@ -1,9 +1,0 @@
-.download-app {
-  height: 45px;
-}
-
-@media only screen and (min-device-width: 768px) {
-  .download-app {
-    height: 60px;
-  }
-}
