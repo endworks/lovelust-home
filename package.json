@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:pages": "cross-env NEXT_PUBLIC_BASE_PATH=/lovelust-home next build",
+    "build:pages": "cross-env NEXT_PUBLIC_BASE_PATH=/lovelust-home NEXT_STATIC_EXPORT=true next build",
     "start": "next start",
     "lint": "next lint"
   },

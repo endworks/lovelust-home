@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { cookies, headers } from "next/headers";
 import "./globals.css";
 import Providers from "./providers";
 
@@ -25,14 +26,74 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+const SUPPORTED_LOCALES = ["en", "es"];
+
+function detectLocaleFromHeader(acceptLanguage: string): string {
+  const langs = acceptLanguage
+    .split(",")
+    .map((part) => {
+      const [lang, ...rest] = part.trim().split(";");
+      const q = rest.find((r) => r.trim().startsWith("q="));
+      return {
+        lang: lang.trim().split("-")[0].toLowerCase(),
+        q: q ? parseFloat(q.split("=")[1]) : 1,
+      };
+    })
+    .sort((a, b) => b.q - a.q);
+
+  for (const { lang } of langs) {
+    if (SUPPORTED_LOCALES.includes(lang)) return lang;
+  }
+  return "en";
+}
+
+// Inline script that runs synchronously before React — no dark mode flash.
+// On first visit: reads matchMedia and sets the cookie.
+// On subsequent visits: the server already sets the class, this is a no-op.
+const themeScript = `
+(function () {
+  try {
+    var cookie = document.cookie.match(/(?:^|; )theme=([^;]+)/);
+    var theme = cookie ? cookie[1] : null;
+    var dark = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    document.documentElement.classList.toggle('dark', dark);
+    if (!theme) {
+      var expires = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString();
+      document.cookie = 'theme=' + (dark ? 'dark' : 'light') + ';path=/;expires=' + expires + ';samesite=lax';
+    }
+  } catch (e) {}
+})();
+`.trim();
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const cookieStore = await cookies();
+  const headersList = await headers();
+
+  // Locale: prefer the NEXT_LOCALE cookie (set by middleware on first request),
+  // fall back to parsing the Accept-Language header directly.
+  const localeCookie = cookieStore.get("NEXT_LOCALE")?.value;
+  const acceptLanguage = headersList.get("accept-language") ?? "";
+  const lng = localeCookie && SUPPORTED_LOCALES.includes(localeCookie)
+    ? localeCookie
+    : detectLocaleFromHeader(acceptLanguage);
+
+  // Dark mode: server sets the class so the initial HTML is correct.
+  const themeCookie = cookieStore.get("theme")?.value;
+  const isDark = themeCookie === "dark";
+
   return (
-    <html lang="en">
+    <html
+      lang={lng}
+      className={isDark ? "dark" : ""}
+      suppressHydrationWarning
+    >
       <head>
+        {/* Inline theme script runs before React — prevents any dark/light flash */}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -57,7 +118,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="antialiased font-sans">
-        <Providers>{children}</Providers>
+        <Providers lng={lng}>{children}</Providers>
       </body>
     </html>
   );

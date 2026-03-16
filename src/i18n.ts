@@ -108,20 +108,27 @@ const resources = {
 
 i18n
   .use(LanguageDetector)
-  .use(initReactI18next) // passes i18n down to react-i18next
+  .use(initReactI18next)
   .init({
     resources,
     fallbackLng: "en",
-    //lng: "en", // language to use, more information here: https://www.i18next.com/overview/configuration-options#languages-namespaces-resources
-    // you can use the i18n.changeLanguage function to change the language manually: https://www.i18next.com/overview/api#changelanguage
-    // if you're using a language detector, do not define the lng option
     supportedLngs: ["en", "es"],
 
     interpolation: {
-      escapeValue: false, // react already safes from xss
+      escapeValue: false,
     },
 
-    debug: true,
+    // Prefer the NEXT_LOCALE cookie (set server-side by middleware), then
+    // fall back to navigator for client-only environments.
+    detection: {
+      order: ["cookie", "navigator"],
+      lookupCookie: "NEXT_LOCALE",
+      caches: ["cookie"],
+      cookieOptions: { path: "/", maxAge: 60 * 60 * 24 * 365, sameSite: "lax" },
+    },
+
+    // Synchronous init so the language is resolved before React's first render.
+    initImmediate: false,
   });
 
 export default i18n;

@@ -12,10 +12,13 @@ FROM node:latest AS server
 
 WORKDIR /app
 
-RUN npm install -g serve
-
-COPY --from=builder /app/out .
+COPY --from=builder /app/.next/standalone .
+COPY --from=builder /app/.next/static .next/static
+COPY --from=builder /app/public public
 
 EXPOSE 3000
 
-CMD ["serve", "-s", ".", "-l", "3000"]
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
+
+CMD ["node", "server.js"]

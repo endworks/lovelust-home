@@ -1,7 +1,7 @@
 "use client";
 
 import { useAptabase } from "@aptabase/react";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
 
@@ -10,15 +10,20 @@ export default function Support() {
   const { trackEvent } = useAptabase();
   const [isDark, setIsDark] = useState(false);
 
+  useLayoutEffect(() => {
+    setIsDark(document.documentElement.classList.contains("dark"));
+  }, []);
+
   useEffect(() => {
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
-
-    if (mq.matches) {
-      setIsDark(true);
-    }
-
-    // This callback will fire if the perferred color scheme changes without a reload
-    mq.addEventListener("change", (evt) => setIsDark(evt.matches));
+    const handler = (evt: MediaQueryListEvent) => {
+      setIsDark(evt.matches);
+      document.documentElement.classList.toggle("dark", evt.matches);
+      const expires = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString();
+      document.cookie = `theme=${evt.matches ? "dark" : "light"};path=/;expires=${expires};samesite=lax`;
+    };
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
   }, []);
 
   useEffect(() => {
