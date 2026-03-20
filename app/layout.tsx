@@ -1,54 +1,101 @@
 /* eslint-disable @next/next/no-page-custom-font */
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import "./globals.css";
 import Providers from "./providers";
 
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://lovelust.health";
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f0f0f" },
+  ],
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_APP_URL ?? "https://endworks.github.io/lovelust-home"
-  ),
+  metadataBase: new URL(APP_URL),
+  applicationName: "LoveLust",
   title: {
     template: "%s | LoveLust",
-    default: "LoveLust: Sexual Health",
+    default: "LoveLust: Sexual Health Tracker",
   },
   description:
-    "LoveLust lets you track your sexual encounters and birth control methods, ensuring a healthier sexual life. Available on iOS and Android.",
+    "LoveLust lets you track your sexual encounters and birth control methods, ensuring a healthier sexual life. Private, encrypted, and available on iOS and Android.",
   keywords: [
     "sexual health",
     "sex tracker",
     "birth control tracker",
     "sexual wellness",
     "intimacy tracker",
+    "safe sex",
+    "STI prevention",
+    "contraception tracker",
+    "condom reminder",
+    "sexual health app",
+    "period tracker",
+    "privacy",
+    "encrypted health app",
+    "iOS health app",
+    "Android health app",
+    "LoveLust",
+    "partner tracker",
+    "GDPR health app",
   ],
+  authors: [{ name: "LoveLust", url: APP_URL }],
+  creator: "LoveLust",
+  publisher: "LoveLust",
+  category: "health",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "/",
+  },
   icons: {
-    icon: "/lovelust.svg",
+    icon: [{ url: "/lovelust.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/icon.png", sizes: "1024x1024", type: "image/png" }],
   },
   other: {
     "apple-itunes-app":
       "app-id=6740049675,app-clip-bundle-id=works.end.LoveLust.clip, app-clip-display=card",
+    "google-play-app": "app-id=works.end.LoveLustR",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "default",
+    "apple-mobile-web-app-title": "LoveLust",
+    "mobile-web-app-capable": "yes",
   },
   openGraph: {
     type: "website",
     siteName: "LoveLust",
-    title: "LoveLust: Sexual Health",
+    locale: "en_US",
+    title: "LoveLust: Sexual Health Tracker",
     description:
-      "Track your sexual encounters and birth control methods with LoveLust. Available on iOS and Android.",
+      "Track your sexual encounters and birth control methods with LoveLust. Private, encrypted, available on iOS and Android.",
     images: [
       {
         url: "/icon.png",
         type: "image/png",
         width: 1024,
         height: 1024,
-        alt: "LoveLust app icon",
+        alt: "LoveLust — Sexual Health Tracker app icon",
       },
     ],
   },
   twitter: {
     card: "summary",
-    title: "LoveLust: Sexual Health",
+    site: "@lovelust_health",
+    creator: "@lovelust_health",
+    title: "LoveLust: Sexual Health Tracker",
     description:
-      "Track your sexual encounters and birth control methods with LoveLust. Available on iOS and Android.",
+      "Track your sexual encounters and birth control methods with LoveLust. Private, encrypted, available on iOS and Android.",
     images: ["/icon.png"],
   },
 };
@@ -70,15 +117,12 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   // Use a static default language for the server-side render.
-  // The client-side i18next detector in src/i18n.ts will automatically 
+  // The client-side i18next detector in src/i18n.ts will automatically
   // switch to the user's preferred language after hydration.
   const lng = "en";
 
   return (
-    <html
-      lang={lng}
-      suppressHydrationWarning
-    >
+    <html lang={lng} suppressHydrationWarning>
       <head>
         {/* Inline theme script runs before React — prevents any dark/light flash */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

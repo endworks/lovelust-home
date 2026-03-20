@@ -6,9 +6,20 @@ import SupportClient from "./SupportClient";
 export const metadata: Metadata = {
   title: "Support",
   description:
-    "Get help with the LoveLust app. Contact our support team via email or social media.",
+    "Get help with the LoveLust app. Browse the FAQ or contact our support team via email, Telegram, or social media.",
+  alternates: {
+    canonical: "/support",
+  },
   openGraph: {
+    title: "Support | LoveLust",
+    description:
+      "Get help with the LoveLust app. Browse the FAQ or contact our support team via email, Telegram, or social media.",
     url: "/support",
+  },
+  twitter: {
+    title: "Support | LoveLust",
+    description:
+      "Get help with the LoveLust app. Browse the FAQ or contact our support team via email, Telegram, or social media.",
   },
 };
 

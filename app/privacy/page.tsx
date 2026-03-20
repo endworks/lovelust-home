@@ -6,9 +6,20 @@ import PrivacyClient from "./PrivacyClient";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Read LoveLust's privacy policy to understand how we handle your personal data and health information.",
+    "Read LoveLust's privacy policy. Learn how your sexual health data stays private, encrypted locally on your device, and fully under your control.",
+  alternates: {
+    canonical: "/privacy",
+  },
   openGraph: {
+    title: "Privacy Policy | LoveLust",
+    description:
+      "Your data never leaves your device. Read LoveLust's privacy policy to understand how we protect your sexual health information.",
     url: "/privacy",
+  },
+  twitter: {
+    title: "Privacy Policy | LoveLust",
+    description:
+      "Your data never leaves your device. Read LoveLust's privacy policy to understand how we protect your sexual health information.",
   },
 };
 
