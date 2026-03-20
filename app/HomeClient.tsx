@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useAptabase } from "@aptabase/react";
@@ -8,14 +9,11 @@ import {
   GooglePlayLogoIcon,
   HeartIcon,
   LockIcon,
-  MoonIcon,
   PencilLineIcon,
   ShieldCheckIcon,
   StarIcon,
-  SunIcon,
   UserPlusIcon,
 } from "@phosphor-icons/react";
-import Link from "next/link";
 import { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import FaqList from "../components/FaqList";

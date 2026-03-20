@@ -1,7 +1,5 @@
 "use client";
 
-import { MoonIcon, SunIcon } from "@phosphor-icons/react";
-import Link from "next/link";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Header from "./Header";
@@ -18,7 +16,7 @@ export default function PageLayout({
   title,
   trackPage,
 }: PageLayoutProps) {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const [isDark, setIsDark] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 

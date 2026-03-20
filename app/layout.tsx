@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import type { Metadata } from "next";
 import Script from "next/script";
 import { cookies, headers } from "next/headers";
@@ -131,7 +132,7 @@ export default async function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
-<Script
+        <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-YRL4VQRLFD"
           strategy="afterInteractive"
         />
