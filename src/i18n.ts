@@ -16,7 +16,7 @@ const resources = {
       // Nav
       NavFeatures: "Features",
       NavPricing: "Pricing",
-      DownloadApp: "Download",
+      DownloadApp: "Download Now",
       // Hero
       Tagline: "Love safely. Desire freely.",
       HeroTaglineMain: "Redefine your",
@@ -224,7 +224,7 @@ const resources = {
       // Nav
       NavFeatures: "Funciones",
       NavPricing: "Precios",
-      DownloadApp: "Descargar",
+      DownloadApp: "Descargar Ahora",
       // Hero
       Tagline: "Ama con seguridad. Desea con libertad.",
       HeroTaglineMain: "Redefine tu",

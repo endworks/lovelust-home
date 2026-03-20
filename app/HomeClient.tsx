@@ -480,6 +480,8 @@ export default function HomeClient({
                     borderRadius: "2rem",
                     padding: "0.625rem 1rem",
                     boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
+                    transform: "translateZ(0)",
+                    backfaceVisibility: "hidden",
                   }}
                 >
                   <LockIcon size={16} color="var(--c-primary)" />
@@ -488,6 +490,7 @@ export default function HomeClient({
                       fontSize: "0.75rem",
                       fontWeight: 700,
                       color: "var(--c-primary)",
+                      WebkitFontSmoothing: "antialiased",
                     }}
                   >
                     AES-CFB Encrypted
@@ -576,16 +579,6 @@ export default function HomeClient({
               >
                 {t("BentoPrivacyDesc")}
               </p>
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: -20,
-                  right: -20,
-                  opacity: 0.04,
-                }}
-              >
-                <ShieldCheckIcon size={200} color="var(--text)" />
-              </div>
             </div>
 
             {/* Card 2: Onboarding */}
@@ -643,7 +636,7 @@ export default function HomeClient({
               >
                 {t("BentoStatsTitle")}
               </h3>
-              <p style={{ color: "var(--text-muted)", lineHeight: 1.7 }}>
+              <p style={{ color: "#4d444b", lineHeight: 1.7 }}>
                 {t("BentoStatsDesc")}
               </p>
             </div>
