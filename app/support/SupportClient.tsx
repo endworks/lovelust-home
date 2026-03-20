@@ -1,8 +1,7 @@
 "use client";
 
-import { useAptabase } from "@aptabase/react";
-import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { usePageTracking } from "../../hooks/usePageTracking";
 import PageLayout from "../../components/PageLayout";
 import FaqList from "../../components/FaqList";
 import { EnvelopeSimpleIcon, ArrowRightIcon } from "@phosphor-icons/react";
@@ -180,14 +179,11 @@ function SupportContent({ faqEn, faqEs }: { faqEn: string; faqEs: string }) {
 
 export default function Support({ faqEn, faqEs }: { faqEn: string; faqEs: string }) {
   const { t } = useTranslation();
-  const { trackEvent } = useAptabase();
 
-  useEffect(() => {
-    trackEvent("page", { page: "support" });
-  }, [trackEvent]);
+  usePageTracking("support");
 
   return (
-    <PageLayout title={t("Support")} trackPage="support">
+    <PageLayout title={t("Support")}>
       <SupportContent faqEn={faqEn} faqEs={faqEs} />
     </PageLayout>
   );
