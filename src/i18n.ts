@@ -23,6 +23,7 @@ i18n
     detection: {
       order: ["navigator"],
     },
+    debug: false,
 
     // Synchronous init so the language is resolved before React's first render.
     initImmediate: false,

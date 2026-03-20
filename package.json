@@ -9,7 +9,10 @@
     "build": "next build",
     "build:pages": "cross-env NEXT_PUBLIC_BASE_PATH=/lovelust-home NEXT_STATIC_EXPORT=true next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@aptabase/react": "^0.4.0",
@@ -23,13 +26,21 @@
     "react-markdown": "^10.1.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
     "@types/node": "^22.15.21",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
     "cross-env": "^7.0.3",
     "eslint": "^9.39.2",
     "eslint-config-next": "^15.3.3",
     "eslint-plugin-react-hooks": "^7.0.1",
-    "typescript": "~5.9.3"
+    "jsdom": "^29.0.1",
+    "typescript": "~5.9.3",
+    "vitest": "^4.1.0"
   }
 }

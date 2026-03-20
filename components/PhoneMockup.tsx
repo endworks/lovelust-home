@@ -19,6 +19,7 @@ export default function PhoneMockup({
 }: PhoneMockupProps) {
   return (
     <div
+      data-testid="phone-mockup"
       style={{
         position: "relative",
         display: "flex",
