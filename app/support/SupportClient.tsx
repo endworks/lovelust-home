@@ -1,120 +1,194 @@
 "use client";
 
 import { useAptabase } from "@aptabase/react";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import Link from "next/link";
+import PageLayout from "../../components/PageLayout";
+import FaqList from "../../components/FaqList";
+import { EnvelopeSimpleIcon, ArrowRightIcon } from "@phosphor-icons/react";
 
-export default function Support() {
+function SupportContent({ faqEn, faqEs }: { faqEn: string; faqEs: string }) {
+  const { t, i18n } = useTranslation();
+
+  const h2Style = {
+    fontFamily: "'Nunito', sans-serif",
+    fontSize: "1.375rem",
+    fontWeight: 700,
+    color: "var(--c-primary)",
+    marginTop: "2.5rem",
+    marginBottom: "0.75rem",
+  };
+  const h3Style = {
+    fontFamily: "'Nunito', sans-serif",
+    fontSize: "1.1rem",
+    fontWeight: 700,
+    color: "var(--c-primary)",
+    marginTop: "1.75rem",
+    marginBottom: "0.5rem",
+  };
+  const pStyle = { color: "var(--text-muted)", lineHeight: 1.8, marginBottom: "0.75rem" };
+
+  return (
+    <div>
+      {/* Survey CTA */}
+      {process.env.NODE_ENV === "development" && (
+        <div
+          style={{
+            borderRadius: "1.5rem",
+            padding: "1.75rem 2rem",
+            background: "linear-gradient(135deg, var(--c-primary-12), var(--c-primary-06))",
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "1rem",
+            marginBottom: "2.5rem",
+          }}
+        >
+          <div>
+            <p
+              style={{
+                fontFamily: "'Nunito', sans-serif",
+                fontWeight: 700,
+                color: "var(--c-primary)",
+                marginBottom: "0.25rem",
+              }}
+            >
+              {t("SurveySupport")}
+            </p>
+            <p style={{ ...pStyle, marginBottom: 0 }}>
+              {t("SurveySupportDescription")}
+            </p>
+          </div>
+          <a
+            href="https://surveys.end.works/lovelust"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              backgroundColor: "var(--c-primary)",
+              color: "var(--c-on-primary)",
+              padding: "0.625rem 1.5rem",
+              borderRadius: "9999px",
+              fontWeight: 700,
+              fontSize: "0.875rem",
+              textDecoration: "none",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {t("SurveySupportButton")}
+          </a>
+        </div>
+      )}
+
+      {/* Contact */}
+      <h2 style={h2Style}>{t("Contact")}</h2>
+      <p style={pStyle}>{t("ContactDescription")}</p>
+
+      <h3 style={h3Style}>{t("EmailSupport")}</h3>
+      <p style={pStyle}>{t("EmailSupportDescription")}</p>
+      <a
+        href={`mailto:${process.env.NEXT_PUBLIC_SUPPORT_EMAIL}`}
+        style={{
+          display: "flex", alignItems: "center", gap: "1.25rem",
+          background: "linear-gradient(135deg, var(--c-primary-12) 0%, var(--c-primary-06) 100%)",
+          borderRadius: "1.25rem", padding: "1.25rem 1.5rem",
+          textDecoration: "none", marginBottom: "1.5rem",
+        }}
+      >
+        <div style={{
+          width: 44, height: 44, borderRadius: "50%",
+          backgroundColor: "var(--c-primary)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          flexShrink: 0,
+        }}>
+          <EnvelopeSimpleIcon size={20} color="#fff" />
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: "0.2rem" }}>
+          <span style={{ fontSize: "0.7rem", fontWeight: 700, color: "var(--c-primary)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+            {t("EmailSupport")}
+          </span>
+          <span style={{ fontWeight: 700, color: "var(--c-primary)", fontSize: "0.95rem" }}>
+            {process.env.NEXT_PUBLIC_SUPPORT_EMAIL}
+          </span>
+        </div>
+        <ArrowRightIcon size={20} color="var(--c-primary-60)" style={{ marginLeft: "auto" }} />
+      </a>
+
+      <h3 style={h3Style}>{t("SocialMedia")}</h3>
+      <p style={pStyle}>{t("SocialMediaDescription")}</p>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.5rem",
+          marginBottom: "1rem",
+        }}
+      >
+        {[
+          {
+            label: "Instagram",
+            href: `https://www.instagram.com/${process.env.NEXT_PUBLIC_SUPPORT_INSTAGRAM}`,
+            handle: `@${process.env.NEXT_PUBLIC_SUPPORT_INSTAGRAM}`,
+          },
+          {
+            label: "Twitter",
+            href: `https://x.com/${process.env.NEXT_PUBLIC_SUPPORT_TWITTER}`,
+            handle: `@${process.env.NEXT_PUBLIC_SUPPORT_TWITTER}`,
+          },
+        ].map(({ label, href, handle }) => (
+          <a
+            key={label}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.75rem",
+              backgroundColor: "var(--bg-lowest)",
+              border: "1px solid var(--ghost-border)",
+              borderRadius: "0.75rem",
+              padding: "0.75rem 1.25rem",
+              textDecoration: "none",
+              width: "fit-content",
+            }}
+          >
+            <span
+              style={{
+                fontWeight: 700,
+                color: "var(--c-primary)",
+                fontSize: "0.875rem",
+              }}
+            >
+              {label}
+            </span>
+            <span style={{ color: "var(--text-muted)", fontSize: "0.875rem" }}>
+              {handle}
+            </span>
+          </a>
+        ))}
+      </div>
+
+      {/* FAQ */}
+      <h2 style={{ ...h2Style, marginTop: "3rem" }}>{t("FAQ")}</h2>
+      <FaqList
+        content={i18n.language === "es" ? faqEs : faqEn}
+      />
+    </div>
+  );
+}
+
+export default function Support({ faqEn, faqEs }: { faqEn: string; faqEs: string }) {
   const { t } = useTranslation();
   const { trackEvent } = useAptabase();
-  const [isDark, setIsDark] = useState(false);
-
-  useLayoutEffect(() => {
-    setIsDark(document.documentElement.classList.contains("dark"));
-  }, []);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-color-scheme: dark)");
-    const handler = (evt: MediaQueryListEvent) => {
-      setIsDark(evt.matches);
-      document.documentElement.classList.toggle("dark", evt.matches);
-      const expires = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString();
-      document.cookie = `theme=${evt.matches ? "dark" : "light"};path=/;expires=${expires};samesite=lax`;
-    };
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
 
   useEffect(() => {
     trackEvent("page", { page: "support" });
   }, [trackEvent]);
 
-  useEffect(() => {
-    document.title = t("Title") + ": " + t("Subtitle");
-  }, [t]);
-
   return (
-    <div className="text-center mt-20">
-      <Link href="/" className="hover:underline">
-        <h1
-          className="text-3xl tracking-tight prose-sm prose prose-slate mx-auto"
-          style={{
-            color: isDark
-              ? "var(--tw-prose-invert-headings)"
-              : "var(--tw-prose-headings)",
-          }}
-        >
-          {t("LoveLust")}
-        </h1>
-      </Link>
-      <h1 className="text-5xl font-extrabold tracking-tight light:text-slate-900 dark:text-gray-100">
-        {t("Support")}
-      </h1>
-      <div className="mx-auto max-w-4xl mb-10 px-6">
-        <div
-          className="prose-slate text-wrap whitespace-pre mt-14 text-start mx-auto"
-          style={{
-            color: isDark
-              ? "var(--tw-prose-invert-body)"
-              : "var(--tw-prose-body)",
-          }}
-        >
-          <h2 className="text-2xl pt-1 font-bold tracking-tight text-gray-900 dark:text-gray-100">
-            {t("Contact")}
-          </h2>
-
-          <p className="mt-2 mb-4 text-lg text-gray-600 dark:text-gray-400 prose-slate text-wrap whitespace-pre">
-            {t("ContactDescription")}
-          </p>
-
-          <h3 className="text-lg pt-1 font-bold tracking-tight text-gray-900 dark:text-gray-100">
-            {t("EmailSupport")}
-          </h3>
-
-          <p className="mt-2 text-lg text-gray-600 dark:text-gray-400 prose-slate text-wrap whitespace-pre">
-            {t("EmailSupportDescription")}
-          </p>
-
-          <p className="mb-4 text-lg text-gray-600 dark:text-gray-400 prose-slate text-wrap whitespace-pre">
-            <em>{process.env.NEXT_PUBLIC_SUPPORT_EMAIL}</em>
-          </p>
-
-          <h3 className="text-lg pt-1 font-bold tracking-tight text-gray-900 dark:text-gray-100">
-            {t("SocialMedia")}
-          </h3>
-
-          <p className="mt-2 mb-4 text-lg text-gray-600 dark:text-gray-400 prose-slate text-wrap whitespace-pre">
-            {t("SocialMediaDescription")}
-          </p>
-
-          <ul>
-            <li>
-              <b>{t("Telegram")}</b>:{" "}
-              <a href={"https://t.me/" + process.env.NEXT_PUBLIC_SUPPORT_TELEGRAM}>
-                @{process.env.NEXT_PUBLIC_SUPPORT_TELEGRAM}
-              </a>
-            </li>
-            <li>
-              <b>{t("Twitter")}</b>:{" "}
-              <a href={"https://x.com/" + process.env.NEXT_PUBLIC_SUPPORT_TWITTER}>
-                @{process.env.NEXT_PUBLIC_SUPPORT_TWITTER}
-              </a>
-            </li>
-            {/* <li>
-              <b>{t("Instagram")}</b>:{" "}
-              <a
-                href={
-                  "https://www.instagram.com/" +
-                  process.env.NEXT_PUBLIC_SUPPORT_INSTAGRAM
-                }
-              >
-                @{process.env.NEXT_PUBLIC_SUPPORT_INSTAGRAM}
-              </a>
-            </li> */}
-          </ul>
-        </div>
-      </div>
-    </div>
+    <PageLayout title={t("Support")} trackPage="support">
+      <SupportContent faqEn={faqEn} faqEs={faqEs} />
+    </PageLayout>
   );
 }

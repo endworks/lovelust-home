@@ -1,29 +1,63 @@
 "use client";
 
 import { useAptabase } from "@aptabase/react";
+import {
+  AppStoreLogoIcon,
+  ChartLineUpIcon,
+  CrownIcon,
+  GooglePlayLogoIcon,
+  HeartIcon,
+  LockIcon,
+  MoonIcon,
+  PencilLineIcon,
+  ShieldCheckIcon,
+  StarIcon,
+  SunIcon,
+  UserPlusIcon,
+} from "@phosphor-icons/react";
+import Link from "next/link";
 import { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import Link from "next/link";
+import FaqList from "../components/FaqList";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
-export default function HomeClient({ initialDark }: { initialDark: boolean }) {
+export default function HomeClient({
+  initialDark,
+  faqEn,
+  faqEs,
+}: {
+  initialDark: boolean;
+  faqEn: string;
+  faqEs: string;
+}) {
   const { t, i18n } = useTranslation();
   const { trackEvent } = useAptabase();
   const [isDark, setIsDark] = useState(initialDark);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Sync with DOM class set by the inline theme script (handles first-visit dark mode).
   useLayoutEffect(() => {
     setIsDark(document.documentElement.classList.contains("dark"));
   }, []);
 
-  // Keep state in sync when the system preference changes at runtime.
   useEffect(() => {
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
     const handler = (evt: MediaQueryListEvent) => {
       setIsDark(evt.matches);
       document.documentElement.classList.toggle("dark", evt.matches);
-      const expires = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString();
+      const expires = new Date(
+        Date.now() + 365 * 24 * 60 * 60 * 1000,
+      ).toUTCString();
       document.cookie = `theme=${evt.matches ? "dark" : "light"};path=/;expires=${expires};samesite=lax`;
     };
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
   }, []);
@@ -32,183 +66,1177 @@ export default function HomeClient({ initialDark }: { initialDark: boolean }) {
     trackEvent("page", { page: "home" });
   }, [trackEvent]);
 
+  function switchLanguage(lang: string) {
+    i18n.changeLanguage(lang);
+    const expires = new Date(
+      Date.now() + 365 * 24 * 60 * 60 * 1000,
+    ).toUTCString();
+    document.cookie = `NEXT_LOCALE=${lang};path=/;expires=${expires};samesite=lax`;
+  }
+
+  function toggleDark() {
+    const next = !isDark;
+    setIsDark(next);
+    document.documentElement.classList.toggle("dark", next);
+    const expires = new Date(
+      Date.now() + 365 * 24 * 60 * 60 * 1000,
+    ).toUTCString();
+    document.cookie = `theme=${next ? "dark" : "light"};path=/;expires=${expires};samesite=lax`;
+  }
+
   useEffect(() => {
     document.title = t("Title") + ": " + t("Subtitle");
   }, [i18n, t]);
 
   const screenshotImage = useMemo(() => {
     if (isDark) {
-      if (i18n.language === "es") {
-        return "/screenshotDarkSpanish.png";
-      }
-      return "/screenshotDark.png";
-    } else {
-      if (i18n.language === "es") {
-        return "/screenshotSpanish.png";
-      }
-      return "/screenshot.png";
+      return i18n.language === "es"
+        ? "/screenshotDarkSpanish.png"
+        : "/screenshotDark.png";
     }
+    return i18n.language === "es"
+      ? "/screenshotSpanish.png"
+      : "/screenshot.png";
   }, [isDark, i18n.language]);
 
-  const downloadAppStoreButton = useMemo(() => {
-    if (isDark) {
-      if (i18n.language === "es") {
-        return "/downloadAppStoreSpanish.svg";
-      }
-      return "/downloadAppStore.svg";
-    } else {
-      if (i18n.language === "es") {
-        return "/downloadAppStoreWhiteSpanish.svg";
-      }
-      return "/downloadAppStoreWhite.svg";
-    }
-  }, [isDark, i18n.language]);
-
-  const downloadTestFlightButton = useMemo(() => {
-    if (i18n.language === "es") {
-      return "/downloadTestFlightSpanish.png";
-    }
-    return "/downloadTestFlight.png";
-  }, [i18n.language]);
-
-  const getItOnGooglePlayButton = useMemo(() => {
-    if (i18n.language === "es") {
-      return "/getItOnGooglePlaySpanish.png";
-    }
-    return "/getItOnGooglePlay.png";
-  }, [i18n.language]);
+  const px = isMobile ? "1.25rem" : "2rem";
 
   return (
-    <>
-      <div className="light:bg-white dark:bg-black">
-        <main>
-          <div className="relative isolate pt-14">
-            <svg
-              className="absolute inset-0 -z-10 h-full w-full stroke-gray-200 dark:stroke-gray-800 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
-              aria-hidden="true"
-            >
-              <defs>
-                <pattern
-                  id="83fd4e5a-9d52-42fc-97b6-718e5d7ee527"
-                  width="200"
-                  height="200"
-                  x="50%"
-                  y="-1"
-                  patternUnits="userSpaceOnUse"
-                >
-                  <path d="M100 200V.5M.5 .5H200" fill="none" />
-                </pattern>
-              </defs>
-              <svg
-                x="50%"
-                y="-1"
-                className="overflow-visible fill-gray-50 dark:fill-gray-950"
-              >
-                <path
-                  d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"
-                  strokeWidth="0"
-                />
-              </svg>
-              <rect
-                width="100%"
-                height="100%"
-                strokeWidth="0"
-                fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)"
-              />
-            </svg>
-            <div className="mx-auto max-w-7xl px-6 lg:flex lg:items-center">
-              <div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto text-center sm:text-start">
-                <div className="flex"></div>
-                <h1 className="mt-10 max-w-lg text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-6xl">
-                  {t("Title")}
-                </h1>
-                <div className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400 prose-slate text-wrap whitespace-pre">
-                  {t("Description")}
-                </div>
-                <div className="mt-10 flex items-center gap-x-6 justify-center sm:justify-start">
-                  {process.env.NEXT_PUBLIC_BETA == "true" ? (
-                    <a
-                      href={process.env.NEXT_PUBLIC_TESTFLIGHT_URL}
-                      target="_blank"
-                    >
-                      <img
-                        src={downloadTestFlightButton}
-                        alt={t("AvailableOnTestFlight")}
-                        className="download-app"
-                      />
-                    </a>
-                  ) : (
-                    <a href={process.env.NEXT_PUBLIC_APPSTORE_URL} target="_blank">
-                      <img
-                        src={downloadAppStoreButton}
-                        alt={t("DownloadOnTheAppStore")}
-                        className="download-app"
-                      />
-                    </a>
-                  )}
+    <div
+      style={{
+        backgroundColor: "var(--bg)",
+        color: "var(--text)",
+        fontFamily: "'Nunito', sans-serif",
+      }}
+    >
+      {/* ── Fixed Nav ─────────────────────────────────────────────────── */}
+      <Header
+        isMobile={isMobile}
+        isDark={isDark}
+        toggleDark={toggleDark}
+        switchLanguage={switchLanguage}
+      />
 
-                  <a
-                    href={process.env.NEXT_PUBLIC_GOOGLE_PLAY_STORE_URL}
-                    target="_blank"
-                  >
-                    <img
-                      src={getItOnGooglePlayButton}
-                      alt={t("GetItOnGooglePlay")}
-                      className="download-app"
-                    />
-                  </a>
-                </div>
+      {/* ── Hero ──────────────────────────────────────────────────────── */}
+      <section
+        style={{
+          minHeight: "100svh",
+          position: "relative",
+          overflow: "hidden",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        {/* Background gradient blobs */}
+        <div style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
+          <div
+            style={{
+              position: "absolute",
+              top: "-10%",
+              right: "-5%",
+              width: "55%",
+              height: "70%",
+              background:
+                "radial-gradient(ellipse at center, var(--c-primary-18) 0%, transparent 70%)",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              bottom: "-20%",
+              left: "-10%",
+              width: "45%",
+              height: "60%",
+              background:
+                "radial-gradient(ellipse at center, var(--c-primary-0d) 0%, transparent 70%)",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              top: "30%",
+              left: "40%",
+              width: "30%",
+              height: "40%",
+              background:
+                "radial-gradient(ellipse at center, var(--c-secondary)08 0%, transparent 70%)",
+            }}
+          />
+        </div>
+
+        <div
+          style={{
+            maxWidth: 1152,
+            margin: "0 auto",
+            padding: isMobile ? "7rem 1.25rem 4rem" : "0 2rem",
+            width: "100%",
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+            gap: isMobile ? "3rem" : "5rem",
+            alignItems: "center",
+            position: "relative",
+            zIndex: 1,
+          }}
+        >
+          {/* Left: text */}
+          <div>
+            {/* Badge pill */}
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                backgroundColor: "var(--c-primary-12)",
+                borderRadius: 9999,
+                padding: "0.375rem 1rem",
+                marginBottom: "2rem",
+              }}
+            >
+              <span style={{ color: "var(--c-primary)", fontSize: "0.75rem" }}>
+                ✦
+              </span>
+              <span
+                style={{
+                  fontSize: "0.75rem",
+                  fontWeight: 700,
+                  color: "var(--c-primary)",
+                }}
+              >
+                iOS & Android
+              </span>
+            </div>
+
+            <h1
+              className="font-headline"
+              style={{
+                fontSize: "clamp(2.75rem,6vw,5.25rem)",
+                fontWeight: 900,
+                lineHeight: 1.05,
+                letterSpacing: "-0.04em",
+                marginBottom: "1.5rem",
+                color: "var(--text)",
+              }}
+            >
+              {t("HeroTaglineMain")}
+              <br />
+              <span style={{ color: "var(--c-primary)" }}>
+                {t("HeroTaglineAccent")}
+              </span>
+            </h1>
+
+            <p
+              style={{
+                fontSize: isMobile ? "1rem" : "1.125rem",
+                lineHeight: 1.75,
+                color: "var(--text-muted)",
+                maxWidth: 440,
+                marginBottom: "2rem",
+                fontWeight: 400,
+              }}
+            >
+              {t("HeroDescription")}
+            </p>
+
+            {/* Star rating */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.625rem",
+                marginBottom: "2.5rem",
+              }}
+            >
+              <div style={{ display: "flex" }}>
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <StarIcon key={i} size={18} color="var(--c-primary)" />
+                ))}
               </div>
-              <div className="mx-auto mt-10">
-                <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
-                  <div className="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
-                  <div className="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-                  <div className="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-                  <div className="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-                  <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
-                    <img
-                      src={screenshotImage}
-                      className="block w-[272px] h-[572px]"
-                      alt=""
-                    />
+              <span
+                style={{ fontSize: "0.875rem", color: "var(--text-muted)" }}
+              >
+                <strong style={{ color: "var(--text)" }}>4.9</strong> ·{" "}
+                {t("ThousandsOfUsers")}
+              </span>
+            </div>
+
+            {/* Download buttons */}
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
+              <a
+                href={
+                  process.env.NEXT_PUBLIC_BETA === "true"
+                    ? process.env.NEXT_PUBLIC_TESTFLIGHT_URL
+                    : process.env.NEXT_PUBLIC_APPSTORE_URL
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-store"
+              >
+                <AppStoreLogoIcon size={24} />
+                <div>
+                  <div
+                    style={{
+                      fontSize: "0.6rem",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.1em",
+                      opacity: 0.8,
+                    }}
+                  >
+                    {process.env.NEXT_PUBLIC_BETA === "true"
+                      ? t("AvailableOnTestFlight")
+                      : t("DownloadOnThe")}
                   </div>
+                  <div style={{ fontWeight: 800, fontSize: "0.975rem" }}>
+                    {process.env.NEXT_PUBLIC_BETA === "true"
+                      ? "TestFlight"
+                      : "App Store"}
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href={process.env.NEXT_PUBLIC_GOOGLE_PLAY_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-store"
+              >
+                <GooglePlayLogoIcon size={24} />
+                <div>
+                  <div
+                    style={{
+                      fontSize: "0.6rem",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.1em",
+                      opacity: 0.8,
+                    }}
+                  >
+                    {t("GetItOn")}
+                  </div>
+                  <div
+                    style={{
+                      fontWeight: 800,
+                      fontSize: "0.975rem",
+                    }}
+                  >
+                    Google Play
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          {/* Right: phone mockup */}
+          <div
+            style={{
+              position: "relative",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {/* Glow ring behind phone */}
+            <div
+              style={{
+                position: "absolute",
+                width: "65%",
+                height: "35%",
+                bottom: "8%",
+                left: "50%",
+                transform: "translateX(-50%)",
+                backgroundColor: "var(--c-primary)",
+                borderRadius: "50%",
+                filter: "blur(50px)",
+                opacity: isDark ? 0.3 : 0.18,
+              }}
+            />
+            {/* Outer decorative ring */}
+            <div
+              style={{
+                position: "absolute",
+                width: isMobile ? 300 : 420,
+                height: isMobile ? 300 : 420,
+                borderRadius: "50%",
+                border: "1px solid var(--c-primary-20)",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                width: isMobile ? 240 : 340,
+                height: isMobile ? 240 : 340,
+                borderRadius: "50%",
+                border: "1px solid var(--c-primary-15)",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+              }}
+            />
+
+            {/* iPhone frame */}
+            <div style={{ position: "relative", zIndex: 2 }}>
+              {/* Chassis */}
+              <div
+                style={{
+                  position: "relative",
+                  width: isMobile ? 232 : 320,
+                  background:
+                    "linear-gradient(160deg, #3a3a3c 0%, #1c1c1e 45%, #2c2c2e 100%)",
+                  borderRadius: isMobile ? "46px" : "56px",
+                  padding: "13px",
+                  boxShadow: `inset 0 0 0 1px rgba(255,255,255,0.13), 0 50px 100px -20px rgba(0,0,0,${isDark ? "0.7" : "0.45"}), 0 0 0 1px rgba(0,0,0,0.5), 0 20px 60px -10px rgba(246,30,109,${isDark ? "0.35" : "0.2"})`,
+                }}
+              >
+                {/* Mute switch */}
+                <div
+                  style={{
+                    position: "absolute",
+                    left: -3,
+                    top: "13%",
+                    width: 3,
+                    height: 18,
+                    background: "#2a2a2c",
+                    borderRadius: "2px 0 0 2px",
+                  }}
+                />
+                {/* Volume up */}
+                <div
+                  style={{
+                    position: "absolute",
+                    left: -3,
+                    top: "20%",
+                    width: 3,
+                    height: 30,
+                    background: "#2a2a2c",
+                    borderRadius: "2px 0 0 2px",
+                  }}
+                />
+                {/* Volume down */}
+                <div
+                  style={{
+                    position: "absolute",
+                    left: -3,
+                    top: "29%",
+                    width: 3,
+                    height: 30,
+                    background: "#2a2a2c",
+                    borderRadius: "2px 0 0 2px",
+                  }}
+                />
+                {/* Power button */}
+                <div
+                  style={{
+                    position: "absolute",
+                    right: -3,
+                    top: "21%",
+                    width: 3,
+                    height: 54,
+                    background: "#2a2a2c",
+                    borderRadius: "0 2px 2px 0",
+                  }}
+                />
+
+                {/* Screen */}
+                <div
+                  style={{
+                    borderRadius: isMobile ? "34px" : "44px",
+                    overflow: "hidden",
+                    position: "relative",
+                    backgroundColor: "#000",
+                  }}
+                >
+                  {/* Dynamic Island */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 10,
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      width: "32%",
+                      height: 30,
+                      backgroundColor: "#000",
+                      borderRadius: 20,
+                      zIndex: 10,
+                    }}
+                  />
+                  <img
+                    src={screenshotImage}
+                    alt=""
+                    style={{ display: "block", width: "100%", height: "auto" }}
+                  />
+                  {/* Home indicator */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: 8,
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      width: "28%",
+                      height: 4,
+                      backgroundColor: "rgba(255,255,255,0.3)",
+                      borderRadius: 2,
+                      zIndex: 10,
+                    }}
+                  />
                 </div>
               </div>
             </div>
+
+            {/* Floating privacy pill */}
+            {!isMobile && (
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "12%",
+                  left: "-4%",
+                  zIndex: 3,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  backgroundColor: "var(--bg-lowest)",
+                  borderRadius: "2rem",
+                  padding: "0.625rem 1rem",
+                  boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
+                }}
+              >
+                <LockIcon size={16} color="var(--c-primary)" />
+                <span
+                  style={{
+                    fontSize: "0.75rem",
+                    fontWeight: 700,
+                    color: "var(--text)",
+                  }}
+                >
+                  AES-CFB Encrypted
+                </span>
+              </div>
+            )}
           </div>
-        </main>
-      </div>
-      <footer className="sm:absolute mt-5 sm:mt-0 inset-x-0 bottom-0 z-50 w-full text-center mb-5">
-        <Link
-          href="/privacy"
-          className="text-sm font-semibold leading-6 mr-2 text-gray-900 dark:text-gray-100 hover:underline"
-        >
-          {t("PrivacyPolicy")}
-        </Link>
-        <Link
-          href="/terms"
-          className="text-sm font-semibold leading-6 mr-2 text-gray-900 dark:text-gray-100 hover:underline"
-        >
-          {t("TermsAndConditions")}
-        </Link>
-        <Link
-          href="/support"
-          className="text-sm font-semibold leading-6 mr-2 ml-2 text-gray-900 dark:text-gray-100 hover:underline"
-        >
-          {t("Support")}
-        </Link>
-        <Link
-          href="/donations"
-          className="text-sm font-semibold leading-6 ml-2 text-gray-900 dark:text-gray-100 hover:underline"
-        >
-          {t("Donations")}
-        </Link>
-        <div>
-          <small className="text-xs font-thin leading-6 text-gray-800 dark:text-gray-200">
-            2025 <strong>end.works LLC</strong>. {t("AllRightsReserved")}
-          </small>
         </div>
-      </footer>
-    </>
+      </section>
+
+      {/* ── Bento features — "Crafted for trust." ─────────────────────── */}
+      <section
+        id="features"
+        style={{
+          padding: isMobile ? "4rem 1.25rem" : "6rem 2rem",
+          backgroundColor: "var(--bg-low)",
+          borderRadius: "4rem 4rem 0 0",
+        }}
+      >
+        <div style={{ maxWidth: 1152, margin: "0 auto" }}>
+          <div style={{ marginBottom: isMobile ? "2.5rem" : "4rem" }}>
+            <h2
+              className="font-headline"
+              style={{
+                fontSize: "clamp(1.75rem,4vw,2.5rem)",
+                fontWeight: 700,
+                color: "var(--c-primary)",
+                marginBottom: "1rem",
+              }}
+            >
+              {t("CraftedForTrust")}
+            </h2>
+            <div
+              style={{
+                height: 4,
+                width: 96,
+                backgroundColor: "var(--c-primary-container)",
+                borderRadius: 9999,
+                opacity: 0.3,
+              }}
+            />
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
+              gap: isMobile ? "1rem" : "2rem",
+            }}
+          >
+            {/* Card 1: Privacy (spans 2 cols on desktop) */}
+            <div
+              className="editorial-shadow"
+              style={{
+                gridColumn: isMobile ? "span 1" : "span 2",
+                backgroundColor: "var(--bg-lowest)",
+                padding: isMobile ? "2rem" : "2.5rem",
+                borderRadius: "2rem",
+                position: "relative",
+                overflow: "hidden",
+              }}
+            >
+              <LockIcon
+                size={40}
+                color="var(--c-primary)"
+                style={{ display: "block", marginBottom: "1.5rem" }}
+              />
+              <h3
+                className="font-headline"
+                style={{
+                  fontSize: "1.5rem",
+                  fontWeight: 700,
+                  color: "var(--c-primary)",
+                  marginBottom: "1rem",
+                }}
+              >
+                {t("BentoPrivacyTitle")}
+              </h3>
+              <p
+                style={{
+                  color: "var(--text-muted)",
+                  lineHeight: 1.7,
+                  maxWidth: 420,
+                }}
+              >
+                {t("BentoPrivacyDesc")}
+              </p>
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: -20,
+                  right: -20,
+                  opacity: 0.04,
+                }}
+              >
+                <ShieldCheckIcon size={200} color="var(--text)" />
+              </div>
+            </div>
+
+            {/* Card 2: Onboarding */}
+            <div
+              className="editorial-shadow"
+              style={{
+                backgroundColor: "var(--c-primary)",
+                color: "var(--c-on-primary)",
+                padding: isMobile ? "2rem" : "2.5rem",
+                borderRadius: "2rem",
+              }}
+            >
+              <UserPlusIcon
+                size={40}
+                color="rgba(255,255,255,0.8)"
+                style={{ display: "block", marginBottom: "1.5rem" }}
+              />
+              <h3
+                className="font-headline"
+                style={{
+                  fontSize: "1.5rem",
+                  fontWeight: 700,
+                  marginBottom: "1rem",
+                }}
+              >
+                {t("BentoOnboardingTitle")}
+              </h3>
+              <p style={{ color: "rgba(255,255,255,0.7)", lineHeight: 1.7 }}>
+                {t("BentoOnboardingDesc")}
+              </p>
+            </div>
+
+            {/* Card 3: Stats */}
+            <div
+              className="editorial-shadow"
+              style={{
+                backgroundColor: "var(--c-secondary-container)",
+                padding: isMobile ? "2rem" : "2.5rem",
+                borderRadius: "2rem",
+              }}
+            >
+              <ChartLineUpIcon
+                size={40}
+                color="var(--c-primary)"
+                style={{ display: "block", marginBottom: "1.5rem" }}
+              />
+              <h3
+                className="font-headline"
+                style={{
+                  fontSize: "1.5rem",
+                  fontWeight: 700,
+                  color: "var(--c-primary)",
+                  marginBottom: "1rem",
+                }}
+              >
+                {t("BentoStatsTitle")}
+              </h3>
+              <p style={{ color: "var(--text-muted)", lineHeight: 1.7 }}>
+                {t("BentoStatsDesc")}
+              </p>
+            </div>
+
+            {/* Card 4: Premium (spans 2 cols on desktop) */}
+            <div
+              className="editorial-shadow"
+              style={{
+                gridColumn: isMobile ? "span 1" : "span 2",
+                backgroundColor: "var(--bg-lowest)",
+                padding: isMobile ? "2rem" : "2.5rem",
+                borderRadius: "2rem",
+                display: "flex",
+                gap: "2.5rem",
+                alignItems: "center",
+                flexWrap: "wrap",
+              }}
+            >
+              <div style={{ flex: 1, minWidth: 200 }}>
+                <CrownIcon
+                  size={40}
+                  color="var(--c-primary)"
+                  style={{ display: "block", marginBottom: "1.5rem" }}
+                />
+                <h3
+                  className="font-headline"
+                  style={{
+                    fontSize: "1.5rem",
+                    fontWeight: 700,
+                    color: "var(--c-primary)",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  {t("BentoPremiumTitle")}
+                </h3>
+                <p style={{ color: "var(--text-muted)", lineHeight: 1.7 }}>
+                  {t("BentoPremiumDesc")}
+                </p>
+              </div>
+              {!isMobile && (
+                <div
+                  style={{
+                    width: 160,
+                    borderRadius: "1rem",
+                    overflow: "hidden",
+                    backgroundColor: "var(--bg-high)",
+                    flexShrink: 0,
+                  }}
+                >
+                  <img
+                    src={screenshotImage}
+                    alt=""
+                    style={{
+                      display: "block",
+                      width: "100%",
+                      height: "auto",
+                      opacity: 0.7,
+                    }}
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── App Preview — "Elegant by design." ───────────────────────── */}
+      {process.env.NODE_ENV === "development" && (
+        <section
+          style={{
+            padding: isMobile ? "4rem 0" : "8rem 2rem 8rem",
+            overflowX: "hidden",
+            backgroundColor: "var(--bg-low)",
+          }}
+        >
+          <div
+            style={{
+              maxWidth: 1152,
+              margin: "0 auto",
+              textAlign: "center",
+              marginBottom: isMobile ? "3rem" : "5rem",
+              paddingLeft: px,
+              paddingRight: px,
+            }}
+          >
+            <h2
+              className="font-headline"
+              style={{
+                fontSize: "clamp(1.75rem,4vw,2.5rem)",
+                fontWeight: 700,
+                color: "var(--c-primary)",
+                marginBottom: "1.5rem",
+              }}
+            >
+              {t("ElegantByDesign")}
+            </h2>
+            <p
+              style={{
+                color: "var(--text-muted)",
+                maxWidth: 560,
+                margin: "0 auto",
+                lineHeight: 1.7,
+              }}
+            >
+              {t("ElegantByDesignDesc")}
+            </p>
+          </div>
+          {isMobile ? (
+            /* Mobile: single centered phone */
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                paddingTop: "2rem",
+                paddingBottom: "2rem",
+              }}
+            >
+              <div
+                style={{
+                  width: "72%",
+                  maxWidth: 260,
+                  backgroundColor: "var(--bg-highest)",
+                  borderRadius: "2.5rem",
+                  border: "5px solid var(--bg-low)",
+                  boxShadow: "0 25px 50px -12px rgba(0,0,0,0.2)",
+                  overflow: "hidden",
+                }}
+              >
+                <img
+                  src={screenshotImage}
+                  alt=""
+                  style={{ display: "block", width: "100%", height: "auto" }}
+                />
+              </div>
+            </div>
+          ) : (
+            /* Desktop: 3 phones, section clips overflow */
+            <div
+              style={{
+                display: "flex",
+                gap: "2rem",
+                justifyContent: "center",
+                alignItems: "flex-end",
+                paddingTop: "3rem",
+                paddingBottom: "3rem",
+              }}
+            >
+              <div
+                style={{
+                  flexShrink: 0,
+                  width: 260,
+                  backgroundColor: "var(--bg-highest)",
+                  borderRadius: "3rem",
+                  border: "8px solid var(--bg-low)",
+                  boxShadow: "0 25px 50px -12px rgba(0,0,0,0.15)",
+                  overflow: "hidden",
+                }}
+              >
+                <img
+                  src={screenshotImage}
+                  alt=""
+                  style={{ display: "block", width: "100%", height: "auto" }}
+                />
+              </div>
+              <div
+                style={{
+                  flexShrink: 0,
+                  width: 290,
+                  backgroundColor: "var(--bg-highest)",
+                  borderRadius: "3rem",
+                  border: "8px solid var(--bg-low)",
+                  boxShadow: "0 25px 50px -12px rgba(0,0,0,0.2)",
+                  overflow: "hidden",
+                  transform: "translateY(-2rem)",
+                }}
+              >
+                <img
+                  src={screenshotImage}
+                  alt=""
+                  style={{ display: "block", width: "100%", height: "auto" }}
+                />
+              </div>
+              <div
+                style={{
+                  flexShrink: 0,
+                  width: 260,
+                  backgroundColor: "var(--bg-highest)",
+                  borderRadius: "3rem",
+                  border: "8px solid var(--bg-low)",
+                  boxShadow: "0 25px 50px -12px rgba(0,0,0,0.15)",
+                  overflow: "hidden",
+                }}
+              >
+                <img
+                  src={screenshotImage}
+                  alt=""
+                  style={{ display: "block", width: "100%", height: "auto" }}
+                />
+              </div>
+            </div>
+          )}
+        </section>
+      )}
+
+      {/* ── Our Values ────────────────────────────────────────────────── */}
+      <section
+        style={{
+          padding: isMobile ? "4rem 1.25rem" : "6rem 2rem",
+          backgroundColor: "var(--bg)",
+        }}
+      >
+        <div style={{ maxWidth: 1152, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+            <h2
+              className="font-headline"
+              style={{
+                fontSize: "clamp(1.75rem,4vw,2.5rem)",
+                fontWeight: 700,
+                color: "var(--c-primary)",
+                marginBottom: "1rem",
+              }}
+            >
+              {t("OurValues")}
+            </h2>
+            <p
+              style={{
+                color: "var(--text-muted)",
+                maxWidth: 480,
+                margin: "0 auto",
+                lineHeight: 1.7,
+              }}
+            >
+              {t("OurValuesDesc")}
+            </p>
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+              gap: isMobile ? "2rem" : "3rem",
+            }}
+          >
+            {[
+              {
+                Icon: ShieldCheckIcon,
+                titleKey: "Value1Title",
+                descKey: "Value1Desc",
+              },
+              {
+                Icon: HeartIcon,
+                titleKey: "Value2Title",
+                descKey: "Value2Desc",
+              },
+              {
+                Icon: PencilLineIcon,
+                titleKey: "Value3Title",
+                descKey: "Value3Desc",
+              },
+            ].map(({ Icon, titleKey, descKey }) => (
+              <div key={titleKey} style={{ textAlign: "center" }}>
+                <div
+                  style={{
+                    width: 80,
+                    height: 80,
+                    borderRadius: "50%",
+                    backgroundColor: "var(--c-primary-0d)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    margin: "0 auto 1.5rem",
+                  }}
+                >
+                  <Icon size={40} color="var(--c-primary)" />
+                </div>
+                <h3
+                  className="font-headline"
+                  style={{
+                    fontSize: "1.25rem",
+                    fontWeight: 700,
+                    color: "var(--c-primary)",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  {t(titleKey)}
+                </h3>
+                <p
+                  style={{
+                    color: "var(--text-muted)",
+                    fontSize: "0.875rem",
+                    lineHeight: 1.7,
+                  }}
+                >
+                  {t(descKey)}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Testimonials ──────────────────────────────────────────────── */}
+      {process.env.NODE_ENV === "development" && (
+        <section
+          style={{
+            padding: isMobile ? "4rem 1.25rem" : "6rem 2rem",
+            backgroundColor: "var(--bg-low)",
+          }}
+        >
+          <div style={{ maxWidth: 1152, margin: "0 auto" }}>
+            <div
+              style={{
+                textAlign: "center",
+                marginBottom: isMobile ? "2.5rem" : "4rem",
+              }}
+            >
+              <h2
+                className="font-headline"
+                style={{
+                  fontSize: "clamp(1.75rem,4vw,2.5rem)",
+                  fontWeight: 700,
+                  color: "var(--c-primary)",
+                  marginBottom: "1rem",
+                }}
+              >
+                {t("TestimonialsTitle")}
+              </h2>
+              <p
+                style={{
+                  color: "var(--text-muted)",
+                  maxWidth: 480,
+                  margin: "0 auto",
+                  lineHeight: 1.7,
+                }}
+              >
+                {t("TestimonialsDesc")}
+              </p>
+            </div>
+
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
+                gap: "1.25rem",
+              }}
+            >
+              {[
+                {
+                  quote:
+                    "Finally an app that takes privacy seriously. My data stays on my phone, no accounts, no cloud. Exactly what I needed.",
+                  name: "Sophie R.",
+                  platform: "App Store",
+                  rating: 5,
+                },
+                {
+                  quote:
+                    "The design is beautiful and the tracking is incredibly thoughtful. I use it every week and it has genuinely improved how I think about my health.",
+                  name: "Marco T.",
+                  platform: "Google Play",
+                  rating: 5,
+                },
+                {
+                  quote:
+                    "Love the dark mode and how clean everything looks. The stats section is so well done — gives me real insights without feeling clinical.",
+                  name: "Alicia M.",
+                  platform: "App Store",
+                  rating: 5,
+                },
+                {
+                  quote:
+                    "Simple to use but surprisingly deep. The partner tracking and notes feature are brilliant. Highly recommend.",
+                  name: "James K.",
+                  platform: "Google Play",
+                  rating: 5,
+                },
+                {
+                  quote:
+                    "I was skeptical at first but the privacy-first approach won me over. No sign-up required and everything is encrypted.",
+                  name: "Lea V.",
+                  platform: "App Store",
+                  rating: 5,
+                },
+                {
+                  quote:
+                    "Best intimate health app I've tried. The interface feels premium and the data export works perfectly. Worth every penny.",
+                  name: "David N.",
+                  platform: "Google Play",
+                  rating: 5,
+                },
+              ].map(({ quote, name, platform, rating }) => (
+                <div
+                  key={name}
+                  className="editorial-shadow"
+                  style={{
+                    backgroundColor: "var(--bg-lowest)",
+                    borderRadius: "1.5rem",
+                    padding: "1.75rem",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "1rem",
+                  }}
+                >
+                  {/* Stars */}
+                  <div style={{ display: "flex", gap: "0.2rem" }}>
+                    {Array.from({ length: rating }).map((_, i) => (
+                      <StarIcon key={i} size={18} color="var(--c-primary)" />
+                    ))}
+                  </div>
+                  {/* Quote */}
+                  <p
+                    style={{
+                      color: "var(--text-muted)",
+                      lineHeight: 1.7,
+                      fontSize: "0.9rem",
+                      flex: 1,
+                    }}
+                  >
+                    {quote}
+                  </p>
+                  {/* Reviewer */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontWeight: 700,
+                        color: "var(--c-primary)",
+                        fontSize: "0.875rem",
+                      }}
+                    >
+                      {name}
+                    </span>
+                    <span
+                      style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}
+                    >
+                      {platform}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── FAQ ───────────────────────────────────────────────────────── */}
+      <section
+        style={{
+          padding: isMobile ? "4rem 1.25rem" : "6rem 2rem",
+          backgroundColor: "var(--bg)",
+        }}
+      >
+        <div style={{ maxWidth: 800, margin: "0 auto" }}>
+          <div
+            style={{
+              textAlign: "center",
+              marginBottom: isMobile ? "2.5rem" : "4rem",
+            }}
+          >
+            <h2
+              className="font-headline"
+              style={{
+                fontSize: "clamp(1.75rem,4vw,2.5rem)",
+                fontWeight: 700,
+                color: "var(--c-primary)",
+                marginBottom: "1rem",
+              }}
+            >
+              {t("FAQ")}
+            </h2>
+          </div>
+          <FaqList content={i18n.language === "es" ? faqEs : faqEn} />
+        </div>
+      </section>
+
+      {/* ── Final CTA ─────────────────────────────────────────────────── */}
+      <section
+        style={{
+          padding: isMobile ? "4rem 1.25rem" : "8rem 2rem",
+          backgroundColor: "var(--bg-low)",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: 896,
+            margin: "0 auto",
+            backgroundColor: "var(--c-primary)",
+            borderRadius: isMobile ? "2rem" : "3rem",
+            padding: isMobile ? "2.5rem 1.5rem" : "4rem",
+            textAlign: "center",
+            color: "var(--c-on-primary)",
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              right: 0,
+              width: 256,
+              height: 256,
+              backgroundColor: "rgba(255,255,255,0.1)",
+              borderRadius: "50%",
+              filter: "blur(3rem)",
+              transform: "translate(33%, -33%)",
+            }}
+          />
+          <h2
+            className="font-headline"
+            style={{
+              fontSize: "clamp(1.75rem,5vw,3.25rem)",
+              fontWeight: 800,
+              marginBottom: "1.5rem",
+              position: "relative",
+              zIndex: 1,
+            }}
+          >
+            {t("CtaTitle")}
+          </h2>
+          <p
+            style={{
+              color: "rgba(255,255,255,0.8)",
+              marginBottom: "2.5rem",
+              maxWidth: 480,
+              margin: "0 auto 2.5rem",
+              lineHeight: 1.7,
+              position: "relative",
+              zIndex: 1,
+            }}
+          >
+            {t("CtaDescription")}
+          </p>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              gap: "1rem",
+              position: "relative",
+              zIndex: 1,
+            }}
+          >
+            <a
+              href={
+                process.env.NEXT_PUBLIC_BETA === "true"
+                  ? process.env.NEXT_PUBLIC_TESTFLIGHT_URL
+                  : process.env.NEXT_PUBLIC_APPSTORE_URL
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-store cta"
+              style={{ fontWeight: 700 }}
+            >
+              <AppStoreLogoIcon size={24} />
+              <span>App Store</span>
+            </a>
+            <a
+              href={process.env.NEXT_PUBLIC_GOOGLE_PLAY_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-store cta"
+              style={{ fontWeight: 700 }}
+            >
+              <GooglePlayLogoIcon size={24} />
+              <span>Google Play</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Footer ────────────────────────────────────────────────────── */}
+      <Footer isMobile={isMobile} px={px} />
+    </div>
   );
 }

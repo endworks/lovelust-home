@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import fs from "fs";
+import path from "path";
 import TermsClient from "./TermsClient";
 
 export const metadata: Metadata = {
@@ -11,5 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <TermsClient />;
+  const en = fs.readFileSync(path.join(process.cwd(), "content/terms/en.md"), "utf-8");
+  const es = fs.readFileSync(path.join(process.cwd(), "content/terms/es.md"), "utf-8");
+  return <TermsClient en={en} es={es} />;
 }

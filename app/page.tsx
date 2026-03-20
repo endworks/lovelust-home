@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
+import fs from "fs";
+import path from "path";
 import HomeClient from "./HomeClient";
 
 export const metadata: Metadata = {
@@ -16,5 +18,8 @@ export default async function Page() {
   const theme = cookieStore.get("theme")?.value;
   const isDark = theme === "dark";
 
-  return <HomeClient initialDark={isDark} />;
+  const faqEn = fs.readFileSync(path.join(process.cwd(), "content/faq/en.md"), "utf-8");
+  const faqEs = fs.readFileSync(path.join(process.cwd(), "content/faq/es.md"), "utf-8");
+
+  return <HomeClient initialDark={isDark} faqEn={faqEn} faqEs={faqEs} />;
 }

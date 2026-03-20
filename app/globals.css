@@ -1,5 +1,20 @@
 @import "../src/index.css";
 
+/* ── Legacy ── */
+.font-display {
+  font-family: 'Nunito', sans-serif;
+}
+
+/* ── Typography ── */
+.font-headline {
+  font-family: 'Nunito', sans-serif;
+}
+
+.font-body {
+  font-family: 'Nunito', sans-serif;
+}
+
+/* ── Download badge size ── */
 .download-app {
   height: 45px;
 }
@@ -8,4 +23,142 @@
   .download-app {
     height: 60px;
   }
+}
+
+/* ── Responsive utilities ── */
+@media (max-width: 768px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+/* ── Editorial design system ── */
+.editorial-shadow {
+  box-shadow: 0 32px 64px -12px rgba(27, 28, 28, 0.06);
+}
+
+.glass-nav {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ── Design tokens ── */
+:root {
+  --c-primary: #f61e6d;
+  --c-on-primary: #ffffff;
+  --c-primary-container: #85113b;
+  --c-secondary: #73575c;
+  --c-secondary-08: #73575c08;
+  --c-secondary-container: #ffe4ec;
+
+  /* Primary with alpha — named by the hex alpha byte */
+  --c-primary-06: #f61e6d06;
+  --c-primary-0d: #f61e6d0d;
+  --c-primary-12: #f61e6d12;
+  --c-primary-15: #f61e6d15;
+  --c-primary-18: #f61e6d18;
+  --c-primary-20: #f61e6d20;
+  --c-primary-25: #f61e6d25;
+  --c-primary-40: #f61e6d40;
+  --c-primary-60: #f61e6d60;
+
+  /* Adaptive tokens — light mode defaults */
+  --bg: #fcf9f8;
+  --bg-low: #f6f3f2;
+  --bg-lowest: #ffffff;
+  --bg-high: #eae7e7;
+  --bg-highest: #e4e2e1;
+  --text: #1b1c1c;
+  --text-muted: #4d444b;
+  --ghost-border: #d0c3cb99;
+  --nav-bg: rgba(252, 249, 248, 0.75);
+}
+
+.dark {
+  --bg: #1b1c1c;
+  --bg-low: #252323;
+  --bg-lowest: #2a2828;
+  --bg-high: #303030;
+  --bg-highest: #383535;
+  --text: #fcf9f8;
+  --text-muted: rgba(252, 249, 248, 0.55);
+  --ghost-border: rgba(208, 195, 203, 0.15);
+  --nav-bg: rgba(27, 28, 28, 0.75);
+}
+
+@keyframes color-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ── Buttons ── */
+.btn-download {
+  background: linear-gradient(135deg, var(--c-primary), #ff4785, var(--c-primary));
+  background-size: 200% 200%;
+  animation: color-shift 5s ease infinite;
+  color: var(--c-on-primary);
+  padding: 0.625rem 1.75rem;
+  border-radius: 9999px;
+  font-weight: 800;
+  font-size: 0.875rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 12px var(--c-primary-25);
+}
+
+.btn-download:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px var(--c-primary-40);
+  background-size: 150% 150%;
+}
+
+/* ── Store Buttons ── */
+.btn-store {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  background: linear-gradient(135deg, var(--c-primary), #ff4785, var(--c-primary));
+  background-size: 200% 200%;
+  animation: color-shift 5s ease infinite;
+  color: var(--c-on-primary);
+  box-shadow: 0 4px 12px var(--c-primary-25);
+}
+
+.btn-store:hover {
+  transform: translateY(-2px) scale(1.02);
+  background-size: 150% 150%;
+  box-shadow: 0 8px 24px var(--c-primary-40);
+  color: var(--c-on-primary);
+  opacity: 1;
+}
+
+.btn-store.cta {
+  background: var(--c-on-primary);
+  background-size: initial;
+  animation: none;
+  color: var(--c-primary);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.5);
+  border: none;
+}
+
+.btn-store.cta:hover {
+  background: var(--c-secondary-container);
+  background-size: initial;
+  animation: none;
+  box-shadow: 0 12px 24px rgba(255, 255, 255, 0.7);
+  color: var(--c-primary-container);
 }

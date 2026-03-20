@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import fs from "fs";
+import path from "path";
 import PrivacyClient from "./PrivacyClient";
 
 export const metadata: Metadata = {
@@ -11,5 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PrivacyClient />;
+  const en = fs.readFileSync(path.join(process.cwd(), "content/privacy/en.md"), "utf-8");
+  const es = fs.readFileSync(path.join(process.cwd(), "content/privacy/es.md"), "utf-8");
+  return <PrivacyClient en={en} es={es} />;
 }
