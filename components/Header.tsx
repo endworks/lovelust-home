@@ -58,24 +58,22 @@ export default function Header({
                         alignItems: "center",
                     }}
                 >
-                    {process.env.NODE_ENV === "development" && (
-                        <button
-                            onClick={toggleDark}
-                            title="Toggle dark mode"
-                            style={{
-                                background: "none",
-                                border: "none",
-                                borderRadius: "0.5rem",
-                                padding: "0.5rem 0.75rem",
-                                cursor: "pointer",
-                                fontSize: "1rem",
-                                lineHeight: 1,
-                                color: "var(--text)",
-                            }}
-                        >
-                            {isDark ? <SunIcon size={16} /> : <MoonIcon size={16} />}
-                        </button>
-                    )}
+                    <button
+                        onClick={toggleDark}
+                        title="Toggle dark mode"
+                        style={{
+                            background: "none",
+                            border: "none",
+                            borderRadius: "0.5rem",
+                            padding: "0.5rem 0.75rem",
+                            cursor: "pointer",
+                            fontSize: "1rem",
+                            lineHeight: 1,
+                            color: "var(--text)",
+                        }}
+                    >
+                        {isDark ? <SunIcon size={16} /> : <MoonIcon size={16} />}
+                    </button>
                     <button
                         onClick={() => switchLanguage(i18n.language === "es" ? "en" : "es")}
                         style={{
