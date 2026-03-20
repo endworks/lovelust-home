@@ -3,7 +3,7 @@
 import { useTranslation } from "react-i18next";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import RatingStars from "../RatingStars";
-import StoreButton from "../StoreButton";
+import StoreBadge from "../StoreBadge";
 import PhoneMockup from "../PhoneMockup";
 
 interface HeroSectionProps {
@@ -133,8 +133,8 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
 
           {/* Download buttons */}
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
-            <StoreButton platform="appStore" />
-            <StoreButton platform="googlePlay" />
+            <StoreBadge platform="appStore" />
+            <StoreBadge platform="googlePlay" />
           </div>
         </div>
 
