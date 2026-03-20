@@ -143,5 +143,7 @@
   "DonateWithCryptoDescription": "También puedes apoyarnos con criptomonedas. Aquí están nuestras direcciones de wallet:",
   "SupportedStablecoins": "Stablecoins aceptadas",
   "SupportedStablecoinsDescription": "Actualmente aceptamos USDC en las siguientes redes:",
-  "SupportedStablecoinsFooter": "Si estas donando USDC, asegúrate de enviarlo a la dirección correcta y la red de la lista de arriba."
+  "SupportedStablecoinsFooter": "Si estas donando USDC, asegúrate de enviarlo a la dirección correcta y la red de la lista de arriba.",
+  "MadeWithLove": "Hecho con ♥ para tu privacidad",
+  "AesCfbEncrypted": "Cifrado AES-CFB"
 }

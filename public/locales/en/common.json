@@ -150,5 +150,7 @@
   "TON": "The Open Network (TON)",
   "SupportedStablecoins": "Supported Stablecoins",
   "SupportedStablecoinsDescription": "We currently accept USDC on the following networks:",
-  "SupportedStablecoinsFooter": "If you're donating USDC, please make sure you send it to the correct address and network listed above."
+  "SupportedStablecoinsFooter": "If you're donating USDC, please make sure you send it to the correct address and network listed above.",
+  "MadeWithLove": "Made with ♥ for your privacy",
+  "AesCfbEncrypted": "AES-CFB Encrypted"
 }

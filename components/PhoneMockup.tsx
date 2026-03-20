@@ -1,6 +1,7 @@
 "use client";
 
 import { LockIcon } from "@phosphor-icons/react";
+import { useTranslation } from "react-i18next";
 import ThemeAwareScreenshot from "./ThemeAwareScreenshot";
 
 interface PhoneMockupProps {
@@ -17,6 +18,7 @@ export default function PhoneMockup({
   isDark,
   isMobile,
 }: PhoneMockupProps) {
+  const { t } = useTranslation();
   return (
     <div
       data-testid="phone-mockup"
@@ -215,7 +217,7 @@ export default function PhoneMockup({
                 WebkitFontSmoothing: "antialiased",
               }}
             >
-              AES-CFB Encrypted
+              {t("AesCfbEncrypted")}
             </span>
           </div>
         )}

@@ -8,7 +8,7 @@ LoveLust is a mobile application that helps users track sexual activity and rela
 
 LoveLust offers optional paid subscriptions managed through **RevenueCat** to unlock additional features:
 
-- **Plans available:** Monthly (€2.99/month), Annual (€17.99/year), and Lifetime (€49.99 one-time payment).
+- **Plans available:** Monthly, Annual, and Lifetime — prices are as listed in the App Store and Google Play at the time of purchase.
 - **Auto-renewal:** Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period.
 - **Free trials & discounts:** Once a trial ends, you will be charged unless you cancel beforehand.
 - **Payment:** Payment is charged to your Apple or Google account upon confirmation.
@@ -41,8 +41,8 @@ These Terms are governed by the laws of Spain and the European Union. Any disput
 
 ## 9. Contact
 
-For questions or support, contact us at the email address listed on the Support page.
+For questions or support, contact us at [{{LEGAL_EMAIL}}](mailto:{{LEGAL_EMAIL}}).
 
 ---
 
-*Last updated: 2025-03-20*
+*Last updated: 2026-03-20*
