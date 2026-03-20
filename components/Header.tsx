@@ -93,7 +93,7 @@ export default function Header({
 
                     {!isMobile && (
                         <a
-                            href={process.env.NEXT_PUBLIC_APPSTORE_URL}
+                            href={process.env.NEXT_PUBLIC_DOWNLOAD_URL}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="font-headline btn-download"
