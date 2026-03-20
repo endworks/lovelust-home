@@ -21,18 +21,44 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import RatingStars from "../components/RatingStars";
 
+function ThemeAwareScreenshot({
+  language,
+  style = {},
+  className = "",
+}: {
+  language: string;
+  style?: React.CSSProperties;
+  className?: string;
+}) {
+  const isEs = language === "es";
+  return (
+    <>
+      <img
+        src={isEs ? "/screenshotDarkSpanish.png" : "/screenshotDark.png"}
+        alt=""
+        className={`dark-only ${className}`}
+        style={{ ...style, display: "block" }}
+      />
+      <img
+        src={isEs ? "/screenshotSpanish.png" : "/screenshot.png"}
+        alt=""
+        className={`light-only ${className}`}
+        style={{ ...style, display: "block" }}
+      />
+    </>
+  );
+}
+
 export default function HomeClient({
-  initialDark,
   faqEn,
   faqEs,
 }: {
-  initialDark: boolean;
   faqEn: string;
   faqEs: string;
 }) {
   const { t, i18n } = useTranslation();
   const { trackEvent } = useAptabase();
-  const [isDark, setIsDark] = useState(initialDark);
+  const [isDark, setIsDark] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   useLayoutEffect(() => {
@@ -44,10 +70,6 @@ export default function HomeClient({
     const handler = (evt: MediaQueryListEvent) => {
       setIsDark(evt.matches);
       document.documentElement.classList.toggle("dark", evt.matches);
-      const expires = new Date(
-        Date.now() + 365 * 24 * 60 * 60 * 1000,
-      ).toUTCString();
-      document.cookie = `theme=${evt.matches ? "dark" : "light"};path=/;expires=${expires};samesite=lax`;
     };
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
@@ -77,26 +99,12 @@ export default function HomeClient({
     const next = !isDark;
     setIsDark(next);
     document.documentElement.classList.toggle("dark", next);
-    const expires = new Date(
-      Date.now() + 365 * 24 * 60 * 60 * 1000,
-    ).toUTCString();
-    document.cookie = `theme=${next ? "dark" : "light"};path=/;expires=${expires};samesite=lax`;
   }
 
   useEffect(() => {
     document.title = t("Title") + ": " + t("Subtitle");
   }, [i18n, t]);
 
-  const screenshotImage = useMemo(() => {
-    if (isDark) {
-      return i18n.language === "es"
-        ? "/screenshotDarkSpanish.png"
-        : "/screenshotDark.png";
-    }
-    return i18n.language === "es"
-      ? "/screenshotSpanish.png"
-      : "/screenshot.png";
-  }, [isDark, i18n.language]);
 
   const px = isMobile ? "1.25rem" : "2rem";
 
@@ -442,10 +450,9 @@ export default function HomeClient({
                         zIndex: 10,
                       }}
                     />
-                    <img
-                      src={screenshotImage}
-                      alt=""
-                      style={{ display: "block", width: "100%", height: "auto" }}
+                    <ThemeAwareScreenshot
+                      language={i18n.language}
+                      style={{ width: "100%", height: "auto" }}
                     />
                     {/* Home indicator */}
                     <div
@@ -686,11 +693,9 @@ export default function HomeClient({
                     flexShrink: 0,
                   }}
                 >
-                  <img
-                    src={screenshotImage}
-                    alt=""
+                  <ThemeAwareScreenshot
+                    language={i18n.language}
                     style={{
-                      display: "block",
                       width: "100%",
                       height: "auto",
                       opacity: 0.7,
@@ -765,10 +770,9 @@ export default function HomeClient({
                   overflow: "hidden",
                 }}
               >
-                <img
-                  src={screenshotImage}
-                  alt=""
-                  style={{ display: "block", width: "100%", height: "auto" }}
+                <ThemeAwareScreenshot
+                  language={i18n.language}
+                  style={{ width: "100%", height: "auto" }}
                 />
               </div>
             </div>
@@ -795,10 +799,9 @@ export default function HomeClient({
                   overflow: "hidden",
                 }}
               >
-                <img
-                  src={screenshotImage}
-                  alt=""
-                  style={{ display: "block", width: "100%", height: "auto" }}
+                <ThemeAwareScreenshot
+                  language={i18n.language}
+                  style={{ width: "100%", height: "auto" }}
                 />
               </div>
               <div
@@ -813,10 +816,9 @@ export default function HomeClient({
                   transform: "translateY(-2rem)",
                 }}
               >
-                <img
-                  src={screenshotImage}
-                  alt=""
-                  style={{ display: "block", width: "100%", height: "auto" }}
+                <ThemeAwareScreenshot
+                  language={i18n.language}
+                  style={{ width: "100%", height: "auto" }}
                 />
               </div>
               <div
@@ -830,10 +832,9 @@ export default function HomeClient({
                   overflow: "hidden",
                 }}
               >
-                <img
-                  src={screenshotImage}
-                  alt=""
-                  style={{ display: "block", width: "100%", height: "auto" }}
+                <ThemeAwareScreenshot
+                  language={i18n.language}
+                  style={{ width: "100%", height: "auto" }}
                 />
               </div>
             </div>

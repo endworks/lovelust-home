@@ -76,19 +76,12 @@ function detectLocaleFromHeader(acceptLanguage: string): string {
 }
 
 // Inline script that runs synchronously before React — no dark mode flash.
-// On first visit: reads matchMedia and sets the cookie.
-// On subsequent visits: the server already sets the class, this is a no-op.
+// Always matches system theme.
 const themeScript = `
 (function () {
   try {
-    var cookie = document.cookie.match(/(?:^|; )theme=([^;]+)/);
-    var theme = cookie ? cookie[1] : null;
-    var dark = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    var dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     document.documentElement.classList.toggle('dark', dark);
-    if (!theme) {
-      var expires = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString();
-      document.cookie = 'theme=' + (dark ? 'dark' : 'light') + ';path=/;expires=' + expires + ';samesite=lax';
-    }
   } catch (e) {}
 })();
 `.trim();
@@ -101,22 +94,16 @@ export default async function RootLayout({
   const cookieStore = await cookies();
   const headersList = await headers();
 
-  // Locale: prefer the NEXT_LOCALE cookie (set by middleware on first request),
-  // fall back to parsing the Accept-Language header directly.
+  // Locale detection...
   const localeCookie = cookieStore.get("NEXT_LOCALE")?.value;
   const acceptLanguage = headersList.get("accept-language") ?? "";
   const lng = localeCookie && SUPPORTED_LOCALES.includes(localeCookie)
     ? localeCookie
     : detectLocaleFromHeader(acceptLanguage);
 
-  // Dark mode: server sets the class so the initial HTML is correct.
-  const themeCookie = cookieStore.get("theme")?.value;
-  const isDark = themeCookie === "dark";
-
   return (
     <html
       lang={lng}
-      className={isDark ? "dark" : ""}
       suppressHydrationWarning
     >
       <head>

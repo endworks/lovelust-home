@@ -161,3 +161,16 @@
   box-shadow: 0 12px 24px rgba(255, 255, 255, 0.7);
   color: var(--c-primary-container);
 }
+
+/* ── Theme Visibility ── */
+.dark-only {
+  display: none !important;
+}
+
+.dark .dark-only {
+  display: block !important;
+}
+
+.dark .light-only {
+  display: none !important;
+}
