@@ -15,12 +15,12 @@ describe('PhoneMockup', () => {
 
   it('renders privacy pill on desktop', () => {
     render(<PhoneMockup language="en" isDark={false} isMobile={false} />)
-    expect(screen.getByText('AES-CFB Encrypted')).toBeInTheDocument()
+    expect(screen.getByText('AesCfbEncrypted')).toBeInTheDocument()
   })
 
   it('does not render privacy pill on mobile', () => {
     render(<PhoneMockup language="en" isDark={false} isMobile={true} />)
-    expect(screen.queryByText('AES-CFB Encrypted')).not.toBeInTheDocument()
+    expect(screen.queryByText('AesCfbEncrypted')).not.toBeInTheDocument()
   })
 
   it('renders decorative elements', () => {
