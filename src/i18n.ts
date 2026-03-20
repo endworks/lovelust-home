@@ -433,10 +433,7 @@ i18n
     // Prefer the NEXT_LOCALE cookie (set server-side by middleware), then
     // fall back to navigator for client-only environments.
     detection: {
-      order: ["cookie", "navigator"],
-      lookupCookie: "NEXT_LOCALE",
-      caches: ["cookie"],
-      cookieOptions: { path: "/", maxAge: 60 * 60 * 24 * 365, sameSite: "lax" },
+      order: ["navigator"],
     },
 
     // Synchronous init so the language is resolved before React's first render.

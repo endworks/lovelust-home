@@ -89,10 +89,6 @@ export default function HomeClient({
 
   function switchLanguage(lang: string) {
     i18n.changeLanguage(lang);
-    const expires = new Date(
-      Date.now() + 365 * 24 * 60 * 60 * 1000,
-    ).toUTCString();
-    document.cookie = `NEXT_LOCALE=${lang};path=/;expires=${expires};samesite=lax`;
   }
 
   function toggleDark() {

@@ -94,12 +94,9 @@ export default async function RootLayout({
   const cookieStore = await cookies();
   const headersList = await headers();
 
-  // Locale detection...
-  const localeCookie = cookieStore.get("NEXT_LOCALE")?.value;
+  // Locale detection: Always prioritize the Accept-Language header to match system settings.
   const acceptLanguage = headersList.get("accept-language") ?? "";
-  const lng = localeCookie && SUPPORTED_LOCALES.includes(localeCookie)
-    ? localeCookie
-    : detectLocaleFromHeader(acceptLanguage);
+  const lng = detectLocaleFromHeader(acceptLanguage);
 
   return (
     <html
