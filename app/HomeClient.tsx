@@ -19,6 +19,7 @@ import { useTranslation } from "react-i18next";
 import FaqList from "../components/FaqList";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import RatingStars from "../components/RatingStars";
 
 export default function HomeClient({
   initialDark,
@@ -178,32 +179,6 @@ export default function HomeClient({
         >
           {/* Left: text */}
           <div>
-            {/* Badge pill */}
-            <div
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                backgroundColor: "var(--c-primary-12)",
-                borderRadius: 9999,
-                padding: "0.375rem 1rem",
-                marginBottom: "2rem",
-              }}
-            >
-              <span style={{ color: "var(--c-primary)", fontSize: "0.75rem" }}>
-                ✦
-              </span>
-              <span
-                style={{
-                  fontSize: "0.75rem",
-                  fontWeight: 700,
-                  color: "var(--c-primary)",
-                }}
-              >
-                iOS & Android
-              </span>
-            </div>
-
             <h1
               className="font-headline"
               style={{
@@ -244,11 +219,7 @@ export default function HomeClient({
                 marginBottom: "2.5rem",
               }}
             >
-              <div style={{ display: "flex" }}>
-                {[0, 1, 2, 3, 4].map((i) => (
-                  <StarIcon key={i} size={18} color="var(--c-primary)" />
-                ))}
-              </div>
+              <RatingStars rating={4.9} size={18} />
               <span
                 style={{ fontSize: "0.875rem", color: "var(--text-muted)" }}
               >
@@ -503,7 +474,7 @@ export default function HomeClient({
                   style={{
                     fontSize: "0.75rem",
                     fontWeight: 700,
-                    color: "var(--text)",
+                    color: "var(--c-primary)",
                   }}
                 >
                   AES-CFB Encrypted
@@ -1017,7 +988,7 @@ export default function HomeClient({
                     "The design is beautiful and the tracking is incredibly thoughtful. I use it every week and it has genuinely improved how I think about my health.",
                   name: "Marco T.",
                   platform: "Google Play",
-                  rating: 5,
+                  rating: 4.5,
                 },
                 {
                   quote:
@@ -1031,14 +1002,14 @@ export default function HomeClient({
                     "Simple to use but surprisingly deep. The partner tracking and notes feature are brilliant. Highly recommend.",
                   name: "James K.",
                   platform: "Google Play",
-                  rating: 5,
+                  rating: 4.5,
                 },
                 {
                   quote:
                     "I was skeptical at first but the privacy-first approach won me over. No sign-up required and everything is encrypted.",
                   name: "Lea V.",
                   platform: "App Store",
-                  rating: 5,
+                  rating: 4,
                 },
                 {
                   quote:
@@ -1060,12 +1031,7 @@ export default function HomeClient({
                     gap: "1rem",
                   }}
                 >
-                  {/* Stars */}
-                  <div style={{ display: "flex", gap: "0.2rem" }}>
-                    {Array.from({ length: rating }).map((_, i) => (
-                      <StarIcon key={i} size={18} color="var(--c-primary)" />
-                    ))}
-                  </div>
+                  <RatingStars rating={rating} size={18} />
                   {/* Quote */}
                   <p
                     style={{
