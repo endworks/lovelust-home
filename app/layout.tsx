@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-page-custom-font */
 import type { Metadata } from "next";
 import Script from "next/script";
-import { headers } from "next/headers";
 import "./globals.css";
 import Providers from "./providers";
 
@@ -54,27 +53,6 @@ export const metadata: Metadata = {
   },
 };
 
-const SUPPORTED_LOCALES = ["en", "es"];
-
-function detectLocaleFromHeader(acceptLanguage: string): string {
-  const langs = acceptLanguage
-    .split(",")
-    .map((part) => {
-      const [lang, ...rest] = part.trim().split(";");
-      const q = rest.find((r) => r.trim().startsWith("q="));
-      return {
-        lang: lang.trim().split("-")[0].toLowerCase(),
-        q: q ? parseFloat(q.split("=")[1]) : 1,
-      };
-    })
-    .sort((a, b) => b.q - a.q);
-
-  for (const { lang } of langs) {
-    if (SUPPORTED_LOCALES.includes(lang)) return lang;
-  }
-  return "en";
-}
-
 // Inline script that runs synchronously before React — no dark mode flash.
 // Always matches system theme.
 const themeScript = `
@@ -91,11 +69,10 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const headersList = await headers();
-
-  // Locale detection: Always prioritize the Accept-Language header to match system settings.
-  const acceptLanguage = headersList.get("accept-language") ?? "";
-  const lng = detectLocaleFromHeader(acceptLanguage);
+  // Use a static default language for the server-side render.
+  // The client-side i18next detector in src/i18n.ts will automatically 
+  // switch to the user's preferred language after hydration.
+  const lng = "en";
 
   return (
     <html
