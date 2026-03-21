@@ -31,8 +31,7 @@
 }
 
 .glass-nav {
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(16px) saturate(180%);
 }
 
 /* ── Design tokens ── */
@@ -64,7 +63,7 @@
   --text: #1b1c1c;
   --text-muted: #4d444b;
   --ghost-border: #d0c3cb99;
-  --nav-bg: rgba(252, 249, 248, 0.75);
+  --nav-bg: rgba(252, 249, 248, 0.6);
 }
 
 .dark {
@@ -76,7 +75,8 @@
   --text: #fcf9f8;
   --text-muted: rgba(252, 249, 248, 0.55);
   --ghost-border: rgba(208, 195, 203, 0.15);
-  --nav-bg: rgba(27, 28, 28, 0.75);
+  --nav-bg: rgba(27, 28, 28, 0.6);
+  --c-secondary-container: #2e1a20;
 }
 
 @keyframes color-shift {
@@ -95,10 +95,12 @@
 
 /* ── Buttons ── */
 .btn-download {
-  background: linear-gradient(135deg,
-      var(--c-primary) 0%,
-      #ff8eb7 50%,
-      var(--c-primary) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--c-primary) 0%,
+    #ff8eb7 50%,
+    var(--c-primary) 100%
+  );
   background-size: 200% 200%;
   animation: color-shift 5s ease infinite;
   color: var(--c-on-primary);
@@ -150,7 +152,7 @@
 }
 
 .btn-store.cta:hover {
-  background: var(--c-secondary-container);
+  background: rgba(255, 255, 255, 0.88);
   background-size: initial;
   animation: none;
   box-shadow: 0 12px 24px rgba(255, 255, 255, 0.7);

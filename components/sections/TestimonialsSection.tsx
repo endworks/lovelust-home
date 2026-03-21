@@ -7,44 +7,23 @@ import RatingStars from "../RatingStars";
 const TESTIMONIALS = [
   {
     quote:
-      "Finally an app that takes privacy seriously. My data stays on my phone, no accounts, no cloud. Exactly what I needed.",
-    name: "Sophie R.",
+      "I just downloaded it. It seems good so far. I'll update my comment after using it for a while.",
+    name: "Jimmy Jump888",
+    platform: "Google Play",
+    rating: 5,
+  },
+  {
+    quote:
+      "He utilizado la app durante estos días y la verdad es que si eres muy activo/a es algo que no viene nada mal. Sobre todo para quitarte quebraderos de cabeza y siempre estar al día con lo que ha podido pasar.",
+    name: "Senbetsu",
     platform: "App Store",
     rating: 5,
   },
   {
     quote:
-      "The design is beautiful and the tracking is incredibly thoughtful. I use it every week and it has genuinely improved how I think about my health.",
-    name: "Marco T.",
-    platform: "Google Play",
-    rating: 4.5,
-  },
-  {
-    quote:
-      "Love the dark mode and how clean everything looks. The stats section is so well done, gives me real insights without feeling clinical.",
-    name: "Alicia M.",
+      "La aplicación es muy clara y fácil de utilizar me permite registrar todo bien y que tenga el Apple salud es un extra muy bueno.",
+    name: "Adan López",
     platform: "App Store",
-    rating: 5,
-  },
-  {
-    quote:
-      "Simple to use but surprisingly deep. The partner tracking and notes feature are brilliant. Highly recommend.",
-    name: "James K.",
-    platform: "Google Play",
-    rating: 4.5,
-  },
-  {
-    quote:
-      "I was skeptical at first but the privacy-first approach won me over. No sign-up required and everything is encrypted.",
-    name: "Lea V.",
-    platform: "App Store",
-    rating: 4,
-  },
-  {
-    quote:
-      "Best intimate health app I've tried. The interface feels premium and the data export works perfectly. Worth every penny.",
-    name: "David N.",
-    platform: "Google Play",
     rating: 5,
   },
 ];
@@ -93,8 +72,10 @@ export default function TestimonialsSection() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(280px, 1fr))",
             gap: "1.25rem",
+            maxWidth: 960,
+            margin: "0 auto",
           }}
         >
           {TESTIMONIALS.map(({ quote, name, platform, rating }) => (

@@ -93,7 +93,7 @@ export default function Header({
               cursor: "pointer",
               fontSize: "1rem",
               lineHeight: 1,
-              color: "var(--text)",
+              color: "var(--text-muted)",
             }}
           >
             {isDark ? <SunIcon size={16} /> : <MoonIcon size={16} />}
@@ -111,7 +111,7 @@ export default function Header({
               cursor: "pointer",
               fontSize: "0.75rem",
               fontWeight: 400,
-              color: "var(--text)",
+              color: "var(--text-muted)",
               letterSpacing: "0.05em",
             }}
           >
