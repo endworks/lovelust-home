@@ -3,6 +3,7 @@
 import { MoonIcon, SunIcon } from "@phosphor-icons/react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
+import LogoText from "./LogoText";
 
 export default function Header({
     isMobile,
@@ -39,17 +40,7 @@ export default function Header({
                 }}
             >
                 <Link href="/" style={{ textDecoration: "none" }}>
-                    <span
-                        className="font-headline"
-                        style={{
-                            fontSize: "1.5rem",
-                            fontWeight: 900,
-                            color: "var(--c-primary)",
-                            letterSpacing: "-0.03em",
-                        }}
-                    >
-                        LoveLust
-                    </span>
+                    <LogoText size="1.5rem" />
                 </Link>
                 <div
                     style={{

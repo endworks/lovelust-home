@@ -2,9 +2,9 @@
 
 import { useTranslation } from "react-i18next";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
+import PhoneMockup from "../PhoneMockup";
 import RatingStars from "../RatingStars";
 import StoreBadge from "../StoreBadge";
-import PhoneMockup from "../PhoneMockup";
 
 interface HeroSectionProps {
   isDark: boolean;
@@ -95,6 +95,8 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
               style={{
                 whiteSpace: "nowrap",
                 display: "block",
+                fontWeight: 900,
+                fontStyle: "italic",
                 color: "var(--c-primary)",
               }}
             >

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
+import LogoText from "./LogoText";
 
 export default function Footer({ isMobile, px }: { isMobile: boolean; px: string }) {
     const { t } = useTranslation();
@@ -28,18 +29,8 @@ export default function Footer({ isMobile, px }: { isMobile: boolean; px: string
                 >
                     {/* Brand */}
                     <div>
-                        <span
-                            className="font-headline"
-                            style={{
-                                fontSize: "1.75rem",
-                                fontWeight: 900,
-                                color: "var(--c-primary)",
-                                letterSpacing: "-0.04em",
-                                display: "block",
-                                marginBottom: "0.75rem",
-                            }}
-                        >
-                            LoveLust
+                        <span style={{ display: "block", marginBottom: "0.75rem" }}>
+                            <LogoText size="1.75rem" />
                         </span>
                         <p
                             style={{
