@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "LoveLust — Sexual Health Tracker",
+    name: "LoveLust: Sexual Health Tracker",
     short_name: "LoveLust",
     description:
       "Track your sexual encounters and birth control methods. Private, encrypted, and available on iOS and Android.",

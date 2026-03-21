@@ -80,7 +80,9 @@ export default function FeaturesSection() {
                 marginBottom: "1rem",
               }}
             >
-              {t("BentoPrivacyTitle")}
+              {t("BentoPrivacyTitlePrefix")}
+              <span style={{ fontStyle: "italic" }}>{t("BentoPrivacyTitleAccent")}</span>
+              {t("BentoPrivacyTitleSuffix")}
             </h3>
             <p
               style={{

@@ -51,7 +51,7 @@ export default async function Page() {
         url: APP_URL,
         name: "LoveLust",
         description:
-          "Sexual Health Tracker — private, encrypted, available on iOS and Android.",
+          "Sexual Health Tracker. Private, encrypted, available on iOS and Android.",
         potentialAction: {
           "@type": "SearchAction",
           target: `${APP_URL}/support?q={search_term_string}`,
@@ -87,7 +87,7 @@ export default async function Page() {
         "@id": `${APP_URL}/#app`,
         name: "LoveLust",
         description:
-          "Track your sexual encounters and birth control methods with LoveLust. All data is stored locally with AES-256 encryption — your privacy is guaranteed.",
+          "Track your sexual encounters and birth control methods with LoveLust. All data is stored locally with AES-256 encryption. Your privacy is guaranteed.",
         applicationCategory: "HealthApplication",
         operatingSystem: ["iOS", "Android"],
         downloadUrl: [

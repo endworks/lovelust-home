@@ -4,7 +4,7 @@ LoveLust está destinado a usuarios **mayores de 18 años**.
 
 ## 1. Datos que recopilamos
 
-### Datos de actividad sexual y salud (categoría especial — RGPD Art. 9)
+### Datos de actividad sexual y salud (categoría especial, RGPD Art. 9)
 
 Los datos sobre actividad sexual, parejas, anticoncepción, pruebas de ITS e información de salud relacionada se clasifican como **datos de categoría especial** según el RGPD Art. 9. Estos datos:
 
@@ -39,20 +39,20 @@ Los datos de salud se conservan mientras uses la app. Puedes eliminar todos tus 
 
 ## 4. Tus derechos según el RGPD
 
-- **Art. 15 — Derecho de acceso:** Solicita una copia de los datos personales que tenemos sobre ti.
-- **Art. 16 — Derecho de rectificación:** Pídenos que corrijamos datos incorrectos.
-- **Art. 17 — Derecho de supresión:** Solicita la eliminación de tus datos. Para los datos de salud almacenados localmente, ejerce este derecho directamente en la app.
-- **Art. 20 — Derecho a la portabilidad:** Exporta tus datos en un formato legible por máquina.
-- **Art. 7(3) — Derecho a retirar el consentimiento:** Retira el consentimiento en cualquier momento eliminando tus datos.
+- **Art. 15, Derecho de acceso:** Solicita una copia de los datos personales que tenemos sobre ti.
+- **Art. 16, Derecho de rectificación:** Pídenos que corrijamos datos incorrectos.
+- **Art. 17, Derecho de supresión:** Solicita la eliminación de tus datos. Para los datos de salud almacenados localmente, ejerce este derecho directamente en la app.
+- **Art. 20, Derecho a la portabilidad:** Exporta tus datos en un formato legible por máquina.
+- **Art. 7(3), Derecho a retirar el consentimiento:** Retira el consentimiento en cualquier momento eliminando tus datos.
 
 Para ejercer cualquier derecho, contáctanos en la dirección de correo indicada en la página de soporte. Responderemos en un plazo de 30 días.
 
 ## 5. Servicios de terceros
 
-- **RevenueCat** — gestión de suscripciones. [Política de privacidad](https://www.revenuecat.com/privacy)
-- **Aptabase** — analíticas anónimas. [Política de privacidad](https://aptabase.com/legal/privacy)
-- **Apple HealthKit / Google Health Connect** — integración opcional de datos de salud (solo cuando la activas tú).
-- **Google Play Services** — [Política de privacidad](https://policies.google.com/privacy?hl=en-US)
+- **RevenueCat:** gestión de suscripciones. [Política de privacidad](https://www.revenuecat.com/privacy)
+- **Aptabase:** analíticas anónimas. [Política de privacidad](https://aptabase.com/legal/privacy)
+- **Apple HealthKit / Google Health Connect:** integración opcional de datos de salud (solo cuando la activas tú).
+- **Google Play Services:** [Política de privacidad](https://policies.google.com/privacy?hl=en-US)
 
 No vendemos tus datos a ningún tercero.
 

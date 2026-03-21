@@ -4,7 +4,7 @@ LoveLust is intended for users who are **18 years of age or older**.
 
 ## 1. Data We Collect
 
-### Sexual activity and health data (special category — GDPR Art. 9)
+### Sexual activity and health data (special category, GDPR Art. 9)
 
 Data about sexual activity, partners, contraception, STI tests, and related health information is classified as **special category data** under GDPR Art. 9. This data:
 
@@ -39,20 +39,20 @@ Health data is retained for as long as you use the app. You can delete all your 
 
 ## 4. Your GDPR Rights
 
-- **Art. 15 — Right of access:** Request a copy of the personal data we hold about you.
-- **Art. 16 — Right to rectification:** Ask us to correct inaccurate data.
-- **Art. 17 — Right to erasure:** Request deletion of your data. For health data stored locally, exercise this directly in the app.
-- **Art. 20 — Right to data portability:** Export your data in a machine-readable format.
-- **Art. 7(3) — Right to withdraw consent:** Withdraw consent at any time by deleting your data.
+- **Art. 15, Right of access:** Request a copy of the personal data we hold about you.
+- **Art. 16, Right to rectification:** Ask us to correct inaccurate data.
+- **Art. 17, Right to erasure:** Request deletion of your data. For health data stored locally, exercise this directly in the app.
+- **Art. 20, Right to data portability:** Export your data in a machine-readable format.
+- **Art. 7(3), Right to withdraw consent:** Withdraw consent at any time by deleting your data.
 
 To exercise any right, contact us at the email address listed on the Support page. We will respond within 30 days.
 
 ## 5. Third-Party Services
 
-- **RevenueCat** — subscription management. [Privacy Policy](https://www.revenuecat.com/privacy)
-- **Aptabase** — anonymous analytics. [Privacy Policy](https://aptabase.com/legal/privacy)
-- **Apple HealthKit / Google Health Connect** — optional health data integration (only when enabled by you).
-- **Google Play Services** — [Privacy Policy](https://policies.google.com/privacy?hl=en-US)
+- **RevenueCat:** subscription management. [Privacy Policy](https://www.revenuecat.com/privacy)
+- **Aptabase:** anonymous analytics. [Privacy Policy](https://aptabase.com/legal/privacy)
+- **Apple HealthKit / Google Health Connect:** optional health data integration (only when enabled by you).
+- **Google Play Services:** [Privacy Policy](https://policies.google.com/privacy?hl=en-US)
 
 We do not sell your data to any third party.
 

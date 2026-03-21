@@ -8,7 +8,7 @@ LoveLust es una aplicación móvil que ayuda a los usuarios a registrar su activ
 
 LoveLust ofrece suscripciones de pago opcionales gestionadas a través de **RevenueCat** para desbloquear funciones adicionales:
 
-- **Planes disponibles:** Mensual, Anual y de por vida — los precios son los indicados en el App Store y Google Play en el momento de la compra.
+- **Planes disponibles:** Mensual, Anual y de por vida. Los precios son los indicados en el App Store y Google Play en el momento de la compra.
 - **Renovación automática:** Las suscripciones se renuevan automáticamente salvo que se cancelen al menos 24 horas antes del final del período en curso.
 - **Pruebas gratuitas y descuentos:** Una vez que finaliza la prueba, se te cobrará a menos que canceles antes.
 - **Pago:** El pago se carga en tu cuenta de Apple o Google al confirmar.

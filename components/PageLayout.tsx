@@ -1,10 +1,10 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
-import { useTheme } from "../hooks/useTheme";
 import { useMediaQuery } from "../hooks/useMediaQuery";
-import Header from "./Header";
+import { useTheme } from "../hooks/useTheme";
 import Footer from "./Footer";
+import Header from "./Header";
 
 interface PageLayoutProps {
   children: React.ReactNode;

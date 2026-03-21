@@ -21,7 +21,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "Love the dark mode and how clean everything looks. The stats section is so well done — gives me real insights without feeling clinical.",
+      "Love the dark mode and how clean everything looks. The stats section is so well done, gives me real insights without feeling clinical.",
     name: "Alicia M.",
     platform: "App Store",
     rating: 5,

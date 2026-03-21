@@ -8,7 +8,7 @@ LoveLust is a mobile application that helps users track sexual activity and rela
 
 LoveLust offers optional paid subscriptions managed through **RevenueCat** to unlock additional features:
 
-- **Plans available:** Monthly, Annual, and Lifetime — prices are as listed in the App Store and Google Play at the time of purchase.
+- **Plans available:** Monthly, Annual, and Lifetime. Prices are as listed in the App Store and Google Play at the time of purchase.
 - **Auto-renewal:** Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period.
 - **Free trials & discounts:** Once a trial ends, you will be charged unless you cancel beforehand.
 - **Payment:** Payment is charged to your Apple or Google account upon confirmation.
