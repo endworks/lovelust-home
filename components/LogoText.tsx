@@ -18,14 +18,14 @@ export default function LogoText({ size = "1.5rem" }: LogoTextProps) {
         style={{
           fontFamily: "'Nunito', sans-serif",
           fontWeight: 900,
-          color: "var(--c-primary)",
+          color: "var(--text)",
         }}
       >
         Love
       </span>
       <span
         style={{
-          fontFamily: "'Caveat', cursive",
+          fontFamily: "'Nunito', sans-serif",
           fontWeight: 900,
           fontStyle: "italic",
           color: "var(--c-primary)",
