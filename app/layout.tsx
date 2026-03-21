@@ -1,8 +1,15 @@
-/* eslint-disable @next/next/no-page-custom-font */
 import type { Metadata, Viewport } from "next";
+import { Nunito } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Providers from "./providers";
+
+const nunito = Nunito({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
+  variable: "--font-nunito",
+});
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://lovelust.health";
 
@@ -90,7 +97,7 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     site: "@lovelust_health",
     creator: "@lovelust_health",
     title: "LoveLust: Sexual Health Tracker",
@@ -122,32 +129,26 @@ export default async function RootLayout({
   const lng = "en";
 
   return (
-    <html lang={lng} suppressHydrationWarning>
+    <html lang={lng} className={nunito.variable} suppressHydrationWarning>
       <head>
         {/* Inline theme script runs before React — prevents any dark/light flash */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap"
-          rel="stylesheet"
-        />
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-YRL4VQRLFD"
-          strategy="afterInteractive"
-        />
-        <Script id="gtag-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-YRL4VQRLFD');
-          `}
-        </Script>
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="gtag-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+              `}
+            </Script>
+          </>
+        )}
       </head>
       <body className="antialiased font-sans">
         <Providers lng={lng}>{children}</Providers>

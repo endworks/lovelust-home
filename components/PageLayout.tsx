@@ -27,7 +27,7 @@ export default function PageLayout({ children, title }: PageLayoutProps) {
       style={{
         backgroundColor: "var(--bg)",
         color: "var(--text)",
-        fontFamily: "'Nunito', sans-serif",
+        fontFamily: "var(--font-nunito), sans-serif",
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",

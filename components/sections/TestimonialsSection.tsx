@@ -49,14 +49,9 @@ const TESTIMONIALS = [
   },
 ];
 
-/**
- * Testimonials section. Only rendered in development mode.
- */
 export default function TestimonialsSection() {
   const { t } = useTranslation();
   const isMobile = useMediaQuery("(max-width: 768px)");
-
-  if (process.env.NODE_ENV !== "development") return null;
 
   return (
     <section

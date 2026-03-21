@@ -150,7 +150,7 @@ export default function FeaturesSection() {
             >
               {t("BentoStatsTitle")}
             </h3>
-            <p style={{ color: "#4d444b", lineHeight: 1.7 }}>
+            <p style={{ color: "var(--text-muted)", lineHeight: 1.7 }}>
               {t("BentoStatsDesc")}
             </p>
           </div>

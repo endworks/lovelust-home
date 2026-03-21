@@ -16,7 +16,7 @@ export default function LogoText({ size = "1.5rem" }: LogoTextProps) {
     >
       <span
         style={{
-          fontFamily: "'Nunito', sans-serif",
+          fontFamily: "var(--font-nunito), sans-serif",
           fontWeight: 900,
           color: "var(--text)",
         }}
@@ -25,7 +25,7 @@ export default function LogoText({ size = "1.5rem" }: LogoTextProps) {
       </span>
       <span
         style={{
-          fontFamily: "'Nunito', sans-serif",
+          fontFamily: "var(--font-nunito), sans-serif",
           fontWeight: 900,
           fontStyle: "italic",
           color: "var(--c-primary)",

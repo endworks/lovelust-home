@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../hooks/useTheme";
 import { useMediaQuery } from "../hooks/useMediaQuery";
@@ -22,7 +21,7 @@ export default function HomeClient({
   faqEn: string;
   faqEs: string;
 }) {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const { isDark, toggleDark } = useTheme();
   const isMobile = useMediaQuery("(max-width: 768px)");
 
@@ -32,10 +31,6 @@ export default function HomeClient({
     i18n.changeLanguage(lang);
   }
 
-  useEffect(() => {
-    document.title = t("Title") + ": " + t("Subtitle");
-  }, [i18n, t]);
-
   const px = isMobile ? "1.25rem" : "2rem";
 
   return (
@@ -43,7 +38,7 @@ export default function HomeClient({
       style={{
         backgroundColor: "var(--bg)",
         color: "var(--text)",
-        fontFamily: "'Nunito', sans-serif",
+        fontFamily: "var(--font-nunito), sans-serif",
       }}
     >
       <Header

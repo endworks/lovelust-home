@@ -49,9 +49,42 @@ export default function Header({
             alignItems: "center",
           }}
         >
+          {!isMobile && (
+            <nav
+              aria-label="Main navigation"
+              style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}
+            >
+              {[
+                { href: "/#features", label: t("NavFeatures") },
+                { href: "/#values", label: t("OurValues") },
+                { href: "/#faq", label: t("FAQ") },
+              ].map(({ href, label }) => (
+                <a
+                  key={href}
+                  href={href}
+                  style={{
+                    fontSize: "0.875rem",
+                    fontWeight: 600,
+                    color: "var(--text-muted)",
+                    textDecoration: "none",
+                    transition: "color 0.2s",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.color = "var(--c-primary)")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.color = "var(--text-muted)")
+                  }
+                >
+                  {label}
+                </a>
+              ))}
+            </nav>
+          )}
+
           <button
             onClick={toggleDark}
-            title="Toggle dark mode"
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
             style={{
               background: "none",
               border: "none",
@@ -67,6 +100,9 @@ export default function Header({
           </button>
           <button
             onClick={() => switchLanguage(i18n.language === "es" ? "en" : "es")}
+            aria-label={
+              i18n.language === "es" ? "Switch to English" : "Cambiar a Español"
+            }
             style={{
               background: "none",
               border: "none",
@@ -74,7 +110,7 @@ export default function Header({
               padding: "0.5rem 0.75rem",
               cursor: "pointer",
               fontSize: "0.75rem",
-              fontWeight: 200,
+              fontWeight: 400,
               color: "var(--text)",
               letterSpacing: "0.05em",
             }}

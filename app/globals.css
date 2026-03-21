@@ -1,17 +1,10 @@
 @import "../src/index.css";
 
-/* ── Legacy ── */
-.font-display {
-  font-family: 'Nunito', sans-serif;
-}
-
 /* ── Typography ── */
-.font-headline {
-  font-family: 'Nunito', sans-serif;
-}
-
-.font-body {
-  font-family: 'Nunito', sans-serif;
+.font-headline,
+.font-body,
+.font-display {
+  font-family: var(--font-nunito), sans-serif;
 }
 
 /* ── Download badge size ── */

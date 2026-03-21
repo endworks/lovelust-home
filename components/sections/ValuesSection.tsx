@@ -20,7 +20,7 @@ export default function ValuesSection() {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
-    <SectionContainer>
+    <SectionContainer id="values">
       <div style={{ textAlign: "center", marginBottom: "3rem" }}>
         <h2
           className="font-headline"

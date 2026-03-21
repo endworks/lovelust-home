@@ -161,15 +161,11 @@ export default function Footer({ isMobile, px }: { isMobile: boolean; px: string
                         © {new Date().getFullYear()} end.works LLC.{" "}
                         {t("AllRightsReserved")}
                     </p>
-                    <p
-                        style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}
-                        dangerouslySetInnerHTML={{
-                            __html: t("MadeWithLove").replace(
-                                "♥",
-                                `<span style="color:var(--c-primary)">♥</span>`
-                            ),
-                        }}
-                    />
+                    <p style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>
+                        {t("MadeWithLove").split("♥")[0]}
+                        <span style={{ color: "var(--c-primary)" }}>♥</span>
+                        {t("MadeWithLove").split("♥")[1]}
+                    </p>
                 </div>
             </div>
         </footer>

@@ -4,15 +4,9 @@ import { useTranslation } from "react-i18next";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import ThemeAwareScreenshot from "../ThemeAwareScreenshot";
 
-/**
- * App preview section with 3-phone layout (desktop) / single phone (mobile).
- * Only rendered in development mode.
- */
 export default function AppPreviewSection() {
   const { t, i18n } = useTranslation();
   const isMobile = useMediaQuery("(max-width: 768px)");
-
-  if (process.env.NODE_ENV !== "development") return null;
 
   const px = isMobile ? "1.25rem" : "2rem";
 

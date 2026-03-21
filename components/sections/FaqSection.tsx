@@ -15,7 +15,7 @@ export default function FaqSection({ faqEn, faqEs }: FaqSectionProps) {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
-    <SectionContainer maxWidth={800}>
+    <SectionContainer maxWidth={800} id="faq">
       <div
         style={{
           textAlign: "center",

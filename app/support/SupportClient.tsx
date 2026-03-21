@@ -36,7 +36,7 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
       />
       <h2
         style={{
-          fontFamily: "'Nunito', sans-serif",
+          fontFamily: "var(--font-nunito), sans-serif",
           fontSize: "1.375rem",
           fontWeight: 800,
           color: "var(--text)",
@@ -54,7 +54,7 @@ function SubLabel({ children }: { children: React.ReactNode }) {
   return (
     <p
       style={{
-        fontFamily: "'Nunito', sans-serif",
+        fontFamily: "var(--font-nunito), sans-serif",
         fontSize: "0.7rem",
         fontWeight: 700,
         color: "var(--c-primary)",
@@ -121,7 +121,7 @@ function SocialCard({
       <div>
         <p
           style={{
-            fontFamily: "'Nunito', sans-serif",
+            fontFamily: "var(--font-nunito), sans-serif",
             fontWeight: 800,
             color: "var(--text)",
             fontSize: "0.875rem",
@@ -209,7 +209,7 @@ function SupportContent({ faqEn, faqEs }: { faqEn: string; faqEs: string }) {
         </div>
         <p
           style={{
-            fontFamily: "'Nunito', sans-serif",
+            fontFamily: "var(--font-nunito), sans-serif",
             fontWeight: 700,
             color: "var(--text)",
             fontSize: "1rem",
@@ -240,7 +240,7 @@ function SupportContent({ faqEn, faqEs }: { faqEn: string; faqEs: string }) {
           <div>
             <p
               style={{
-                fontFamily: "'Nunito', sans-serif",
+                fontFamily: "var(--font-nunito), sans-serif",
                 fontWeight: 700,
                 color: "var(--c-primary)",
                 marginBottom: "0.25rem",
@@ -342,7 +342,7 @@ function SupportContent({ faqEn, faqEs }: { faqEn: string; faqEs: string }) {
               fontWeight: 800,
               color: "var(--text)",
               fontSize: "0.95rem",
-              fontFamily: "'Nunito', sans-serif",
+              fontFamily: "var(--font-nunito), sans-serif",
             }}
           >
             {process.env.NEXT_PUBLIC_SUPPORT_EMAIL}
