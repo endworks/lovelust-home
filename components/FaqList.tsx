@@ -65,7 +65,7 @@ function FaqItem({
       >
         <span
           style={{
-            fontFamily: "var(--font-nunito), sans-serif",
+            fontFamily: "var(--font-body), sans-serif",
             fontSize: "0.65rem",
             fontWeight: 800,
             color: "var(--c-primary)",
@@ -79,7 +79,7 @@ function FaqItem({
         </span>
         <span
           style={{
-            fontFamily: "var(--font-nunito), sans-serif",
+            fontFamily: "var(--font-body), sans-serif",
             fontWeight: 700,
             color: isOpen ? "var(--c-primary)" : "var(--text)",
             fontSize: "0.9rem",

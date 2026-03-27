@@ -13,7 +13,7 @@ export default function MarkdownContent({ content }: { content: string }) {
         h2: ({ children }) => (
           <h2
             style={{
-              fontFamily: "var(--font-nunito), sans-serif",
+              fontFamily: "var(--font-body), sans-serif",
               fontSize: "1.1rem",
               fontWeight: 700,
               color: "var(--c-primary)",
@@ -29,7 +29,7 @@ export default function MarkdownContent({ content }: { content: string }) {
         h3: ({ children }) => (
           <h3
             style={{
-              fontFamily: "var(--font-nunito), sans-serif",
+              fontFamily: "var(--font-body), sans-serif",
               fontSize: "0.95rem",
               fontWeight: 700,
               color: "var(--c-primary)",

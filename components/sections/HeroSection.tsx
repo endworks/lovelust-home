@@ -95,8 +95,9 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
               style={{
                 whiteSpace: "nowrap",
                 display: "block",
+                fontFamily: "var(--font-accent)",
                 fontWeight: 900,
-                fontStyle: "italic",
+                fontStyle: "normal",
                 color: "var(--c-primary)",
               }}
             >

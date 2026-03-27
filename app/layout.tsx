@@ -1,14 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Nunito } from "next/font/google";
+import { Fuzzy_Bubbles, Nunito } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Providers from "./providers";
 
-const nunito = Nunito({
+const bodyFont = Nunito({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
   display: "swap",
-  variable: "--font-nunito",
+  variable: "--font-body",
+});
+
+const accentFont = Fuzzy_Bubbles({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-accent",
 });
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://lovelust.health";
@@ -129,7 +136,11 @@ export default async function RootLayout({
   const lng = "en";
 
   return (
-    <html lang={lng} className={nunito.variable} suppressHydrationWarning>
+    <html
+      lang={lng}
+      className={`${bodyFont.variable} ${accentFont.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         {/* Inline theme script runs before React — prevents any dark/light flash */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
