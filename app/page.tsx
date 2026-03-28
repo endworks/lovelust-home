@@ -1,13 +1,13 @@
 import fs from "fs";
 import type { Metadata } from "next";
 import path from "path";
-import HomeClient from "./HomeClient";
 import { parseFaq } from "../lib/parseFaq";
+import HomeClient from "./HomeClient";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://lovelust.health";
 
 export const metadata: Metadata = {
-  title: "LoveLust: Sexual Health Tracker",
+  title: "LoveLust: Sexual Health",
   description:
     "LoveLust lets you track your sexual encounters and birth control methods, ensuring a healthier sexual life. Private, encrypted, available on iOS and Android.",
   alternates: {

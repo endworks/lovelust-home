@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 import FaqList from "./FaqList";
 
 const SAMPLE_FAQ = `## What is LoveLust?

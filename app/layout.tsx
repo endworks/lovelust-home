@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   applicationName: "LoveLust",
   title: {
     template: "%s | LoveLust",
-    default: "LoveLust: Sexual Health Tracker",
+    default: "LoveLust: Sexual Health",
   },
   description:
     "LoveLust lets you track your sexual encounters and birth control methods, ensuring a healthier sexual life. Private, encrypted, and available on iOS and Android.",
@@ -104,7 +104,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "LoveLust",
     locale: "en_US",
-    title: "LoveLust: Sexual Health Tracker",
+    title: "LoveLust: Sexual Health",
     description:
       "Track your sexual encounters and birth control methods with LoveLust. Private, encrypted, available on iOS and Android.",
   },
@@ -112,7 +112,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@lovelust_health",
     creator: "@lovelust_health",
-    title: "LoveLust: Sexual Health Tracker",
+    title: "LoveLust: Sexual Health",
     description:
       "Track your sexual encounters and birth control methods with LoveLust. Private, encrypted, available on iOS and Android.",
   },

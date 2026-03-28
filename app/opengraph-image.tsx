@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "LoveLust: Sexual Health Tracker";
+export const alt = "LoveLust: Sexual Health";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -54,7 +54,7 @@ export default function Image() {
             fontWeight: 400,
           }}
         >
-          Sexual Health Tracker — Private &amp; Encrypted
+          Sexual Health — Private &amp; Encrypted
         </div>
       </div>
     </div>,
