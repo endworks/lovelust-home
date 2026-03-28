@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import LogoText from "./LogoText";
+import LogoSvg from "./LogoSvg";
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -15,7 +15,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <span style={{ display: "block", marginBottom: "0.75rem" }}>
-              <LogoText size="1.75rem" />
+              <LogoSvg height={32} />
             </span>
             <p
               style={{
