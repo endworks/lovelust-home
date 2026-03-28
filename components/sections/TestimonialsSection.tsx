@@ -29,9 +29,9 @@ export default function TestimonialsSection({
           <h2
             style={{
               fontFamily: "var(--font-accent)",
-              fontSize: "clamp(1.75rem,4vw,2.5rem)",
+              fontSize: "var(--text-section)",
               fontWeight: 700,
-              color: "var(--c-primary)",
+              color: "var(--accent)",
               marginBottom: "1rem",
             }}
           >
@@ -64,7 +64,7 @@ export default function TestimonialsSection({
               className="editorial-shadow"
               style={{
                 backgroundColor: "var(--bg-lowest)",
-                borderRadius: "1.5rem",
+                borderRadius: "var(--radius)",
                 padding: "1.75rem",
                 display: "flex",
                 flexDirection: "column",
@@ -76,7 +76,7 @@ export default function TestimonialsSection({
                 style={{
                   color: "var(--text-muted)",
                   lineHeight: 1.7,
-                  fontSize: "0.9rem",
+                  fontSize: "var(--text-base)",
                   flex: 1,
                 }}
               >
@@ -93,15 +93,15 @@ export default function TestimonialsSection({
                   style={{
                     fontFamily: "var(--font-accent)",
                     fontWeight: 600,
-                    color: "var(--c-primary)",
-                    fontSize: "0.875rem",
+                    color: "var(--accent)",
+                    fontSize: "var(--text-base)",
                   }}
                 >
                   {name}
                 </span>
                 <span
                   style={{
-                    fontSize: "0.75rem",
+                    fontSize: "var(--text-sm)",
                     color: "var(--text-muted)",
                   }}
                 >

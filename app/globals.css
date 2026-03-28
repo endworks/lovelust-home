@@ -285,23 +285,38 @@
 
 /* ── Design tokens ── */
 :root {
-  --c-primary: #f61e6d;
-  --c-on-primary: #ffffff;
-  --c-primary-container: #85113b;
-  --c-secondary: #73575c;
-  --c-secondary-08: #73575c08;
-  --c-secondary-container: #ffe4ec;
+  --radius: 1.75rem;
+
+  /* Type scale */
+  --text-xs: 0.65rem;
+  --text-sm: 0.8rem;
+  --text-base: 0.9rem;
+  --text-md: 1rem;
+  --text-lg: 1.1rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-subhead: clamp(1.5rem, 3vw, 2rem);
+  --text-section: clamp(1.75rem, 4vw, 2.5rem);
+  --text-page: clamp(2rem, 5vw, 3rem);
+  --text-display: clamp(3.5rem, 7vw, 6.5rem);
+
+  --accent: #f61e6d;
+  --on-accent: #ffffff;
+  --accent-dark: #85113b;
+  --secondary: #73575c;
+  --secondary-08: #73575c08;
+  --secondary-bg: #ffe4ec;
 
   /* Primary with alpha — named by the hex alpha byte */
-  --c-primary-06: #f61e6d06;
-  --c-primary-0d: #f61e6d0d;
-  --c-primary-12: #f61e6d12;
-  --c-primary-15: #f61e6d15;
-  --c-primary-18: #f61e6d18;
-  --c-primary-20: #f61e6d20;
-  --c-primary-25: #f61e6d25;
-  --c-primary-40: #f61e6d40;
-  --c-primary-60: #f61e6d60;
+  --accent-06: #f61e6d06;
+  --accent-0d: #f61e6d0d;
+  --accent-12: #f61e6d12;
+  --accent-15: #f61e6d15;
+  --accent-18: #f61e6d18;
+  --accent-20: #f61e6d20;
+  --accent-25: #f61e6d25;
+  --accent-40: #f61e6d40;
+  --accent-60: #f61e6d60;
 
   /* Adaptive tokens — light mode defaults */
   --bg: #fcf9f8;
@@ -325,7 +340,7 @@
   --text-muted: rgba(252, 249, 248, 0.55);
   --ghost-border: rgba(208, 195, 203, 0.15);
   --nav-bg: rgba(27, 28, 28, 0.6);
-  --c-secondary-container: #2e1a20;
+  --secondary-bg: #2e1a20;
 }
 
 @keyframes color-shift {
@@ -364,26 +379,26 @@ html {
 .btn-download {
   background: linear-gradient(
     135deg,
-    var(--c-primary) 0%,
+    var(--accent) 0%,
     #ff8eb7 50%,
-    var(--c-primary) 100%
+    var(--accent) 100%
   );
   background-size: 200% 200%;
   animation: color-shift 5s ease infinite;
-  color: var(--c-on-primary);
+  color: var(--on-accent);
   padding: 0.625rem 1.75rem;
   border-radius: 9999px;
   font-weight: 800;
-  font-size: 0.875rem;
+  font-size: var(--text-base);
   text-decoration: none;
   display: inline-block;
   transition: all 0.2s ease-in-out;
-  box-shadow: 0 4px 12px var(--c-primary-25);
+  box-shadow: 0 4px 12px var(--accent-25);
 }
 
 .btn-download:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 24px var(--c-primary-40);
+  box-shadow: 0 8px 24px var(--accent-40);
   background-size: 150% 150%;
 }
 
@@ -398,22 +413,22 @@ html {
   border-radius: 9999px;
   text-decoration: none;
   transition: all 0.2s ease-in-out;
-  background: var(--c-primary);
-  color: var(--c-on-primary);
-  box-shadow: 0 4px 12px var(--c-primary-25);
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: 0 4px 12px var(--accent-25);
 }
 
 .btn-store:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 24px var(--c-primary-40);
+  box-shadow: 0 8px 24px var(--accent-40);
   opacity: 0.95;
 }
 
 .btn-store.cta {
-  background: var(--c-on-primary);
+  background: var(--on-accent);
   background-size: initial;
   animation: none;
-  color: var(--c-primary);
+  color: var(--accent);
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.5);
   border: none;
 }
@@ -423,7 +438,7 @@ html {
   background-size: initial;
   animation: none;
   box-shadow: 0 12px 24px rgba(255, 255, 255, 0.7);
-  color: var(--c-primary-container);
+  color: var(--accent-dark);
 }
 
 /* ── Theme Visibility ── */

@@ -23,9 +23,9 @@ export default function ValuesSection() {
         <h2
           style={{
             fontFamily: "var(--font-accent)",
-            fontSize: "clamp(1.75rem,4vw,2.5rem)",
+            fontSize: "var(--text-section)",
             fontWeight: 700,
-            color: "var(--c-primary)",
+            color: "var(--accent)",
             marginBottom: "1rem",
           }}
         >
@@ -57,22 +57,22 @@ export default function ValuesSection() {
                 width: 80,
                 height: 80,
                 borderRadius: "50%",
-                backgroundColor: "var(--c-primary-0d)",
+                backgroundColor: "var(--accent-0d)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 margin: "0 auto 1.5rem",
               }}
             >
-              <Icon size={40} color="var(--c-primary)" />
+              <Icon size={40} color="var(--accent)" />
             </div>
             <h3
               style={{
                 fontFamily: "var(--font-accent)",
-                fontSize: "1.25rem",
+                fontSize: "var(--text-xl)",
                 fontWeight: 600,
                 fontStyle: "italic",
-                color: "var(--c-primary)",
+                color: "var(--accent)",
                 marginBottom: "1rem",
               }}
             >
@@ -81,7 +81,7 @@ export default function ValuesSection() {
             <p
               style={{
                 color: "var(--text-muted)",
-                fontSize: "0.875rem",
+                fontSize: "var(--text-base)",
                 lineHeight: 1.7,
               }}
             >

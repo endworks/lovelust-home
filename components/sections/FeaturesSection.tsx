@@ -13,19 +13,15 @@ export default function FeaturesSection() {
   const { t, i18n } = useTranslation();
 
   return (
-    <section
-      id="features"
-      className="section section--alt"
-      style={{ borderRadius: "4rem 4rem 0 0" }}
-    >
+    <section id="features" className="section section--alt">
       <div style={{ maxWidth: 1152, margin: "0 auto" }}>
         <div style={{ marginBottom: "clamp(2.5rem, 4vw, 4rem)" }}>
           <h2
             style={{
               fontFamily: "var(--font-accent)",
-              fontSize: "clamp(1.75rem,4vw,2.5rem)",
+              fontSize: "var(--text-section)",
               fontWeight: 700,
-              color: "var(--c-primary)",
+              color: "var(--accent)",
               marginBottom: "1rem",
             }}
           >
@@ -35,9 +31,9 @@ export default function FeaturesSection() {
             style={{
               height: 4,
               width: 96,
-              backgroundColor: "var(--c-primary-container)",
+              backgroundColor: "var(--accent)",
               borderRadius: 9999,
-              opacity: 0.3,
+              opacity: 1,
             }}
           />
         </div>
@@ -49,22 +45,22 @@ export default function FeaturesSection() {
             style={{
               backgroundColor: "var(--bg-lowest)",
               padding: "clamp(2rem, 3vw, 2.5rem)",
-              borderRadius: "2rem",
+              borderRadius: "var(--radius)",
               position: "relative",
               overflow: "hidden",
             }}
           >
             <LockIcon
               size={40}
-              color="var(--c-primary)"
+              color="var(--accent)"
               style={{ display: "block", marginBottom: "1.5rem" }}
             />
             <h3
               style={{
                 fontFamily: "var(--font-accent)",
-                fontSize: "1.5rem",
+                fontSize: "var(--text-2xl)",
                 fontWeight: 600,
-                color: "var(--c-primary)",
+                color: "var(--accent)",
                 marginBottom: "1rem",
               }}
             >
@@ -89,10 +85,10 @@ export default function FeaturesSection() {
           <div
             className="editorial-shadow"
             style={{
-              backgroundColor: "var(--c-primary)",
-              color: "var(--c-on-primary)",
+              backgroundColor: "var(--accent)",
+              color: "var(--on-accent)",
               padding: "clamp(2rem, 3vw, 2.5rem)",
-              borderRadius: "2rem",
+              borderRadius: "var(--radius)",
             }}
           >
             <UserPlusIcon
@@ -103,7 +99,7 @@ export default function FeaturesSection() {
             <h3
               style={{
                 fontFamily: "var(--font-accent)",
-                fontSize: "1.5rem",
+                fontSize: "var(--text-2xl)",
                 fontWeight: 600,
                 marginBottom: "1rem",
               }}
@@ -119,22 +115,22 @@ export default function FeaturesSection() {
           <div
             className="editorial-shadow"
             style={{
-              backgroundColor: "var(--c-secondary-container)",
+              backgroundColor: "var(--secondary-bg)",
               padding: "clamp(2rem, 3vw, 2.5rem)",
-              borderRadius: "2rem",
+              borderRadius: "var(--radius)",
             }}
           >
             <ChartLineUpIcon
               size={40}
-              color="var(--c-primary)"
+              color="var(--accent)"
               style={{ display: "block", marginBottom: "1.5rem" }}
             />
             <h3
               style={{
                 fontFamily: "var(--font-accent)",
-                fontSize: "1.5rem",
+                fontSize: "var(--text-2xl)",
                 fontWeight: 600,
-                color: "var(--c-primary)",
+                color: "var(--accent)",
                 marginBottom: "1rem",
               }}
             >
@@ -151,25 +147,24 @@ export default function FeaturesSection() {
             style={{
               backgroundColor: "var(--bg-lowest)",
               padding: "clamp(2rem, 3vw, 2.5rem)",
-              borderRadius: "2rem",
+              borderRadius: "var(--radius)",
               display: "flex",
               gap: "2.5rem",
-              alignItems: "center",
               flexWrap: "wrap",
             }}
           >
             <div style={{ flex: 1, minWidth: 200 }}>
               <CrownIcon
                 size={40}
-                color="var(--c-primary)"
+                color="var(--accent)"
                 style={{ display: "block", marginBottom: "1.5rem" }}
               />
               <h3
                 style={{
                   fontFamily: "var(--font-accent)",
-                  fontSize: "1.5rem",
+                  fontSize: "var(--text-2xl)",
                   fontWeight: 600,
-                  color: "var(--c-primary)",
+                  color: "var(--accent)",
                   marginBottom: "1rem",
                 }}
               >
@@ -183,7 +178,7 @@ export default function FeaturesSection() {
               className="hidden-mobile"
               style={{
                 width: 160,
-                borderRadius: "1rem",
+                borderRadius: "var(--radius)",
                 overflow: "hidden",
                 backgroundColor: "var(--bg-high)",
                 flexShrink: 0,

@@ -23,9 +23,9 @@ export default function FaqSection({ faqEn, faqEs }: FaqSectionProps) {
         <h2
           style={{
             fontFamily: "var(--font-accent)",
-            fontSize: "clamp(1.75rem,4vw,2.5rem)",
+            fontSize: "var(--text-section)",
             fontWeight: 700,
-            color: "var(--c-primary)",
+            color: "var(--accent)",
             marginBottom: "1rem",
           }}
         >

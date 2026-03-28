@@ -11,10 +11,11 @@ export default function MarkdownContent({ content }: { content: string }) {
         h2: ({ children }) => (
           <h2
             style={{
-              fontFamily: "var(--font-body), sans-serif",
-              fontSize: "1.1rem",
+              fontFamily: "var(--font-accent)",
+              fontStyle: "italic",
+              fontSize: "var(--text-lg)",
               fontWeight: 700,
-              color: "var(--c-primary)",
+              color: "var(--accent)",
               marginTop: "2rem",
               marginBottom: "0.75rem",
               paddingTop: "1.5rem",
@@ -27,10 +28,10 @@ export default function MarkdownContent({ content }: { content: string }) {
         h3: ({ children }) => (
           <h3
             style={{
-              fontFamily: "var(--font-body), sans-serif",
-              fontSize: "0.95rem",
-              fontWeight: 700,
-              color: "var(--c-primary)",
+              fontFamily: "var(--font-accent)",
+              fontSize: "var(--text-base)",
+              fontWeight: 600,
+              color: "var(--accent)",
               marginTop: "1.25rem",
               marginBottom: "0.5rem",
             }}
@@ -80,9 +81,9 @@ export default function MarkdownContent({ content }: { content: string }) {
           <a
             href={href}
             style={{
-              color: "var(--c-primary)",
+              color: "var(--accent)",
               textDecoration: "underline",
-              textDecorationColor: "var(--c-primary-40)",
+              textDecorationColor: "var(--accent-40)",
             }}
           >
             {children}
@@ -103,7 +104,9 @@ export default function MarkdownContent({ content }: { content: string }) {
           />
         ),
         em: ({ children }) => (
-          <em style={{ color: "var(--text-muted)", fontSize: "0.8rem" }}>
+          <em
+            style={{ color: "var(--text-muted)", fontSize: "var(--text-sm)" }}
+          >
             {children}
           </em>
         ),

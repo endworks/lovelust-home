@@ -72,7 +72,7 @@ export default function StoreButton({
       <div>
         <div
           style={{
-            fontSize: "0.6rem",
+            fontSize: "var(--text-xs)",
             textTransform: "uppercase",
             letterSpacing: "0.1em",
             opacity: 0.8,
@@ -80,7 +80,9 @@ export default function StoreButton({
         >
           {sublabel}
         </div>
-        <div style={{ fontWeight: 800, fontSize: "0.975rem" }}>{label}</div>
+        <div style={{ fontWeight: 800, fontSize: "var(--text-md)" }}>
+          {label}
+        </div>
       </div>
     </a>
   );

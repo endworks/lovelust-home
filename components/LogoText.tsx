@@ -26,7 +26,7 @@ export default function LogoText({ size = "1.5rem" }: LogoTextProps) {
           fontFamily: "var(--font-accent), sans-serif",
           fontWeight: 900,
           fontStyle: "normal",
-          color: "var(--c-primary)",
+          color: "var(--accent)",
         }}
       >
         Lust

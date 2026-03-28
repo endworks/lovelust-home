@@ -26,9 +26,9 @@ function FaqItem({
   return (
     <div
       style={{
-        borderRadius: "1.25rem",
+        borderRadius: "var(--radius)",
         background: isOpen
-          ? "linear-gradient(135deg, var(--c-primary-12) 0%, var(--c-primary-06) 100%)"
+          ? "linear-gradient(135deg, var(--accent-12) 0%, var(--accent-06) 100%)"
           : hovered
             ? "var(--bg-low)"
             : "var(--bg-lowest)",
@@ -55,9 +55,9 @@ function FaqItem({
         <span
           style={{
             fontFamily: "var(--font-body), sans-serif",
-            fontSize: "0.65rem",
+            fontSize: "var(--text-xs)",
             fontWeight: 800,
-            color: "var(--c-primary)",
+            color: "var(--accent)",
             letterSpacing: "0.08em",
             flexShrink: 0,
             opacity: 0.6,
@@ -70,8 +70,8 @@ function FaqItem({
           style={{
             fontFamily: "var(--font-body), sans-serif",
             fontWeight: 700,
-            color: isOpen ? "var(--c-primary)" : "var(--text)",
-            fontSize: "0.9rem",
+            color: isOpen ? "var(--accent)" : "var(--text)",
+            fontSize: "var(--text-base)",
             flex: 1,
             lineHeight: 1.5,
             transition: "color 0.2s",
@@ -84,7 +84,7 @@ function FaqItem({
             width: 28,
             height: 28,
             borderRadius: "50%",
-            background: isOpen ? "var(--c-primary)" : "var(--c-primary-12)",
+            background: isOpen ? "var(--accent)" : "var(--accent-12)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -94,7 +94,7 @@ function FaqItem({
         >
           <CaretDownIcon
             size={14}
-            color={isOpen ? "#fff" : "var(--c-primary)"}
+            color={isOpen ? "#fff" : "var(--accent)"}
             style={{
               transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
               transition: "transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
@@ -115,7 +115,7 @@ function FaqItem({
             style={{
               width: "2rem",
               height: "1px",
-              background: "var(--c-primary-40)",
+              background: "var(--accent-40)",
               marginBottom: "0.75rem",
             }}
           />
@@ -124,7 +124,7 @@ function FaqItem({
               color: "var(--text-muted)",
               lineHeight: 1.8,
               margin: 0,
-              fontSize: "0.875rem",
+              fontSize: "var(--text-base)",
             }}
           >
             {answer}

@@ -25,9 +25,9 @@ export default function AppPreviewSection() {
         <h2
           style={{
             fontFamily: "var(--font-accent)",
-            fontSize: "clamp(1.75rem,4vw,2.5rem)",
+            fontSize: "var(--text-section)",
             fontWeight: 700,
-            color: "var(--c-primary)",
+            color: "var(--accent)",
             marginBottom: "1.5rem",
           }}
         >
@@ -59,7 +59,7 @@ export default function AppPreviewSection() {
             width: "72%",
             maxWidth: 260,
             backgroundColor: "var(--bg-highest)",
-            borderRadius: "2.5rem",
+            borderRadius: "var(--radius)",
             border: "5px solid var(--bg-low)",
             boxShadow: "0 25px 50px -12px rgba(0,0,0,0.2)",
             overflow: "hidden",
@@ -91,7 +91,7 @@ export default function AppPreviewSection() {
               flexShrink: 0,
               width,
               backgroundColor: "var(--bg-highest)",
-              borderRadius: "3rem",
+              borderRadius: "var(--radius)",
               border: "8px solid var(--bg-low)",
               boxShadow: "0 25px 50px -12px rgba(0,0,0,0.2)",
               overflow: "hidden",

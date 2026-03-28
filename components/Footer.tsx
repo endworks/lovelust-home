@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
+import HeartCheckIcon from "./HeartCheckIcon";
 import LogoSvg from "./LogoSvg";
 
 export default function Footer() {
@@ -19,13 +20,25 @@ export default function Footer() {
             </span>
             <p
               style={{
-                fontSize: "0.9rem",
+                fontSize: "var(--text-md)",
                 color: "var(--text-muted)",
-                lineHeight: 1.7,
+                lineHeight: 1.5,
                 maxWidth: 320,
               }}
             >
-              {t("HeroDescription")}
+              <span style={{ fontFamily: "var(--font-body)", fontWeight: 800 }}>
+                {t("HeroTaglineMain")}
+              </span>
+              {". "}
+              <span
+                style={{
+                  fontFamily: "var(--font-accent)",
+                  fontStyle: "italic",
+                  fontWeight: 600,
+                }}
+              >
+                {t("HeroTaglineAccent")}
+              </span>
             </p>
           </div>
 
@@ -33,11 +46,11 @@ export default function Footer() {
           <div>
             <p
               style={{
-                fontSize: "0.7rem",
-                fontWeight: 700,
-                color: "var(--c-primary)",
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
+                fontFamily: "var(--font-accent)",
+                fontStyle: "italic",
+                fontWeight: 600,
+                fontSize: "var(--text-md)",
+                color: "var(--accent)",
                 marginBottom: "1rem",
               }}
             >
@@ -58,13 +71,13 @@ export default function Footer() {
                   key={href}
                   href={href}
                   style={{
-                    fontSize: "0.875rem",
+                    fontSize: "var(--text-base)",
                     color: "var(--text-muted)",
                     textDecoration: "none",
                     transition: "color 0.2s",
                   }}
                   onMouseEnter={(e) =>
-                    (e.currentTarget.style.color = "var(--c-primary)")
+                    (e.currentTarget.style.color = "var(--accent)")
                   }
                   onMouseLeave={(e) =>
                     (e.currentTarget.style.color = "var(--text-muted)")
@@ -80,11 +93,11 @@ export default function Footer() {
           <div>
             <p
               style={{
-                fontSize: "0.7rem",
-                fontWeight: 700,
-                color: "var(--c-primary)",
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
+                fontFamily: "var(--font-accent)",
+                fontStyle: "italic",
+                fontWeight: 600,
+                fontSize: "var(--text-md)",
+                color: "var(--accent)",
                 marginBottom: "1rem",
               }}
             >
@@ -103,13 +116,13 @@ export default function Footer() {
                     key={href}
                     href={href}
                     style={{
-                      fontSize: "0.875rem",
+                      fontSize: "var(--text-base)",
                       color: "var(--text-muted)",
                       textDecoration: "none",
                       transition: "color 0.2s",
                     }}
                     onMouseEnter={(e) =>
-                      (e.currentTarget.style.color = "var(--c-primary)")
+                      (e.currentTarget.style.color = "var(--accent)")
                     }
                     onMouseLeave={(e) =>
                       (e.currentTarget.style.color = "var(--text-muted)")
@@ -127,19 +140,29 @@ export default function Footer() {
         <div
           style={{
             height: 1,
-            backgroundColor: "var(--c-primary-12)",
+            backgroundColor: "var(--accent-12)",
             marginBottom: "clamp(1.5rem, 3vw, 2rem)",
           }}
         />
 
         {/* Bottom row: copyright + made by */}
         <div className="footer-bottom">
-          <p style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>
+          <p style={{ fontSize: "var(--text-sm)", color: "var(--text-muted)" }}>
             © {new Date().getFullYear()} end.works LLC. {t("AllRightsReserved")}
           </p>
-          <p style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>
+          <p
+            style={{
+              fontFamily: "var(--font-accent)",
+              fontStyle: "italic",
+              fontSize: "var(--text-base)",
+              color: "var(--text-muted)",
+              display: "flex",
+              alignItems: "center",
+              gap: "0.35rem",
+            }}
+          >
             {t("MadeWithLove").split("♥")[0]}
-            <span style={{ color: "var(--c-primary)" }}>♥</span>
+            <HeartCheckIcon size={16} />
             {t("MadeWithLove").split("♥")[1]}
           </p>
         </div>

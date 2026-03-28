@@ -12,11 +12,11 @@ export default function CtaSection() {
         style={{
           maxWidth: 896,
           margin: "0 auto",
-          backgroundColor: "var(--c-primary)",
-          borderRadius: "clamp(2rem, 4vw, 3rem)",
+          backgroundColor: "var(--accent)",
+          borderRadius: "var(--radius)",
           padding: "clamp(2.5rem, 5vw, 4rem)",
           textAlign: "center",
-          color: "var(--c-on-primary)",
+          color: "var(--on-accent)",
           position: "relative",
           overflow: "hidden",
         }}
@@ -39,7 +39,7 @@ export default function CtaSection() {
         <h2
           style={{
             fontFamily: "var(--font-accent)",
-            fontSize: "clamp(1.75rem,5vw,3.25rem)",
+            fontSize: "var(--text-section)",
             fontWeight: 700,
             fontStyle: "italic",
             marginBottom: "1.5rem",

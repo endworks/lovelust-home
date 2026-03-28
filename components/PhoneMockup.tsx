@@ -26,7 +26,7 @@ export default function PhoneMockup({ language, isDark }: PhoneMockupProps) {
             bottom: "8%",
             left: "50%",
             transform: "translateX(-50%)",
-            backgroundColor: "var(--c-primary)",
+            backgroundColor: "var(--accent)",
             borderRadius: "50%",
             filter: "blur(50px)",
             opacity: isDark ? 0.3 : 0.18,
@@ -38,7 +38,7 @@ export default function PhoneMockup({ language, isDark }: PhoneMockupProps) {
           style={{
             position: "absolute",
             borderRadius: "50%",
-            border: "1px solid var(--c-primary-20)",
+            border: "1px solid var(--accent)",
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
@@ -49,7 +49,7 @@ export default function PhoneMockup({ language, isDark }: PhoneMockupProps) {
           style={{
             position: "absolute",
             borderRadius: "50%",
-            border: "1px solid var(--c-primary-15)",
+            border: "1px solid var(--accent-15)",
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
@@ -183,12 +183,12 @@ export default function PhoneMockup({ language, isDark }: PhoneMockupProps) {
             backfaceVisibility: "hidden",
           }}
         >
-          <LockIcon size={16} color="var(--c-primary)" />
+          <LockIcon size={16} color="var(--accent)" />
           <span
             style={{
-              fontSize: "0.75rem",
+              fontSize: "var(--text-sm)",
               fontWeight: 700,
-              color: "var(--c-primary)",
+              color: "var(--accent)",
               WebkitFontSmoothing: "antialiased",
             }}
           >

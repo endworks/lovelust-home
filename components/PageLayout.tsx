@@ -41,9 +41,9 @@ export default function PageLayout({ children, title }: PageLayoutProps) {
             <h1
               style={{
                 fontFamily: "var(--font-accent)",
-                fontSize: "clamp(2rem,5vw,3rem)",
+                fontSize: "var(--text-page)",
                 fontWeight: 700,
-                color: "var(--c-primary)",
+                color: "var(--accent)",
                 letterSpacing: "-0.02em",
                 lineHeight: 1.1,
               }}

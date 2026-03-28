@@ -1,7 +1,6 @@
 "use client";
 
 import { MoonIcon, SunIcon } from "@phosphor-icons/react";
-import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import LogoSvg from "./LogoSvg";
 
@@ -24,13 +23,13 @@ export default function Header({
         top: 0,
         width: "100%",
         zIndex: 50,
-        backgroundColor: "var(--nav-bg)",
+        backgroundColor: isDark ? "var(--nav-bg)" : "transparent",
       }}
     >
       <div className="nav-inner">
-        <Link href="/" style={{ textDecoration: "none" }}>
+        <a href="/#" style={{ textDecoration: "none" }}>
           <LogoSvg height={28} />
-        </Link>
+        </a>
         <div className="nav-controls">
           <nav
             aria-label="Main navigation"
@@ -46,17 +45,17 @@ export default function Header({
                 key={href}
                 href={href}
                 style={{
-                  fontSize: "0.875rem",
                   fontWeight: 600,
-                  color: "var(--text-muted)",
+                  fontSize: "var(--text-lg)",
+                  color: "var(--text)",
                   textDecoration: "none",
                   transition: "color 0.2s",
                 }}
                 onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = "var(--c-primary)")
+                  (e.currentTarget.style.color = "var(--accent)")
                 }
                 onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = "var(--text-muted)")
+                  (e.currentTarget.style.color = "var(--text)")
                 }
               >
                 {label}
@@ -64,41 +63,55 @@ export default function Header({
             ))}
           </nav>
 
-          <button
-            onClick={toggleDark}
-            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-            style={{
-              background: "none",
-              border: "none",
-              borderRadius: "0.5rem",
-              padding: "0.5rem 0.75rem",
-              cursor: "pointer",
-              fontSize: "1rem",
-              lineHeight: 1,
-              color: "var(--text-muted)",
-            }}
+          <div
+            style={{ display: "flex", alignItems: "center", gap: "0.125rem" }}
           >
-            {isDark ? <SunIcon size={16} /> : <MoonIcon size={16} />}
-          </button>
-          <button
-            onClick={() => switchLanguage(i18n.language === "es" ? "en" : "es")}
-            aria-label={
-              i18n.language === "es" ? "Switch to English" : "Cambiar a Español"
-            }
-            style={{
-              background: "none",
-              border: "none",
-              borderRadius: "0.5rem",
-              padding: "0.5rem 0.75rem",
-              cursor: "pointer",
-              fontSize: "0.75rem",
-              fontWeight: 400,
-              color: "var(--text-muted)",
-              letterSpacing: "0.05em",
-            }}
-          >
-            {i18n.language === "es" ? "EN" : "ES"}
-          </button>
+            <button
+              onClick={toggleDark}
+              aria-label={
+                isDark ? "Switch to light mode" : "Switch to dark mode"
+              }
+              style={{
+                background: "none",
+                border: "none",
+                borderRadius: "0.5rem",
+                padding: "0.5rem 0.5rem",
+                cursor: "pointer",
+                fontSize: "var(--text-md)",
+                lineHeight: 1,
+                color: "var(--text)",
+              }}
+            >
+              {isDark ? (
+                <SunIcon size={16} weight="fill" />
+              ) : (
+                <MoonIcon size={16} weight="fill" />
+              )}
+            </button>
+            <button
+              onClick={() =>
+                switchLanguage(i18n.language === "es" ? "en" : "es")
+              }
+              aria-label={
+                i18n.language === "es"
+                  ? "Switch to English"
+                  : "Cambiar a Español"
+              }
+              style={{
+                background: "none",
+                border: "none",
+                borderRadius: "0.5rem",
+                padding: "0.5rem 0.5rem",
+                cursor: "pointer",
+                fontSize: "var(--text-sm)",
+                fontWeight: 400,
+                color: "var(--text)",
+                letterSpacing: "0.05em",
+              }}
+            >
+              {i18n.language === "es" ? "EN" : "ES"}
+            </button>
+          </div>
 
           <span className="hidden-mobile">
             <a

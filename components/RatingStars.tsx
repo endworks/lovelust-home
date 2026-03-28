@@ -9,7 +9,7 @@ interface RatingStarsProps {
 export default function RatingStars({
   rating,
   size = 18,
-  color = "var(--c-primary)",
+  color = "var(--accent)",
 }: RatingStarsProps) {
   const fullStars = Math.floor(rating);
   const remainder = rating % 1;
