@@ -82,13 +82,18 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
             style={{
               fontSize: "clamp(2.75rem,5.5vw,5.25rem)",
               fontWeight: 900,
-              lineHeight: 1.05,
-              letterSpacing: "-0.04em",
+              lineHeight: 1.0,
               marginBottom: "1.5rem",
               color: "var(--text)",
             }}
           >
-            <span style={{ whiteSpace: "nowrap", display: "block" }}>
+            <span
+              style={{
+                whiteSpace: "nowrap",
+                display: "block",
+                //letterSpacing: "-0.04em",
+              }}
+            >
               {t("HeroTaglineMain")}
             </span>
             <span
@@ -96,8 +101,8 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
                 whiteSpace: "nowrap",
                 display: "block",
                 fontFamily: "var(--font-accent)",
-                fontWeight: 900,
-                fontStyle: "normal",
+                fontWeight: 600,
+                fontStyle: "italic",
                 color: "var(--c-primary)",
               }}
             >

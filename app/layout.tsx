@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Fuzzy_Bubbles, Nunito } from "next/font/google";
+import { Nunito } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import Providers from "./providers";
@@ -11,9 +12,46 @@ const bodyFont = Nunito({
   variable: "--font-body",
 });
 
-const accentFont = Fuzzy_Bubbles({
-  subsets: ["latin"],
-  weight: "400",
+const accentFont = localFont({
+  src: [
+    { path: "./fonts/AlbraTRIAL-Thin.otf", weight: "100", style: "normal" },
+    { path: "./fonts/AlbraTRIAL-Light.otf", weight: "300", style: "normal" },
+    {
+      path: "./fonts/AlbraTRIAL-Light-Italic.otf",
+      weight: "300",
+      style: "italic",
+    },
+    { path: "./fonts/AlbraTRIAL-Regular.otf", weight: "400", style: "normal" },
+    {
+      path: "./fonts/AlbraTRIAL-Regular-Italic.otf",
+      weight: "400",
+      style: "italic",
+    },
+    { path: "./fonts/AlbraTRIAL-Medium.otf", weight: "500", style: "normal" },
+    {
+      path: "./fonts/AlbraTRIAL-Medium-Italic.otf",
+      weight: "500",
+      style: "italic",
+    },
+    { path: "./fonts/AlbraTRIAL-Semi.otf", weight: "600", style: "normal" },
+    {
+      path: "./fonts/AlbraTRIAL-Semi-Italic.otf",
+      weight: "600",
+      style: "italic",
+    },
+    { path: "./fonts/AlbraTRIAL-Bold.otf", weight: "700", style: "normal" },
+    {
+      path: "./fonts/AlbraTRIAL-Bold-Italic.otf",
+      weight: "700",
+      style: "italic",
+    },
+    { path: "./fonts/AlbraTRIAL-Black.otf", weight: "900", style: "normal" },
+    {
+      path: "./fonts/AlbraTRIAL-Black-Italic.otf",
+      weight: "900",
+      style: "italic",
+    },
+  ],
   display: "swap",
   variable: "--font-accent",
 });
@@ -74,7 +112,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   icons: {
-    icon: [{ url: "/lovelust.svg", type: "image/svg+xml" }],
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
     apple: [{ url: "/icon.png", sizes: "1024x1024", type: "image/png" }],
   },
   other: {
