@@ -1,5 +1,3 @@
-"use client";
-
 interface LogoTextProps {
   size?: string | number;
 }

@@ -2,6 +2,7 @@ import fs from "fs";
 import type { Metadata } from "next";
 import path from "path";
 import HomeClient from "./HomeClient";
+import { parseFaq } from "../lib/parseFaq";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://lovelust.health";
 
@@ -17,19 +18,6 @@ export const metadata: Metadata = {
   },
 };
 
-function parseFaq(markdown: string): { question: string; answer: string }[] {
-  const entries: { question: string; answer: string }[] = [];
-  const sections = markdown.split(/^## /m).filter(Boolean);
-  for (const section of sections) {
-    const newlineIdx = section.indexOf("\n");
-    if (newlineIdx === -1) continue;
-    const question = section.slice(0, newlineIdx).trim();
-    const answer = section.slice(newlineIdx).trim().replace(/\n+/g, " ");
-    if (question && answer) entries.push({ question, answer });
-  }
-  return entries;
-}
-
 export default async function Page() {
   const faqEn = fs.readFileSync(
     path.join(process.cwd(), "content/faq/en.md"),
@@ -40,7 +28,19 @@ export default async function Page() {
     "utf-8",
   );
 
-  const faqItems = parseFaq(faqEn);
+  const faqItems = parseFaq(faqEn, { collapseNewlines: true });
+
+  const testimonials: {
+    quote: string;
+    name: string;
+    platform: string;
+    rating: number;
+  }[] = JSON.parse(
+    fs.readFileSync(
+      path.join(process.cwd(), "content/testimonials.json"),
+      "utf-8",
+    ),
+  );
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -128,7 +128,7 @@ export default async function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <HomeClient faqEn={faqEn} faqEs={faqEs} />
+      <HomeClient faqEn={faqEn} faqEs={faqEs} testimonials={testimonials} />
     </>
   );
 }

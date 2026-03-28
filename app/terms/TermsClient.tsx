@@ -11,7 +11,10 @@ export default function Terms({ en, es }: { en: string; es: string }) {
   usePageTracking("terms");
 
   const legalEmail = process.env.NEXT_PUBLIC_LEGAL_EMAIL ?? "";
-  const content = (i18n.language === "es" ? es : en).replaceAll("{{LEGAL_EMAIL}}", legalEmail);
+  const content = (i18n.language === "es" ? es : en).replaceAll(
+    "{{LEGAL_EMAIL}}",
+    legalEmail,
+  );
 
   return (
     <PageLayout title={t("TermsAndConditions")}>

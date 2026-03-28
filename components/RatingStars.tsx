@@ -1,5 +1,3 @@
-"use client";
-
 import { StarIcon, StarHalfIcon } from "@phosphor-icons/react";
 
 interface RatingStarsProps {
@@ -29,13 +27,16 @@ export default function RatingStars({
       ))}
 
       {/* Half Star */}
-      {hasHalfStar && (
-        <StarHalfIcon size={size} color={color} weight="fill" />
-      )}
+      {hasHalfStar && <StarHalfIcon size={size} color={color} weight="fill" />}
 
       {/* Empty Stars */}
       {Array.from({ length: emptyStars }).map((_, i) => (
-        <StarIcon key={`empty-${i}`} size={size} color={color} weight="regular" />
+        <StarIcon
+          key={`empty-${i}`}
+          size={size}
+          color={color}
+          weight="regular"
+        />
       ))}
     </div>
   );

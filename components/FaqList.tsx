@@ -2,21 +2,10 @@
 
 import { useState } from "react";
 import { CaretDownIcon } from "@phosphor-icons/react";
+import { parseFaq } from "../lib/parseFaq";
 
 interface FaqListProps {
   content: string;
-}
-
-function parseFaq(md: string) {
-  return md
-    .split(/^## /m)
-    .filter(Boolean)
-    .map(block => {
-      const newline = block.indexOf("\n");
-      const question = block.slice(0, newline).trim();
-      const answer = block.slice(newline).trim();
-      return { question, answer };
-    });
 }
 
 function FaqItem({
@@ -41,8 +30,8 @@ function FaqItem({
         background: isOpen
           ? "linear-gradient(135deg, var(--c-primary-12) 0%, var(--c-primary-06) 100%)"
           : hovered
-          ? "var(--bg-low)"
-          : "var(--bg-lowest)",
+            ? "var(--bg-low)"
+            : "var(--bg-lowest)",
         overflow: "hidden",
         transition: "background 0.25s",
       }}

@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
-import { useMediaQuery } from "../../hooks/useMediaQuery";
 import PhoneMockup from "../PhoneMockup";
 import RatingStars from "../RatingStars";
 import StoreBadge from "../StoreBadge";
@@ -12,7 +11,6 @@ interface HeroSectionProps {
 
 export default function HeroSection({ isDark }: HeroSectionProps) {
   const { t, i18n } = useTranslation();
-  const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
     <section
@@ -61,20 +59,7 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
         />
       </div>
 
-      <div
-        style={{
-          maxWidth: 1152,
-          margin: "0 auto",
-          padding: isMobile ? "7rem 1.25rem 4rem" : "0 2rem",
-          width: "100%",
-          display: "grid",
-          gridTemplateColumns: isMobile ? "1fr" : "repeat(2, minmax(0, 1fr))",
-          gap: isMobile ? "3rem" : "5rem",
-          alignItems: "center",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
+      <div className="hero-inner">
         {/* Left: text */}
         <div style={{ minWidth: 0 }}>
           <h1
@@ -91,7 +76,6 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
               style={{
                 whiteSpace: "nowrap",
                 display: "block",
-                //letterSpacing: "-0.04em",
               }}
             >
               {t("HeroTaglineMain")}
@@ -112,7 +96,7 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
 
           <p
             style={{
-              fontSize: isMobile ? "1rem" : "1.125rem",
+              fontSize: "clamp(1rem, 2vw, 1.125rem)",
               lineHeight: 1.75,
               color: "var(--text-muted)",
               maxWidth: 440,
@@ -147,11 +131,7 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
         </div>
 
         {/* Right: phone mockup */}
-        <PhoneMockup
-          language={i18n.language}
-          isDark={isDark}
-          isMobile={isMobile}
-        />
+        <PhoneMockup language={i18n.language} isDark={isDark} />
       </div>
     </section>
   );

@@ -2,7 +2,6 @@
 
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../hooks/useTheme";
-import { useMediaQuery } from "../hooks/useMediaQuery";
 import { usePageTracking } from "../hooks/usePageTracking";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -14,16 +13,24 @@ import TestimonialsSection from "../components/sections/TestimonialsSection";
 import FaqSection from "../components/sections/FaqSection";
 import CtaSection from "../components/sections/CtaSection";
 
+interface Testimonial {
+  quote: string;
+  name: string;
+  platform: string;
+  rating: number;
+}
+
 export default function HomeClient({
   faqEn,
   faqEs,
+  testimonials,
 }: {
   faqEn: string;
   faqEs: string;
+  testimonials: Testimonial[];
 }) {
   const { i18n } = useTranslation();
   const { isDark, toggleDark } = useTheme();
-  const isMobile = useMediaQuery("(max-width: 768px)");
 
   usePageTracking("home");
 
@@ -31,18 +38,15 @@ export default function HomeClient({
     i18n.changeLanguage(lang);
   }
 
-  const px = isMobile ? "1.25rem" : "2rem";
-
   return (
     <div
       style={{
         backgroundColor: "var(--bg)",
         color: "var(--text)",
-        fontFamily: "var(--font-nunito), sans-serif",
+        fontFamily: "var(--font-body), sans-serif",
       }}
     >
       <Header
-        isMobile={isMobile}
         isDark={isDark}
         toggleDark={toggleDark}
         switchLanguage={switchLanguage}
@@ -52,10 +56,10 @@ export default function HomeClient({
       <FeaturesSection />
       <AppPreviewSection />
       <ValuesSection />
-      <TestimonialsSection />
+      <TestimonialsSection testimonials={testimonials} />
       <FaqSection faqEn={faqEn} faqEs={faqEs} />
       <CtaSection />
-      <Footer isMobile={isMobile} px={px} />
+      <Footer />
     </div>
   );
 }

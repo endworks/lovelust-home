@@ -6,7 +6,6 @@ import {
   ShieldCheckIcon,
 } from "@phosphor-icons/react";
 import { useTranslation } from "react-i18next";
-import { useMediaQuery } from "../../hooks/useMediaQuery";
 import SectionContainer from "../SectionContainer";
 
 const VALUES = [
@@ -17,14 +16,13 @@ const VALUES = [
 
 export default function ValuesSection() {
   const { t } = useTranslation();
-  const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
     <SectionContainer id="values">
       <div style={{ textAlign: "center", marginBottom: "3rem" }}>
         <h2
-          className="font-headline"
           style={{
+            fontFamily: "var(--font-accent)",
             fontSize: "clamp(1.75rem,4vw,2.5rem)",
             fontWeight: 700,
             color: "var(--c-primary)",
@@ -49,7 +47,7 @@ export default function ValuesSection() {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-          gap: isMobile ? "2rem" : "3rem",
+          gap: "clamp(2rem, 4vw, 3rem)",
         }}
       >
         {VALUES.map(({ Icon, titleKey, descKey }) => (
@@ -69,10 +67,11 @@ export default function ValuesSection() {
               <Icon size={40} color="var(--c-primary)" />
             </div>
             <h3
-              className="font-headline"
               style={{
+                fontFamily: "var(--font-accent)",
                 fontSize: "1.25rem",
-                fontWeight: 700,
+                fontWeight: 600,
+                fontStyle: "italic",
                 color: "var(--c-primary)",
                 marginBottom: "1rem",
               }}

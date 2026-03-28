@@ -7,39 +7,16 @@ import ThemeAwareScreenshot from "./ThemeAwareScreenshot";
 interface PhoneMockupProps {
   language: string;
   isDark: boolean;
-  isMobile: boolean;
 }
 
 /**
  * iPhone-style phone frame with dynamic island, glow rings, and floating pill.
  */
-export default function PhoneMockup({
-  language,
-  isDark,
-  isMobile,
-}: PhoneMockupProps) {
+export default function PhoneMockup({ language, isDark }: PhoneMockupProps) {
   const { t } = useTranslation();
   return (
-    <div
-      data-testid="phone-mockup"
-      style={{
-        position: "relative",
-        display: "flex",
-        justifyContent: isMobile ? "center" : "flex-end",
-        alignItems: "center",
-        minWidth: 0,
-      }}
-    >
-      <div
-        style={{
-          position: "relative",
-          width: isMobile ? "100%" : 420,
-          height: isMobile ? "100%" : 600,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+    <div className="phone-wrap" data-testid="phone-mockup">
+      <div className="phone-container">
         {/* Glow ring behind phone */}
         <div
           style={{
@@ -57,10 +34,9 @@ export default function PhoneMockup({
         />
         {/* Outer decorative ring */}
         <div
+          className="phone-ring-outer"
           style={{
             position: "absolute",
-            width: isMobile ? 300 : 420,
-            height: isMobile ? 300 : 420,
             borderRadius: "50%",
             border: "1px solid var(--c-primary-20)",
             top: "50%",
@@ -69,10 +45,9 @@ export default function PhoneMockup({
           }}
         />
         <div
+          className="phone-ring-inner"
           style={{
             position: "absolute",
-            width: isMobile ? 240 : 340,
-            height: isMobile ? 240 : 340,
             borderRadius: "50%",
             border: "1px solid var(--c-primary-15)",
             top: "50%",
@@ -85,12 +60,11 @@ export default function PhoneMockup({
         <div style={{ position: "relative", zIndex: 2 }}>
           {/* Chassis */}
           <div
+            className="phone-chassis"
             style={{
               position: "relative",
-              width: isMobile ? 232 : 320,
               background:
                 "linear-gradient(160deg, #3a3a3c 0%, #1c1c1e 45%, #2c2c2e 100%)",
-              borderRadius: isMobile ? "46px" : "56px",
               padding: "13px",
               boxShadow: `inset 0 0 0 1px rgba(255,255,255,0.13), 0 50px 100px -20px rgba(0,0,0,${isDark ? "0.7" : "0.45"}), 0 0 0 1px rgba(0,0,0,0.5), 0 20px 60px -10px rgba(246,30,109,${isDark ? "0.35" : "0.2"})`,
             }}
@@ -146,8 +120,8 @@ export default function PhoneMockup({
 
             {/* Screen */}
             <div
+              className="phone-chassis-screen"
               style={{
-                borderRadius: isMobile ? "34px" : "44px",
                 overflow: "hidden",
                 position: "relative",
                 backgroundColor: "#000",
@@ -169,6 +143,7 @@ export default function PhoneMockup({
               />
               <ThemeAwareScreenshot
                 language={language}
+                name="home"
                 style={{ width: "100%", height: "auto" }}
               />
               {/* Home indicator */}
@@ -189,38 +164,36 @@ export default function PhoneMockup({
           </div>
         </div>
 
-        {/* Floating privacy pill */}
-        {!isMobile && (
-          <div
+        {/* Floating privacy pill — hidden on mobile via CSS */}
+        <div
+          className="phone-pill"
+          style={{
+            position: "absolute",
+            bottom: "12%",
+            left: "-4%",
+            zIndex: 3,
+            alignItems: "center",
+            gap: "0.5rem",
+            backgroundColor: "var(--bg-lowest)",
+            borderRadius: "2rem",
+            padding: "0.625rem 1rem",
+            boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
+            transform: "translateZ(0)",
+            backfaceVisibility: "hidden",
+          }}
+        >
+          <LockIcon size={16} color="var(--c-primary)" />
+          <span
             style={{
-              position: "absolute",
-              bottom: "12%",
-              left: "-4%",
-              zIndex: 3,
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              backgroundColor: "var(--bg-lowest)",
-              borderRadius: "2rem",
-              padding: "0.625rem 1rem",
-              boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
-              transform: "translateZ(0)",
-              backfaceVisibility: "hidden",
+              fontSize: "0.75rem",
+              fontWeight: 700,
+              color: "var(--c-primary)",
+              WebkitFontSmoothing: "antialiased",
             }}
           >
-            <LockIcon size={16} color="var(--c-primary)" />
-            <span
-              style={{
-                fontSize: "0.75rem",
-                fontWeight: 700,
-                color: "var(--c-primary)",
-                WebkitFontSmoothing: "antialiased",
-              }}
-            >
-              {t("AesCfbEncrypted")}
-            </span>
-          </div>
-        )}
+            {t("AesCfbEncrypted")}
+          </span>
+        </div>
       </div>
     </div>
   );

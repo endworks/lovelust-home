@@ -7,27 +7,22 @@ import {
   UserPlusIcon,
 } from "@phosphor-icons/react";
 import { useTranslation } from "react-i18next";
-import { useMediaQuery } from "../../hooks/useMediaQuery";
 import ThemeAwareScreenshot from "../ThemeAwareScreenshot";
 
 export default function FeaturesSection() {
   const { t, i18n } = useTranslation();
-  const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
     <section
       id="features"
-      style={{
-        padding: isMobile ? "4rem 1.25rem" : "6rem 2rem",
-        backgroundColor: "var(--bg-low)",
-        borderRadius: "4rem 4rem 0 0",
-      }}
+      className="section section--alt"
+      style={{ borderRadius: "4rem 4rem 0 0" }}
     >
       <div style={{ maxWidth: 1152, margin: "0 auto" }}>
-        <div style={{ marginBottom: isMobile ? "2.5rem" : "4rem" }}>
+        <div style={{ marginBottom: "clamp(2.5rem, 4vw, 4rem)" }}>
           <h2
-            className="font-headline"
             style={{
+              fontFamily: "var(--font-accent)",
               fontSize: "clamp(1.75rem,4vw,2.5rem)",
               fontWeight: 700,
               color: "var(--c-primary)",
@@ -47,20 +42,13 @@ export default function FeaturesSection() {
           />
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
-            gap: isMobile ? "1rem" : "2rem",
-          }}
-        >
+        <div className="features-grid">
           {/* Card 1: Privacy (spans 2 cols on desktop) */}
           <div
-            className="editorial-shadow"
+            className="editorial-shadow features-grid__span-2"
             style={{
-              gridColumn: isMobile ? "span 1" : "span 2",
               backgroundColor: "var(--bg-lowest)",
-              padding: isMobile ? "2rem" : "2.5rem",
+              padding: "clamp(2rem, 3vw, 2.5rem)",
               borderRadius: "2rem",
               position: "relative",
               overflow: "hidden",
@@ -72,16 +60,18 @@ export default function FeaturesSection() {
               style={{ display: "block", marginBottom: "1.5rem" }}
             />
             <h3
-              className="font-headline"
               style={{
+                fontFamily: "var(--font-accent)",
                 fontSize: "1.5rem",
-                fontWeight: 700,
+                fontWeight: 600,
                 color: "var(--c-primary)",
                 marginBottom: "1rem",
               }}
             >
               {t("BentoPrivacyTitlePrefix")}
-              <span style={{ fontStyle: "italic" }}>{t("BentoPrivacyTitleAccent")}</span>
+              <span style={{ fontStyle: "italic" }}>
+                {t("BentoPrivacyTitleAccent")}
+              </span>
               {t("BentoPrivacyTitleSuffix")}
             </h3>
             <p
@@ -101,7 +91,7 @@ export default function FeaturesSection() {
             style={{
               backgroundColor: "var(--c-primary)",
               color: "var(--c-on-primary)",
-              padding: isMobile ? "2rem" : "2.5rem",
+              padding: "clamp(2rem, 3vw, 2.5rem)",
               borderRadius: "2rem",
             }}
           >
@@ -111,10 +101,10 @@ export default function FeaturesSection() {
               style={{ display: "block", marginBottom: "1.5rem" }}
             />
             <h3
-              className="font-headline"
               style={{
+                fontFamily: "var(--font-accent)",
                 fontSize: "1.5rem",
-                fontWeight: 700,
+                fontWeight: 600,
                 marginBottom: "1rem",
               }}
             >
@@ -130,7 +120,7 @@ export default function FeaturesSection() {
             className="editorial-shadow"
             style={{
               backgroundColor: "var(--c-secondary-container)",
-              padding: isMobile ? "2rem" : "2.5rem",
+              padding: "clamp(2rem, 3vw, 2.5rem)",
               borderRadius: "2rem",
             }}
           >
@@ -140,10 +130,10 @@ export default function FeaturesSection() {
               style={{ display: "block", marginBottom: "1.5rem" }}
             />
             <h3
-              className="font-headline"
               style={{
+                fontFamily: "var(--font-accent)",
                 fontSize: "1.5rem",
-                fontWeight: 700,
+                fontWeight: 600,
                 color: "var(--c-primary)",
                 marginBottom: "1rem",
               }}
@@ -157,11 +147,10 @@ export default function FeaturesSection() {
 
           {/* Card 4: Premium (spans 2 cols on desktop) */}
           <div
-            className="editorial-shadow"
+            className="editorial-shadow features-grid__span-2"
             style={{
-              gridColumn: isMobile ? "span 1" : "span 2",
               backgroundColor: "var(--bg-lowest)",
-              padding: isMobile ? "2rem" : "2.5rem",
+              padding: "clamp(2rem, 3vw, 2.5rem)",
               borderRadius: "2rem",
               display: "flex",
               gap: "2.5rem",
@@ -176,10 +165,10 @@ export default function FeaturesSection() {
                 style={{ display: "block", marginBottom: "1.5rem" }}
               />
               <h3
-                className="font-headline"
                 style={{
+                  fontFamily: "var(--font-accent)",
                   fontSize: "1.5rem",
-                  fontWeight: 700,
+                  fontWeight: 600,
                   color: "var(--c-primary)",
                   marginBottom: "1rem",
                 }}
@@ -190,22 +179,22 @@ export default function FeaturesSection() {
                 {t("BentoPremiumDesc")}
               </p>
             </div>
-            {!isMobile && (
-              <div
-                style={{
-                  width: 160,
-                  borderRadius: "1rem",
-                  overflow: "hidden",
-                  backgroundColor: "var(--bg-high)",
-                  flexShrink: 0,
-                }}
-              >
-                <ThemeAwareScreenshot
-                  language={i18n.language}
-                  style={{ width: "100%", height: "auto", opacity: 0.7 }}
-                />
-              </div>
-            )}
+            <div
+              className="hidden-mobile"
+              style={{
+                width: 160,
+                borderRadius: "1rem",
+                overflow: "hidden",
+                backgroundColor: "var(--bg-high)",
+                flexShrink: 0,
+              }}
+            >
+              <ThemeAwareScreenshot
+                language={i18n.language}
+                name="paywall"
+                style={{ width: "100%", height: "auto", opacity: 0.7 }}
+              />
+            </div>
           </div>
         </div>
       </div>

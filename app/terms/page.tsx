@@ -24,7 +24,13 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const en = fs.readFileSync(path.join(process.cwd(), "content/terms/en.md"), "utf-8");
-  const es = fs.readFileSync(path.join(process.cwd(), "content/terms/es.md"), "utf-8");
+  const en = fs.readFileSync(
+    path.join(process.cwd(), "content/terms/en.md"),
+    "utf-8",
+  );
+  const es = fs.readFileSync(
+    path.join(process.cwd(), "content/terms/es.md"),
+    "utf-8",
+  );
   return <TermsClient en={en} es={es} />;
 }

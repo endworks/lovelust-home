@@ -24,7 +24,13 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const faqEn = fs.readFileSync(path.join(process.cwd(), "content/faq/en.md"), "utf-8");
-  const faqEs = fs.readFileSync(path.join(process.cwd(), "content/faq/es.md"), "utf-8");
+  const faqEn = fs.readFileSync(
+    path.join(process.cwd(), "content/faq/en.md"),
+    "utf-8",
+  );
+  const faqEs = fs.readFileSync(
+    path.join(process.cwd(), "content/faq/es.md"),
+    "utf-8",
+  );
   return <SupportClient faqEn={faqEn} faqEs={faqEs} />;
 }

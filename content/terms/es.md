@@ -45,4 +45,4 @@ Para preguntas o soporte, contáctanos en [{{LEGAL_EMAIL}}](mailto:{{LEGAL_EMAIL
 
 ---
 
-*Última actualización: 2026-03-20*
+_Última actualización: 2026-03-20_

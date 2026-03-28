@@ -74,4 +74,4 @@ Para cualquier pregunta o para ejercer tus derechos según el RGPD, contáctanos
 
 ---
 
-*Última actualización: 2025-03-20*
+_Última actualización: 2025-03-20_

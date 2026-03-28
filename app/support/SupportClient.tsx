@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { usePageTracking } from "../../hooks/usePageTracking";
-import { useMediaQuery } from "../../hooks/useMediaQuery";
 import PageLayout from "../../components/PageLayout";
 import FaqList from "../../components/FaqList";
 import {
@@ -30,13 +29,14 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
           width: "0.3rem",
           height: "1.5rem",
           borderRadius: "9999px",
-          background: "linear-gradient(180deg, var(--c-primary) 0%, var(--c-primary-60) 100%)",
+          background:
+            "linear-gradient(180deg, var(--c-primary) 0%, var(--c-primary-60) 100%)",
           flexShrink: 0,
         }}
       />
       <h2
         style={{
-          fontFamily: "var(--font-nunito), sans-serif",
+          fontFamily: "var(--font-body), sans-serif",
           fontSize: "1.375rem",
           fontWeight: 800,
           color: "var(--text)",
@@ -54,7 +54,7 @@ function SubLabel({ children }: { children: React.ReactNode }) {
   return (
     <p
       style={{
-        fontFamily: "var(--font-nunito), sans-serif",
+        fontFamily: "var(--font-body), sans-serif",
         fontSize: "0.7rem",
         fontWeight: 700,
         color: "var(--c-primary)",
@@ -116,12 +116,16 @@ function SocialCard({
           boxShadow: hovered ? "0 4px 12px var(--c-primary-40)" : "none",
         }}
       >
-        <Icon size={20} color={hovered ? "#fff" : "var(--c-primary)"} weight="fill" />
+        <Icon
+          size={20}
+          color={hovered ? "#fff" : "var(--c-primary)"}
+          weight="fill"
+        />
       </div>
       <div>
         <p
           style={{
-            fontFamily: "var(--font-nunito), sans-serif",
+            fontFamily: "var(--font-body), sans-serif",
             fontWeight: 800,
             color: "var(--text)",
             fontSize: "0.875rem",
@@ -130,7 +134,11 @@ function SocialCard({
         >
           {label}
         </p>
-        <p style={{ color: "var(--text-muted)", fontSize: "0.8rem", margin: 0 }}>{handle}</p>
+        <p
+          style={{ color: "var(--text-muted)", fontSize: "0.8rem", margin: 0 }}
+        >
+          {handle}
+        </p>
       </div>
     </a>
   );
@@ -138,7 +146,6 @@ function SocialCard({
 
 function SupportContent({ faqEn, faqEs }: { faqEn: string; faqEs: string }) {
   const { t, i18n } = useTranslation();
-  const isMobile = useMediaQuery("(max-width: 768px)");
   const [emailHovered, setEmailHovered] = useState(false);
 
   return (
@@ -209,7 +216,7 @@ function SupportContent({ faqEn, faqEs }: { faqEn: string; faqEs: string }) {
         </div>
         <p
           style={{
-            fontFamily: "var(--font-nunito), sans-serif",
+            fontFamily: "var(--font-body), sans-serif",
             fontWeight: 700,
             color: "var(--text)",
             fontSize: "1rem",
@@ -228,7 +235,8 @@ function SupportContent({ faqEn, faqEs }: { faqEn: string; faqEs: string }) {
           style={{
             borderRadius: "1.5rem",
             padding: "1.75rem 2rem",
-            background: "linear-gradient(135deg, var(--c-primary-12), var(--c-primary-06))",
+            background:
+              "linear-gradient(135deg, var(--c-primary-12), var(--c-primary-06))",
             display: "flex",
             flexWrap: "wrap",
             alignItems: "center",
@@ -240,7 +248,7 @@ function SupportContent({ faqEn, faqEs }: { faqEn: string; faqEs: string }) {
           <div>
             <p
               style={{
-                fontFamily: "var(--font-nunito), sans-serif",
+                fontFamily: "var(--font-body), sans-serif",
                 fontWeight: 700,
                 color: "var(--c-primary)",
                 marginBottom: "0.25rem",
@@ -324,7 +332,14 @@ function SupportContent({ faqEn, faqEs }: { faqEn: string; faqEs: string }) {
         >
           <EnvelopeSimpleIcon size={22} color="#fff" weight="fill" />
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "0.15rem", flex: 1 }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "0.15rem",
+            flex: 1,
+          }}
+        >
           <span
             style={{
               fontSize: "0.65rem",
@@ -342,7 +357,7 @@ function SupportContent({ faqEn, faqEs }: { faqEn: string; faqEs: string }) {
               fontWeight: 800,
               color: "var(--text)",
               fontSize: "0.95rem",
-              fontFamily: "var(--font-nunito), sans-serif",
+              fontFamily: "var(--font-body), sans-serif",
             }}
           >
             {process.env.NEXT_PUBLIC_SUPPORT_EMAIL}
@@ -353,7 +368,9 @@ function SupportContent({ faqEn, faqEs }: { faqEn: string; faqEs: string }) {
             width: 34,
             height: 34,
             borderRadius: "50%",
-            background: emailHovered ? "var(--c-primary)" : "var(--c-primary-12)",
+            background: emailHovered
+              ? "var(--c-primary)"
+              : "var(--c-primary-12)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -362,7 +379,10 @@ function SupportContent({ faqEn, faqEs }: { faqEn: string; faqEs: string }) {
             flexShrink: 0,
           }}
         >
-          <ArrowRightIcon size={16} color={emailHovered ? "#fff" : "var(--c-primary)"} />
+          <ArrowRightIcon
+            size={16}
+            color={emailHovered ? "#fff" : "var(--c-primary)"}
+          />
         </div>
       </a>
 
@@ -381,7 +401,7 @@ function SupportContent({ faqEn, faqEs }: { faqEn: string; faqEs: string }) {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
           gap: "0.75rem",
           marginBottom: "0.5rem",
         }}
@@ -407,7 +427,13 @@ function SupportContent({ faqEn, faqEs }: { faqEn: string; faqEs: string }) {
   );
 }
 
-export default function Support({ faqEn, faqEs }: { faqEn: string; faqEs: string }) {
+export default function Support({
+  faqEn,
+  faqEs,
+}: {
+  faqEn: string;
+  faqEs: string;
+}) {
   const { t } = useTranslation();
 
   usePageTracking("support");

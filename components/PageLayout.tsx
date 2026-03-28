@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
-import { useMediaQuery } from "../hooks/useMediaQuery";
 import { useTheme } from "../hooks/useTheme";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -14,13 +13,10 @@ interface PageLayoutProps {
 export default function PageLayout({ children, title }: PageLayoutProps) {
   const { i18n } = useTranslation();
   const { isDark, toggleDark } = useTheme();
-  const isMobile = useMediaQuery("(max-width: 768px)");
 
   function switchLanguage(lang: string) {
     i18n.changeLanguage(lang);
   }
-
-  const px = isMobile ? "1.25rem" : "2rem";
 
   return (
     <div
@@ -34,28 +30,19 @@ export default function PageLayout({ children, title }: PageLayoutProps) {
       }}
     >
       <Header
-        isMobile={isMobile}
         isDark={isDark}
         toggleDark={toggleDark}
         switchLanguage={switchLanguage}
       />
 
-      <main
-        style={{
-          flex: 1,
-          paddingTop: isMobile ? "5rem" : "7rem",
-          paddingBottom: "6rem",
-          paddingLeft: px,
-          paddingRight: px,
-        }}
-      >
+      <main className="page-main">
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
           <div style={{ marginBottom: "3rem", paddingBottom: "2rem" }}>
             <h1
-              className="font-headline"
               style={{
+                fontFamily: "var(--font-accent)",
                 fontSize: "clamp(2rem,5vw,3rem)",
-                fontWeight: 800,
+                fontWeight: 700,
                 color: "var(--c-primary)",
                 letterSpacing: "-0.02em",
                 lineHeight: 1.1,
@@ -68,7 +55,7 @@ export default function PageLayout({ children, title }: PageLayoutProps) {
         </div>
       </main>
 
-      <Footer isMobile={isMobile} px={px} />
+      <Footer />
     </div>
   );
 }

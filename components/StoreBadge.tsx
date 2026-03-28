@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
 type Platform = "appStore" | "googlePlay";
@@ -42,10 +43,12 @@ export default function StoreBadge({ platform }: StoreBadgeProps) {
       style={commonStyle}
     >
       {platform === "googlePlay" ? (
-        <img
+        <Image
           src={`/getItOnGooglePlay${suffix}.png`}
           alt="Google Play"
-          style={imgStyle}
+          width={564}
+          height={168}
+          style={{ height: "60px", width: "auto", display: "block" }}
         />
       ) : (
         <>
@@ -61,7 +64,7 @@ export default function StoreBadge({ platform }: StoreBadgeProps) {
             src={`/downloadAppStore${suffix}.svg`}
             alt="App Store"
             className="dark-only"
-            style={{ ...imgStyle, display: "none" }}
+            style={imgStyle}
           />
         </>
       )}

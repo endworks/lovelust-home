@@ -4,7 +4,7 @@
 .font-headline,
 .font-body,
 .font-display {
-  font-family: var(--font-nunito), sans-serif;
+  font-family: var(--font-body), sans-serif;
 }
 
 /* ── Download badge size ── */
@@ -22,6 +22,255 @@
 @media (max-width: 768px) {
   .hidden-mobile {
     display: none !important;
+  }
+}
+
+/* ── Layout utilities ── */
+.section {
+  padding: 6rem 2rem;
+  background-color: var(--bg);
+}
+
+.section--alt {
+  background-color: var(--bg-low);
+}
+
+.section--cta {
+  padding: 8rem 2rem;
+  background-color: var(--bg-low);
+}
+
+.container {
+  max-width: 1152px;
+  margin: 0 auto;
+}
+
+.container--sm {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 4rem 1.25rem;
+  }
+
+  .section--cta {
+    padding: 4rem 1.25rem;
+  }
+}
+
+/* ── Features bento grid ── */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.features-grid__span-2 {
+  grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .features-grid__span-2 {
+    grid-column: span 1;
+  }
+}
+
+/* ── Nav ── */
+.nav-inner {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .nav-inner {
+    padding: 1rem 1.25rem;
+  }
+
+  .nav-controls {
+    gap: 0.5rem;
+  }
+}
+
+/* ── Footer ── */
+.footer {
+  padding: 5rem 2rem 4rem;
+  background-color: var(--bg);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 1.25rem 2.5rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ── Page layout ── */
+.page-main {
+  flex: 1;
+  padding: 7rem 2rem 6rem;
+}
+
+@media (max-width: 768px) {
+  .page-main {
+    padding: 5rem 1.25rem 6rem;
+  }
+}
+
+/* ── Hero ── */
+.hero-inner {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .hero-inner {
+    padding: 7rem 1.25rem 4rem;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+/* ── App preview ── */
+.preview-mobile-only {
+  display: none;
+}
+
+.preview-desktop-only {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .preview-mobile-only {
+    display: flex;
+  }
+
+  .preview-desktop-only {
+    display: none;
+  }
+}
+
+/* ── Phone mockup ── */
+.phone-wrap {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: 0;
+}
+
+.phone-container {
+  position: relative;
+  width: 420px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phone-chassis {
+  width: 320px;
+  border-radius: 56px;
+}
+
+.phone-chassis-screen {
+  border-radius: 44px;
+}
+
+.phone-ring-outer {
+  width: 420px;
+  height: 420px;
+}
+
+.phone-ring-inner {
+  width: 340px;
+  height: 340px;
+}
+
+.phone-pill {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .phone-wrap {
+    justify-content: center;
+  }
+
+  .phone-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .phone-chassis {
+    width: 232px;
+    border-radius: 46px;
+  }
+
+  .phone-chassis-screen {
+    border-radius: 34px;
+  }
+
+  .phone-ring-outer {
+    width: 300px;
+    height: 300px;
+  }
+
+  .phone-ring-inner {
+    width: 240px;
+    height: 240px;
+  }
+
+  .phone-pill {
+    display: none;
   }
 }
 
@@ -90,6 +339,24 @@
 
   100% {
     background-position: 0% 50%;
+  }
+}
+
+/* ── Scroll + Motion ── */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
   }
 }
 

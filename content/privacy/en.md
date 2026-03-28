@@ -74,4 +74,4 @@ For any questions or to exercise your GDPR rights, contact us at the email addre
 
 ---
 
-*Last updated: 2025-03-20*
+_Last updated: 2025-03-20_

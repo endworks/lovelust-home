@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  AppStoreLogoIcon,
-  GooglePlayLogoIcon,
-} from "@phosphor-icons/react";
+import { AppStoreLogoIcon, GooglePlayLogoIcon } from "@phosphor-icons/react";
 import { useTranslation } from "react-i18next";
 
 type Platform = "appStore" | "googlePlay";
@@ -31,8 +28,7 @@ export default function StoreButton({
         : process.env.NEXT_PUBLIC_APPSTORE_URL
       : process.env.NEXT_PUBLIC_GOOGLE_PLAY_STORE_URL;
 
-  const Icon =
-    platform === "appStore" ? AppStoreLogoIcon : GooglePlayLogoIcon;
+  const Icon = platform === "appStore" ? AppStoreLogoIcon : GooglePlayLogoIcon;
 
   const label =
     platform === "appStore"
@@ -48,8 +44,7 @@ export default function StoreButton({
         : t("DownloadOnThe")
       : t("GetItOn");
 
-  const className =
-    variant === "cta" ? "btn-store cta" : "btn-store";
+  const className = variant === "cta" ? "btn-store cta" : "btn-store";
 
   if (variant === "cta") {
     return (
@@ -85,9 +80,7 @@ export default function StoreButton({
         >
           {sublabel}
         </div>
-        <div style={{ fontWeight: 800, fontSize: "0.975rem" }}>
-          {label}
-        </div>
+        <div style={{ fontWeight: 800, fontSize: "0.975rem" }}>{label}</div>
       </div>
     </a>
   );

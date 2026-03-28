@@ -1,27 +1,20 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
-import { useMediaQuery } from "../../hooks/useMediaQuery";
 import StoreButton from "../StoreButton";
 
 export default function CtaSection() {
   const { t } = useTranslation();
-  const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
-    <section
-      style={{
-        padding: isMobile ? "4rem 1.25rem" : "8rem 2rem",
-        backgroundColor: "var(--bg-low)",
-      }}
-    >
+    <section className="section--cta">
       <div
         style={{
           maxWidth: 896,
           margin: "0 auto",
           backgroundColor: "var(--c-primary)",
-          borderRadius: isMobile ? "2rem" : "3rem",
-          padding: isMobile ? "2.5rem 1.5rem" : "4rem",
+          borderRadius: "clamp(2rem, 4vw, 3rem)",
+          padding: "clamp(2.5rem, 5vw, 4rem)",
           textAlign: "center",
           color: "var(--c-on-primary)",
           position: "relative",
@@ -44,10 +37,11 @@ export default function CtaSection() {
         />
 
         <h2
-          className="font-headline"
           style={{
+            fontFamily: "var(--font-accent)",
             fontSize: "clamp(1.75rem,5vw,3.25rem)",
-            fontWeight: 800,
+            fontWeight: 700,
+            fontStyle: "italic",
             marginBottom: "1.5rem",
             position: "relative",
             zIndex: 1,

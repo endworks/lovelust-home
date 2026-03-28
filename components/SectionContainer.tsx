@@ -1,7 +1,3 @@
-"use client";
-
-import { useMediaQuery } from "../hooks/useMediaQuery";
-
 interface SectionContainerProps {
   children: React.ReactNode;
   /** Override the default background color */
@@ -19,21 +15,16 @@ interface SectionContainerProps {
  */
 export default function SectionContainer({
   children,
-  background = "var(--bg)",
+  background,
   className,
   maxWidth = 1152,
   id,
 }: SectionContainerProps) {
-  const isMobile = useMediaQuery("(max-width: 768px)");
-
   return (
     <section
       id={id}
-      className={className}
-      style={{
-        padding: isMobile ? "4rem 1.25rem" : "6rem 2rem",
-        backgroundColor: background,
-      }}
+      className={`section${className ? ` ${className}` : ""}`}
+      style={background ? { backgroundColor: background } : undefined}
     >
       <div style={{ maxWidth, margin: "0 auto" }}>{children}</div>
     </section>
