@@ -69,7 +69,7 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
               fontWeight: 900,
               lineHeight: 1.0,
               marginBottom: "1.5rem",
-              color: "var(--text)",
+              color: "var(--c-primary)",
             }}
           >
             <span
@@ -87,7 +87,7 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
                 fontFamily: "var(--font-accent)",
                 fontWeight: 600,
                 fontStyle: "italic",
-                color: "var(--c-primary)",
+                color: "var(--text)",
               }}
             >
               {t("HeroTaglineAccent")}
