@@ -144,6 +144,7 @@ export default function PhoneMockup({ language, isDark }: PhoneMockupProps) {
               <ThemeAwareScreenshot
                 language={language}
                 name="home"
+                priority
                 style={{ width: "100%", height: "auto" }}
               />
               {/* Home indicator */}

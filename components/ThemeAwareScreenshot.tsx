@@ -11,11 +11,13 @@ import Image from "next/image";
 export default function ThemeAwareScreenshot({
   language,
   name,
+  priority = false,
   style = {},
   className = "",
 }: {
   language: string;
   name: string;
+  priority?: boolean;
   style?: React.CSSProperties;
   className?: string;
 }) {
@@ -30,6 +32,7 @@ export default function ThemeAwareScreenshot({
         alt=""
         width={1206}
         height={2622}
+        priority={priority}
         className={`dark-only ${className}`}
         style={{ ...style, display: "block" }}
       />
@@ -38,6 +41,7 @@ export default function ThemeAwareScreenshot({
         alt=""
         width={1206}
         height={2622}
+        priority={priority}
         className={`light-only ${className}`}
         style={{ ...style, display: "block" }}
       />
