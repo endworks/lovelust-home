@@ -1,6 +1,5 @@
 "use client";
 
-import { useTranslation } from "react-i18next";
 import { useTheme } from "../hooks/useTheme";
 import { usePageTracking } from "../hooks/usePageTracking";
 import Header from "../components/Header";
@@ -29,14 +28,9 @@ export default function HomeClient({
   faqEs: string;
   testimonials: Testimonial[];
 }) {
-  const { i18n } = useTranslation();
   const { isDark, toggleDark } = useTheme();
 
   usePageTracking("home");
-
-  function switchLanguage(lang: string) {
-    i18n.changeLanguage(lang);
-  }
 
   return (
     <div
@@ -46,11 +40,7 @@ export default function HomeClient({
         fontFamily: "var(--font-body), sans-serif",
       }}
     >
-      <Header
-        isDark={isDark}
-        toggleDark={toggleDark}
-        switchLanguage={switchLanguage}
-      />
+      <Header isDark={isDark} toggleDark={toggleDark} />
 
       <HeroSection isDark={isDark} />
       <FeaturesSection />

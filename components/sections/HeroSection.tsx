@@ -85,20 +85,35 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
             </span>
           </h1>
 
-          <p
+          <div
             style={{
-              fontSize: "var(--text-md)",
-              lineHeight: 1.75,
-              color: "var(--text-muted)",
+              display: "flex",
+              gap: "1rem",
+              alignItems: "stretch",
               maxWidth: 400,
               marginBottom: "2.5rem",
-              fontWeight: 400,
-              borderLeft: "2px solid var(--accent-20)",
-              paddingLeft: "1rem",
             }}
           >
-            {t("HeroDescription")}
-          </p>
+            <div
+              style={{
+                width: 3,
+                borderRadius: 9999,
+                flexShrink: 0,
+                background: "var(--accent)",
+              }}
+            />
+            <p
+              style={{
+                fontSize: "var(--text-md)",
+                lineHeight: 1.75,
+                color: "var(--text-muted)",
+                fontWeight: 400,
+                margin: 0,
+              }}
+            >
+              {t("HeroDescription")}
+            </p>
+          </div>
 
           {/* Download buttons */}
           <div

@@ -19,9 +19,17 @@
 }
 
 /* ── Responsive utilities ── */
+.show-mobile {
+  display: none !important;
+}
+
 @media (max-width: 768px) {
   .hidden-mobile {
     display: none !important;
+  }
+
+  .show-mobile {
+    display: flex !important;
   }
 }
 
@@ -116,7 +124,7 @@
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 4rem;
   margin-bottom: 4rem;
 }

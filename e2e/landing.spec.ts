@@ -48,7 +48,7 @@ test.describe("Landing Page", () => {
   });
 
   test("should switch language", async ({ page }) => {
-    const langBtn = page.locator("nav button").nth(1);
+    const langBtn = page.locator("footer button", { hasText: /^Español$/i });
     await expect(langBtn).toBeVisible();
 
     const initialText = await page.locator("h1").innerText();

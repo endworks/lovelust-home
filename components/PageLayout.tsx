@@ -1,6 +1,5 @@
 "use client";
 
-import { useTranslation } from "react-i18next";
 import { useTheme } from "../hooks/useTheme";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -11,12 +10,7 @@ interface PageLayoutProps {
 }
 
 export default function PageLayout({ children, title }: PageLayoutProps) {
-  const { i18n } = useTranslation();
   const { isDark, toggleDark } = useTheme();
-
-  function switchLanguage(lang: string) {
-    i18n.changeLanguage(lang);
-  }
 
   return (
     <div
@@ -29,11 +23,7 @@ export default function PageLayout({ children, title }: PageLayoutProps) {
         flexDirection: "column",
       }}
     >
-      <Header
-        isDark={isDark}
-        toggleDark={toggleDark}
-        switchLanguage={switchLanguage}
-      />
+      <Header isDark={isDark} toggleDark={toggleDark} />
 
       <main className="page-main">
         <div style={{ maxWidth: 800, margin: "0 auto" }}>

@@ -56,7 +56,7 @@ function FaqItem({
           style={{
             fontFamily: "var(--font-body), sans-serif",
             fontSize: "var(--text-xs)",
-            fontWeight: "var(--header-weight)",
+            fontWeight: "var(--header-alt-weight)",
             color: "var(--accent)",
             letterSpacing: "0.08em",
             flexShrink: 0,
@@ -69,7 +69,7 @@ function FaqItem({
         <span
           style={{
             fontFamily: "var(--font-body), sans-serif",
-            fontWeight: "var(--header-weight)",
+            fontWeight: "var(--header-alt-weight)",
             color: isOpen ? "var(--accent)" : "var(--text)",
             fontSize: "var(--text-base)",
             flex: 1,

@@ -6,7 +6,7 @@ import HeartCheckIcon from "./HeartCheckIcon";
 import LogoSvg from "./LogoSvg";
 
 export default function Footer() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <footer className="footer">
@@ -126,6 +126,62 @@ export default function Footer() {
                   </Link>
                 ),
               )}
+            </div>
+          </div>
+
+          {/* Language */}
+          <div>
+            <p
+              style={{
+                fontStyle: "italic",
+                fontWeight: "var(--header-alt-weight)",
+                fontSize: "var(--text-md)",
+                color: "var(--accent)",
+                marginBottom: "1rem",
+              }}
+            >
+              {t("Language")}
+            </p>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.75rem",
+              }}
+            >
+              {[
+                { lang: "en", label: "English" },
+                { lang: "es", label: "Español" },
+              ].map(({ lang, label }) => (
+                <button
+                  key={lang}
+                  onClick={() => i18n.changeLanguage(lang)}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    padding: 0,
+                    cursor: lang === i18n.language ? "default" : "pointer",
+                    fontSize: "var(--text-base)",
+                    color:
+                      lang === i18n.language
+                        ? "var(--accent)"
+                        : "var(--text-muted)",
+                    textAlign: "left",
+                    transition: "color 0.2s",
+                    fontWeight: lang === i18n.language ? 600 : 400,
+                  }}
+                  onMouseEnter={(e) => {
+                    if (lang !== i18n.language)
+                      e.currentTarget.style.color = "var(--accent)";
+                  }}
+                  onMouseLeave={(e) => {
+                    if (lang !== i18n.language)
+                      e.currentTarget.style.color = "var(--text-muted)";
+                  }}
+                >
+                  {label}
+                </button>
+              ))}
             </div>
           </div>
         </div>
