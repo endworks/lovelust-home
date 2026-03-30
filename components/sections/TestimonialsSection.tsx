@@ -30,7 +30,7 @@ export default function TestimonialsSection({
             style={{
               fontFamily: "var(--font-accent)",
               fontSize: "var(--text-section)",
-              fontWeight: 700,
+              fontWeight: "var(--header-weight)",
               color: "var(--accent)",
               marginBottom: "1rem",
             }}
@@ -91,8 +91,7 @@ export default function TestimonialsSection({
               >
                 <span
                   style={{
-                    fontFamily: "var(--font-accent)",
-                    fontWeight: 600,
+                    fontWeight: "var(--header-alt-weight)",
                     color: "var(--accent)",
                     fontSize: "var(--text-base)",
                   }}

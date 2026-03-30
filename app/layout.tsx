@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Newsreader, Nunito } from "next/font/google";
+import { Nunito, Pacifico } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Providers from "./providers";
@@ -11,9 +11,9 @@ const bodyFont = Nunito({
   variable: "--font-body",
 });
 
-const accentFont = Newsreader({
+const accentFont = Pacifico({
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  weight: ["400"],
   display: "swap",
   variable: "--font-accent",
 });

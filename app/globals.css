@@ -286,6 +286,9 @@
 /* ── Design tokens ── */
 :root {
   --radius: 1.75rem;
+  --outline-width: 2px;
+  --header-weight: 400;
+  --header-alt-weight: 800;
 
   /* Type scale */
   --text-xs: 0.65rem;

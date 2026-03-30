@@ -40,7 +40,7 @@ export default function CtaSection() {
           style={{
             fontFamily: "var(--font-accent)",
             fontSize: "var(--text-section)",
-            fontWeight: 700,
+            fontWeight: "var(--header-weight)",
             fontStyle: "italic",
             marginBottom: "1.5rem",
             position: "relative",

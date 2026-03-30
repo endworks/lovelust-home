@@ -26,7 +26,7 @@ export default function AppPreviewSection() {
           style={{
             fontFamily: "var(--font-accent)",
             fontSize: "var(--text-section)",
-            fontWeight: 700,
+            fontWeight: "var(--header-weight)",
             color: "var(--accent)",
             marginBottom: "1.5rem",
           }}

@@ -187,7 +187,7 @@ export default function PhoneMockup({ language, isDark }: PhoneMockupProps) {
           <span
             style={{
               fontSize: "var(--text-sm)",
-              fontWeight: 700,
+              fontWeight: "var(--header-alt-weight)",
               color: "var(--accent)",
               WebkitFontSmoothing: "antialiased",
             }}

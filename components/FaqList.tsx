@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { CaretDownIcon } from "@phosphor-icons/react";
+import { useState } from "react";
 import { parseFaq } from "../lib/parseFaq";
 
 interface FaqListProps {
@@ -56,7 +56,7 @@ function FaqItem({
           style={{
             fontFamily: "var(--font-body), sans-serif",
             fontSize: "var(--text-xs)",
-            fontWeight: 800,
+            fontWeight: "var(--header-weight)",
             color: "var(--accent)",
             letterSpacing: "0.08em",
             flexShrink: 0,
@@ -69,7 +69,7 @@ function FaqItem({
         <span
           style={{
             fontFamily: "var(--font-body), sans-serif",
-            fontWeight: 700,
+            fontWeight: "var(--header-weight)",
             color: isOpen ? "var(--accent)" : "var(--text)",
             fontSize: "var(--text-base)",
             flex: 1,

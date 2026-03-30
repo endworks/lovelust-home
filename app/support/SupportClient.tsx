@@ -17,7 +17,7 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
       style={{
         fontFamily: "var(--font-accent)",
         fontStyle: "italic",
-        fontWeight: 700,
+        fontWeight: "var(--header-weight)",
         fontSize: "var(--text-subhead)",
         color: "var(--accent)",
         marginBottom: "1rem",
@@ -85,7 +85,7 @@ function SocialCard({
       <div>
         <p
           style={{
-            fontWeight: 700,
+            fontWeight: "var(--header-weight)",
             color: "var(--text)",
             fontSize: "var(--text-base)",
             margin: "0 0 0.1rem",
@@ -146,7 +146,7 @@ function SupportContent({ faqEn, faqEs }: { faqEn: string; faqEs: string }) {
           <div>
             <p
               style={{
-                fontWeight: 700,
+                fontWeight: "var(--header-weight)",
                 color: "var(--accent)",
                 marginBottom: "0.25rem",
               }}
@@ -239,7 +239,7 @@ function SupportContent({ faqEn, faqEs }: { faqEn: string; faqEs: string }) {
         >
           <span
             style={{
-              fontWeight: 700,
+              fontWeight: "var(--header-weight)",
               color: "var(--text)",
               fontSize: "var(--text-base)",
             }}

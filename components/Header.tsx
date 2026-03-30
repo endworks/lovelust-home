@@ -45,8 +45,9 @@ export default function Header({
                 key={href}
                 href={href}
                 style={{
-                  fontFamily: "var(--font-accent)",
-                  fontSize: "var(--text-lg)",
+                  //fontFamily: "var(--font-accent)",
+                  fontWeight: "var(--header-weight)",
+                  fontSize: "var(--text-md)",
                   color: "var(--text)",
                   textDecoration: "none",
                   transition: "color 0.2s",
@@ -103,8 +104,8 @@ export default function Header({
                 borderRadius: "0.5rem",
                 padding: "0.5rem 0.5rem",
                 cursor: "pointer",
-                fontSize: "var(--text-sm)",
-                fontWeight: 400,
+                fontSize: "var(--text-md)",
+                fontWeight: "var(--header-weight)",
                 color: "var(--text)",
                 letterSpacing: "0.05em",
               }}

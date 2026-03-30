@@ -26,17 +26,11 @@ export default function Footer() {
                 maxWidth: 320,
               }}
             >
-              <span
-                style={{ fontFamily: "var(--font-accent)", fontWeight: 600 }}
-              >
-                {t("HeroTaglineMain")}
-              </span>
+              <span>{t("HeroTaglineMain")}</span>
               {". "}
               <span
                 style={{
-                  fontFamily: "var(--font-accent)",
                   fontStyle: "italic",
-                  fontWeight: 600,
                 }}
               >
                 {t("HeroTaglineAccent")}
@@ -48,9 +42,8 @@ export default function Footer() {
           <div>
             <p
               style={{
-                fontFamily: "var(--font-accent)",
                 fontStyle: "italic",
-                fontWeight: 600,
+                fontWeight: "var(--header-alt-weight)",
                 fontSize: "var(--text-md)",
                 color: "var(--accent)",
                 marginBottom: "1rem",
@@ -95,9 +88,8 @@ export default function Footer() {
           <div>
             <p
               style={{
-                fontFamily: "var(--font-accent)",
                 fontStyle: "italic",
-                fontWeight: 600,
+                fontWeight: "var(--header-alt-weight)",
                 fontSize: "var(--text-md)",
                 color: "var(--accent)",
                 marginBottom: "1rem",
@@ -154,6 +146,8 @@ export default function Footer() {
           </p>
           <p
             style={{
+              fontFamily: "var(--font-accent)",
+              fontWeight: "var(--header-weight)",
               fontSize: "var(--text-base)",
               color: "var(--text-muted)",
               display: "flex",

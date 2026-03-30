@@ -24,7 +24,7 @@ export default function ValuesSection() {
           style={{
             fontFamily: "var(--font-accent)",
             fontSize: "var(--text-section)",
-            fontWeight: 700,
+            fontWeight: "var(--header-weight)",
             color: "var(--accent)",
             marginBottom: "1rem",
           }}
@@ -68,9 +68,8 @@ export default function ValuesSection() {
             </div>
             <h3
               style={{
-                fontFamily: "var(--font-accent)",
                 fontSize: "var(--text-xl)",
-                fontWeight: 600,
+                fontWeight: "var(--header-alt-weight)",
                 fontStyle: "italic",
                 color: "var(--accent)",
                 marginBottom: "1rem",

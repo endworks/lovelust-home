@@ -56,8 +56,8 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
             className="font-headline"
             style={{
               fontSize: "var(--text-display)",
-              fontWeight: 700,
-              lineHeight: 1,
+              fontWeight: "var(--header-weight)",
+              lineHeight: 1.1,
               marginBottom: "2rem",
             }}
           >
@@ -76,8 +76,9 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
                 display: "block",
                 whiteSpace: "nowrap",
                 fontFamily: "var(--font-accent)",
-                fontStyle: "italic",
                 color: "var(--text)",
+                fontStyle: "italic",
+                marginLeft: "10%",
               }}
             >
               {t("HeroTaglineAccent")}

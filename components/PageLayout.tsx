@@ -42,7 +42,7 @@ export default function PageLayout({ children, title }: PageLayoutProps) {
               style={{
                 fontFamily: "var(--font-accent)",
                 fontSize: "var(--text-page)",
-                fontWeight: 700,
+                fontWeight: "var(--header-weight)",
                 color: "var(--accent)",
                 letterSpacing: "-0.02em",
                 lineHeight: 1.1,

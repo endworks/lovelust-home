@@ -11,10 +11,9 @@ export default function MarkdownContent({ content }: { content: string }) {
         h2: ({ children }) => (
           <h2
             style={{
-              fontFamily: "var(--font-accent)",
               fontStyle: "italic",
               fontSize: "var(--text-lg)",
-              fontWeight: 700,
+              fontWeight: "var(--header-alt-weight)",
               color: "var(--accent)",
               marginTop: "2rem",
               marginBottom: "0.75rem",
@@ -28,9 +27,8 @@ export default function MarkdownContent({ content }: { content: string }) {
         h3: ({ children }) => (
           <h3
             style={{
-              fontFamily: "var(--font-accent)",
               fontSize: "var(--text-base)",
-              fontWeight: 600,
+              fontWeight: "var(--header-alt-weight)",
               color: "var(--accent)",
               marginTop: "1.25rem",
               marginBottom: "0.5rem",
@@ -90,7 +88,12 @@ export default function MarkdownContent({ content }: { content: string }) {
           </a>
         ),
         strong: ({ children }) => (
-          <strong style={{ color: "var(--text-muted)", fontWeight: 700 }}>
+          <strong
+            style={{
+              color: "var(--text-muted)",
+              fontWeight: "var(--header-weight)",
+            }}
+          >
             {children}
           </strong>
         ),

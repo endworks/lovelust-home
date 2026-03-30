@@ -20,7 +20,7 @@ export default function FeaturesSection() {
             style={{
               fontFamily: "var(--font-accent)",
               fontSize: "var(--text-section)",
-              fontWeight: 700,
+              fontWeight: "var(--header-weight)",
               color: "var(--accent)",
               marginBottom: "1rem",
             }}
@@ -57,9 +57,8 @@ export default function FeaturesSection() {
             />
             <h3
               style={{
-                fontFamily: "var(--font-accent)",
                 fontSize: "var(--text-2xl)",
-                fontWeight: 600,
+                fontWeight: "var(--header-alt-weight)",
                 color: "var(--accent)",
                 marginBottom: "1rem",
               }}
@@ -98,9 +97,8 @@ export default function FeaturesSection() {
             />
             <h3
               style={{
-                fontFamily: "var(--font-accent)",
                 fontSize: "var(--text-2xl)",
-                fontWeight: 600,
+                fontWeight: "var(--header-alt-weight)",
                 marginBottom: "1rem",
               }}
             >
@@ -127,9 +125,8 @@ export default function FeaturesSection() {
             />
             <h3
               style={{
-                fontFamily: "var(--font-accent)",
                 fontSize: "var(--text-2xl)",
-                fontWeight: 600,
+                fontWeight: "var(--header-alt-weight)",
                 color: "var(--accent)",
                 marginBottom: "1rem",
               }}
@@ -161,9 +158,8 @@ export default function FeaturesSection() {
               />
               <h3
                 style={{
-                  fontFamily: "var(--font-accent)",
                   fontSize: "var(--text-2xl)",
-                  fontWeight: 600,
+                  fontWeight: "var(--header-alt-weight)",
                   color: "var(--accent)",
                   marginBottom: "1rem",
                 }}
