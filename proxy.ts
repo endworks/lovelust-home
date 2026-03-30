@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL;
 const DEV_HOSTNAMES = new Set(["localhost", "127.0.0.1", "::1"]);
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   if (!APP_URL) return NextResponse.next();
 
   const canonicalHost = new URL(APP_URL).hostname;
