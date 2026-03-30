@@ -9,7 +9,7 @@ test.describe("Landing Page", () => {
   test("should have the correct title", async ({ page }) => {
     const h1 = page.locator("h1");
     await expect(h1).toBeVisible({ timeout: 15000 });
-    await expect(h1).toContainText(/Redefine your/i);
+    await expect(h1).toContainText(/Love safely/i);
   });
 
   test("should have download buttons", async ({ page }) => {
@@ -59,6 +59,6 @@ test.describe("Landing Page", () => {
       expect(currentText).not.toBe(initialText);
     }).toPass();
 
-    await expect(page.locator("h1")).toContainText(/Redefine tu/i);
+    await expect(page.locator("h1")).toContainText(/Ama seguro/i);
   });
 });
