@@ -66,7 +66,7 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
                 display: "block",
                 whiteSpace: "nowrap",
                 fontFamily: "var(--font-accent)",
-                color: "var(--accent)",
+                color: "var(--text-muted)",
               }}
             >
               {t("HeroTaglineMain")}
@@ -76,7 +76,7 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
                 display: "block",
                 whiteSpace: "nowrap",
                 fontFamily: "var(--font-accent)",
-                color: "var(--text)",
+                color: "var(--accent)",
                 fontStyle: "italic",
                 marginLeft: "10%",
               }}

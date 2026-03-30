@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import HeartCheckIcon from "./HeartCheckIcon";
 import LogoSvg from "./LogoSvg";
 
 export default function Footer() {
@@ -212,7 +211,7 @@ export default function Footer() {
             }}
           >
             {t("MadeWithLove").split("♥")[0]}
-            <HeartCheckIcon size={12} />
+            <span style={{ color: "var(--accent)" }}>♥</span>
             {t("MadeWithLove").split("♥")[1]}
           </p>
         </div>
