@@ -45,7 +45,7 @@ export default function Header({
                 key={href}
                 href={href}
                 style={{
-                  fontWeight: 600,
+                  fontFamily: "var(--font-accent)",
                   fontSize: "var(--text-lg)",
                   color: "var(--text)",
                   textDecoration: "none",

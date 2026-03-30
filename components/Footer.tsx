@@ -26,7 +26,9 @@ export default function Footer() {
                 maxWidth: 320,
               }}
             >
-              <span style={{ fontFamily: "var(--font-body)", fontWeight: 800 }}>
+              <span
+                style={{ fontFamily: "var(--font-accent)", fontWeight: 600 }}
+              >
                 {t("HeroTaglineMain")}
               </span>
               {". "}
@@ -152,8 +154,6 @@ export default function Footer() {
           </p>
           <p
             style={{
-              fontFamily: "var(--font-accent)",
-              fontStyle: "italic",
               fontSize: "var(--text-base)",
               color: "var(--text-muted)",
               display: "flex",
@@ -162,7 +162,7 @@ export default function Footer() {
             }}
           >
             {t("MadeWithLove").split("♥")[0]}
-            <HeartCheckIcon size={16} />
+            <HeartCheckIcon size={12} />
             {t("MadeWithLove").split("♥")[1]}
           </p>
         </div>

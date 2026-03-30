@@ -56,8 +56,8 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
             className="font-headline"
             style={{
               fontSize: "var(--text-display)",
-              fontWeight: 900,
-              lineHeight: 1.05,
+              fontWeight: 700,
+              lineHeight: 1,
               marginBottom: "2rem",
             }}
           >
@@ -65,6 +65,7 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
               style={{
                 display: "block",
                 whiteSpace: "nowrap",
+                fontFamily: "var(--font-accent)",
                 color: "var(--accent)",
               }}
             >
@@ -75,7 +76,6 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
                 display: "block",
                 whiteSpace: "nowrap",
                 fontFamily: "var(--font-accent)",
-                fontWeight: 600,
                 fontStyle: "italic",
                 color: "var(--text)",
               }}

@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Nunito } from "next/font/google";
-import localFont from "next/font/local";
+import { Newsreader, Nunito } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Providers from "./providers";
@@ -12,17 +11,9 @@ const bodyFont = Nunito({
   variable: "--font-body",
 });
 
-const accentFont = localFont({
-  src: [
-    { path: "./fonts/AlbraTRIAL-Semi.otf", weight: "600", style: "normal" },
-    {
-      path: "./fonts/AlbraTRIAL-Semi-Italic.otf",
-      weight: "600",
-      style: "italic",
-    },
-    { path: "./fonts/AlbraTRIAL-Bold.otf", weight: "700", style: "normal" },
-    { path: "./fonts/AlbraTRIAL-Black.otf", weight: "900", style: "normal" },
-  ],
+const accentFont = Newsreader({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
   display: "swap",
   variable: "--font-accent",
 });
