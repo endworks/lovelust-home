@@ -10,6 +10,6 @@ export function usePageTracking(pageName: string) {
   const { trackEvent } = useAptabase();
 
   useEffect(() => {
-    trackEvent("page", { page: pageName });
+    trackEvent("page", { page: pageName }).catch(() => {});
   }, [trackEvent, pageName]);
 }
