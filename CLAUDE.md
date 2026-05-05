@@ -33,7 +33,7 @@ Pages are split into a **server component** (reads files, exports `metadata`) an
 
 ### i18n
 
-Two languages: **English** (`en`) and **Spanish** (`es`). Translation strings live in `public/locales/{en,es}/common.json`. The i18next instance (`src/i18n.ts`) is initialized with `initImmediate: false` (synchronous) so the correct language is active before React's first render. Language is detected from `navigator` on the client. The server always SSRs in `"en"`.
+Two languages: **English** (`en`) and **Spanish** (`es`). Translation strings live in `public/locales/{en,es}/common.json`. The i18next instance (`src/i18n.ts`) is initialized with `initAsync: false` (synchronous) so the correct language is active before React's first render. Language is detected from `navigator` on the client. The server always SSRs in `"en"`.
 
 Long-form content (FAQ, Privacy Policy, Terms) is authored as Markdown in `content/{faq,privacy,terms}/{en,es}.md` and rendered via `react-markdown`.
 
