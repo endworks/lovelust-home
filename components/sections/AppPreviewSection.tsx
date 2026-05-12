@@ -4,9 +4,9 @@ import { useTranslation } from "react-i18next";
 import ThemeAwareScreenshot from "../ThemeAwareScreenshot";
 
 const DESKTOP_PHONES = [
-  { name: "partner", width: 220, translateY: "0" },
+  { name: "activity", width: 220, translateY: "0" },
   { name: "stats", width: 260, translateY: "-2.5rem" },
-  { name: "timeline", width: 220, translateY: "0" },
+  { name: "partner", width: 220, translateY: "0" },
 ] as const;
 
 export default function AppPreviewSection() {
