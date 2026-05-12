@@ -7,30 +7,14 @@ export default function LogoText({ size = "1.5rem" }: LogoTextProps) {
     <span
       style={{
         fontSize: size,
+        fontFamily: "var(--font-accent), cursive",
         letterSpacing: "-0.03em",
         lineHeight: 1,
         userSelect: "none",
       }}
     >
-      <span
-        style={{
-          fontFamily: "var(--font-body), sans-serif",
-          fontWeight: 900,
-          color: "var(--text)",
-        }}
-      >
-        Love
-      </span>
-      <span
-        style={{
-          fontFamily: "var(--font-accent), sans-serif",
-          fontWeight: 900,
-          fontStyle: "normal",
-          color: "var(--accent)",
-        }}
-      >
-        Lust
-      </span>
+      <span style={{ color: "var(--accent)" }}>Love</span>
+      <span style={{ color: "var(--text)" }}>Lust</span>
     </span>
   );
 }
