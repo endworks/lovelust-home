@@ -154,5 +154,10 @@
   "SupportedStablecoinsDescription": "We currently accept USDC on the following networks:",
   "SupportedStablecoinsFooter": "If you're donating USDC, please make sure you send it to the correct address and network listed above.",
   "MadeWithLove": "Made with ♥ for your privacy",
-  "AesCfbEncrypted": "AES-CFB Encrypted"
+  "AesCfbEncrypted": "AES-CFB Encrypted",
+  "ConsentTitle": "Analytics consent",
+  "ConsentText": "We use privacy-friendly analytics to understand how this site is used. Nothing is collected until you accept.",
+  "ConsentPrivacyLink": "Privacy Policy",
+  "ConsentAccept": "Accept",
+  "ConsentDecline": "Decline"
 }

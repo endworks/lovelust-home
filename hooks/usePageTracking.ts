@@ -1,7 +1,7 @@
 "use client";
 
-import { useAptabase } from "@aptabase/react";
 import { useEffect } from "react";
+import { useTracking } from "./useTracking";
 
 const UTM_KEYS = [
   "utm_source",
@@ -47,9 +47,9 @@ export function getUtmProps(): Record<string, string> {
  * via sessionStorage) so attribution survives client-side route changes.
  */
 export function usePageTracking(pageName: string) {
-  const { trackEvent } = useAptabase();
+  const track = useTracking();
 
   useEffect(() => {
-    trackEvent("page", { page: pageName, ...getUtmProps() }).catch(() => {});
-  }, [trackEvent, pageName]);
+    track("page", { page: pageName, ...getUtmProps() });
+  }, [track, pageName]);
 }

@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Nunito, Pacifico } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import Providers from "./providers";
 
@@ -139,22 +138,8 @@ export default async function RootLayout({
       <head>
         {/* Inline theme script runs before React — prevents any dark/light flash */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="gtag-init" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
-              `}
-            </Script>
-          </>
-        )}
+        {/* Google Analytics is loaded post-consent by <Analytics /> — never
+            in <head> unconditionally. See premortem failure mode #6. */}
       </head>
       <body className="antialiased font-sans">
         <Providers lng={lng}>{children}</Providers>

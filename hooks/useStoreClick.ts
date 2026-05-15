@@ -1,8 +1,8 @@
 "use client";
 
-import { useAptabase } from "@aptabase/react";
 import { useCallback } from "react";
 import { getUtmProps } from "./usePageTracking";
+import { useTracking } from "./useTracking";
 
 type Platform = "appStore" | "googlePlay";
 
@@ -15,9 +15,9 @@ type Platform = "appStore" | "googlePlay";
  * computable. See premortem failure modes #1 and #8.
  */
 export function useStoreClick(platform: Platform) {
-  const { trackEvent } = useAptabase();
+  const track = useTracking();
 
   return useCallback(() => {
-    trackEvent("store_click", { platform, ...getUtmProps() }).catch(() => {});
-  }, [trackEvent, platform]);
+    track("store_click", { platform, ...getUtmProps() });
+  }, [track, platform]);
 }
