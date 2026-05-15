@@ -156,7 +156,7 @@
   "MadeWithLove": "Made with ♥ for your privacy",
   "AesCfbEncrypted": "AES-CFB Encrypted",
   "ConsentTitle": "Analytics consent",
-  "ConsentText": "We use privacy-friendly analytics to understand how this site is used. Nothing is collected until you accept.",
+  "ConsentText": "We use anonymous, cookieless analytics to improve LoveLust. Accept to also allow optional analytics, or decline to opt out entirely.",
   "ConsentPrivacyLink": "Privacy Policy",
   "ConsentAccept": "Accept",
   "ConsentDecline": "Decline",

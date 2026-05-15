@@ -28,11 +28,10 @@ const ConsentCtx = createContext<ConsentValue>({
 });
 
 /**
- * Prior, explicit opt-in for non-essential analytics. Required: this is an EU
- * controller around a sensitive-health topic, and analytics (especially GA)
- * was firing on load with no legal basis. See premortem failure mode #6.
- *
- * Nothing analytics-related runs until `status === "granted"`.
+ * Two-tier model (EU controller, sensitive-health topic — premortem #6):
+ *  - "granted"  → Tier 1 (Aptabase, anonymous) + Tier 2 (GA) both run.
+ *  - "unknown"  → Tier 1 runs as exempt anonymous measurement; Tier 2 off.
+ *  - "denied"   → explicit opt-out; nothing runs (incl. Tier 1).
  */
 export function ConsentProvider({ children }: { children: React.ReactNode }) {
   const [status, setStatus] = useState<ConsentStatus>("unknown");
