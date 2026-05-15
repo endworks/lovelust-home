@@ -15,7 +15,7 @@ LoveLust está destinada únicamente a personas usuarias de **18 años de edad o
 LoveLust es una aplicación de seguimiento personal de la actividad sexual e información de salud relacionada.
 
 - LoveLust no requiere que cree una cuenta de usuario.
-- Sus datos de actividad, parejas, medicación y salud se almacenan en su dispositivo y —solo si habilita la copia de seguridad opcional en la nube— en su propio almacenamiento personal en la nube. La aplicación también envía datos técnicos y de preferencias limitados a nuestro backend, según se describe en la [Política de Privacidad](/privacy). Nunca se envían a nuestro backend datos de actividad sexual, parejas, medicación ni salud.
+- Sus datos de actividad, parejas, medicación y salud se almacenan en su dispositivo y, solo si habilita la copia de seguridad opcional en la nube, en su propio almacenamiento personal en la nube. La aplicación también envía datos técnicos y de preferencias limitados a nuestro backend, según se describe en la [Política de Privacidad](/privacy). Nunca se envían a nuestro backend datos de actividad sexual, parejas, medicación ni salud.
 - Le concedemos una licencia personal, no exclusiva, intransferible y revocable para utilizar LoveLust con fines personales y no comerciales, con sujeción a estos Términos.
 
 ## 3. Suscripciones y Facturación

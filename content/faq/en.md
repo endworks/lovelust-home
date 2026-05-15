@@ -6,7 +6,7 @@ Yes. Your sexual activity, partner, medication and health data is stored **local
 
 ## Does anything leave my device?
 
-Your intimate data does not. The app does send limited, non-sensitive data to our backend — an internal account identifier, your language, your notification token, app version, and your communication preferences — to deliver notifications you asked for. We also use anonymous analytics (off until you consent) and crash diagnostics. None of this includes your activity, partners, medication or health data.
+Your intimate data does not. The app does send limited, non-sensitive data to our backend (an internal account identifier, your language, your notification token, app version, and your communication preferences) to deliver notifications you asked for. We also use anonymous analytics (off until you consent) and crash diagnostics. None of this includes your activity, partners, medication or health data.
 
 ## What is the encrypted cloud backup?
 
@@ -14,7 +14,7 @@ It's an optional premium feature. If you enable it, your data is encrypted **on 
 
 ## What happens if I lose my backup passphrase?
 
-We cannot recover it, and we cannot decrypt your backup without it — that is the point of the encryption. If the passphrase is lost, the backup cannot be restored. Store it somewhere safe.
+We cannot recover it, and we cannot decrypt your backup without it; that is the point of the encryption. If the passphrase is lost, the backup cannot be restored. Store it somewhere safe.
 
 ## What happens if I lose my phone?
 

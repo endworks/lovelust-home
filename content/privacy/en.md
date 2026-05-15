@@ -41,13 +41,13 @@ We use **Firebase Crashlytics** (Google) to receive crash reports and diagnostic
 
 ### Anonymous usage analytics
 
-We use **Aptabase** for aggregate, anonymous product analytics (e.g. which screens are visited, app version, OS, counts and durations). Analytics are off until you consent. Sensitive (Art. 9) analytics are a separate explicit opt-in. Events never include names, notes, free text, contact details, locations, birth dates, or any direct identifier — only counts, booleans, and bounded categories. See [Aptabase's Privacy Policy](https://aptabase.com/legal/privacy).
+We use **Aptabase** for aggregate, anonymous product analytics (e.g. which screens are visited, app version, OS, counts and durations). Analytics are off until you consent. Sensitive (Art. 9) analytics are a separate explicit opt-in. Events never include names, notes, free text, contact details, locations, birth dates, or any direct identifier; only counts, booleans, and bounded categories. See [Aptabase's Privacy Policy](https://aptabase.com/legal/privacy).
 
 ## 2. Cloud Backup (optional, premium)
 
 If you enable encrypted cloud backup, your activity, partner, medication, settings, and photo data is encrypted **on your device** with a key derived from your passphrase, before upload to **your own** Google Drive or iCloud (a private app folder).
 
-You set a backup passphrase when you enable cloud backup. **The LoveLust Company SL cannot decrypt your cloud backup — only you hold the passphrase.** Keep it safe: if you lose it, your backup cannot be recovered.
+You set a backup passphrase when you enable cloud backup. **The LoveLust Company SL cannot decrypt your cloud backup; only you hold the passphrase.** Keep it safe: if you lose it, your backup cannot be recovered.
 
 LoveLust servers never receive your backup or your passphrase. The backup lives in your personal cloud storage account.
 
@@ -59,10 +59,10 @@ All sexual activity and health data is stored locally on your device in encrypte
 
 Local data is retained until you delete it. You can:
 
-1. **Settings → Storage → Clear all Data** — erases all local data on the device.
-2. **Delete your cloud backup separately** — clearing local data does **not** remove your cloud backup. To erase it, go to Settings → Cloud Storage, sign out, and delete the remote backup. We keep it until you do so, so you can restore after reinstalling.
-3. **Uninstall the app** — removes local data only; your cloud backup remains until you delete it per step 2.
-4. **Backend record deletion** — disabling notifications, or contacting us, deletes the backend record (account identifier, push token, preferences) through our deletion process.
+1. **Settings → Storage → Clear all Data**: erases all local data on the device.
+2. **Delete your cloud backup separately**: clearing local data does **not** remove your cloud backup. To erase it, go to Settings → Cloud Storage, sign out, and delete the remote backup. We keep it until you do so, so you can restore after reinstalling.
+3. **Uninstall the app**: removes local data only; your cloud backup remains until you delete it per step 2.
+4. **Backend record deletion**: disabling notifications, or contacting us, deletes the backend record (account identifier, push token, preferences) through our deletion process.
 
 ## 5. Your GDPR Rights
 
@@ -82,17 +82,17 @@ Local data is encrypted on your device using strong, industry-standard encryptio
 
 ## 7. Third-Party Services and Processors
 
-- **RevenueCat** — Subscription management. [Privacy policy](https://www.revenuecat.com/privacy)
-- **Aptabase** — Anonymous analytics (consent-gated). [Privacy policy](https://aptabase.com/legal/privacy)
-- **Firebase Crashlytics (Google)** — Crash & error diagnostics. [Privacy policy](https://policies.google.com/privacy)
-- **Firebase Remote Config (Google)** — Feature configuration. [Privacy policy](https://policies.google.com/privacy)
-- **Google Sign-In** — Authentication for Google Drive cloud backup. [Privacy policy](https://policies.google.com/privacy)
-- **Apple HealthKit** — Optional health integration (iOS, when enabled). [Privacy policy](https://www.apple.com/legal/privacy)
-- **Google Health Connect** — Optional health integration (Android, when enabled). [Privacy policy](https://policies.google.com/privacy)
-- **Expo Notifications** — Push-notification delivery (push token). [Privacy policy](https://expo.dev/privacy)
-- **Expo Updates** — Over-the-air app updates. [Privacy policy](https://expo.dev/privacy)
-- **Google Play Services** — Android billing & platform services. [Privacy policy](https://policies.google.com/privacy)
-- **LoveLust backend** — Notifications & communication preferences. See Section 1 of this policy.
+- **RevenueCat**: Subscription management. [Privacy policy](https://www.revenuecat.com/privacy)
+- **Aptabase**: Anonymous analytics (consent-gated). [Privacy policy](https://aptabase.com/legal/privacy)
+- **Firebase Crashlytics (Google)**: Crash & error diagnostics. [Privacy policy](https://policies.google.com/privacy)
+- **Firebase Remote Config (Google)**: Feature configuration. [Privacy policy](https://policies.google.com/privacy)
+- **Google Sign-In**: Authentication for Google Drive cloud backup. [Privacy policy](https://policies.google.com/privacy)
+- **Apple HealthKit**: Optional health integration (iOS, when enabled). [Privacy policy](https://www.apple.com/legal/privacy)
+- **Google Health Connect**: Optional health integration (Android, when enabled). [Privacy policy](https://policies.google.com/privacy)
+- **Expo Notifications**: Push-notification delivery (push token). [Privacy policy](https://expo.dev/privacy)
+- **Expo Updates**: Over-the-air app updates. [Privacy policy](https://expo.dev/privacy)
+- **Google Play Services**: Android billing & platform services. [Privacy policy](https://policies.google.com/privacy)
+- **LoveLust backend**: Notifications & communication preferences. See Section 1 of this policy.
 
 We do not sell your data to any third party. We do not use advertising networks.
 

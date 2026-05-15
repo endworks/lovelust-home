@@ -6,7 +6,7 @@ Sí. Sus datos de actividad sexual, parejas, medicación y salud se almacenan **
 
 ## ¿Sale algo de mi dispositivo?
 
-Sus datos íntimos no. La aplicación sí envía datos limitados y no sensibles a nuestro backend —un identificador de cuenta interno, su idioma, su token de notificaciones, la versión de la aplicación y sus preferencias de comunicación— para enviarle las notificaciones que ha solicitado. También utilizamos analítica anónima (desactivada hasta que dé su consentimiento) y diagnóstico de fallos. Nada de esto incluye sus datos de actividad, parejas, medicación ni salud.
+Sus datos íntimos no. La aplicación sí envía datos limitados y no sensibles a nuestro backend (un identificador de cuenta interno, su idioma, su token de notificaciones, la versión de la aplicación y sus preferencias de comunicación) para enviarle las notificaciones que ha solicitado. También utilizamos analítica anónima (desactivada hasta que dé su consentimiento) y diagnóstico de fallos. Nada de esto incluye sus datos de actividad, parejas, medicación ni salud.
 
 ## ¿Qué es la copia de seguridad cifrada en la nube?
 

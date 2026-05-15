@@ -15,7 +15,7 @@ LoveLust is intended only for users who are **18 years of age or older**. By usi
 LoveLust is a personal tracking app for sexual activity and related health information.
 
 - LoveLust does not require you to create a user account.
-- Your activity, partner, medication and health data is stored on your device, and — only if you enable the optional cloud backup — in your own personal cloud storage. The app also sends limited technical and preference data to our backend as described in the [Privacy Policy](/privacy). No sexual activity, partner, medication or health data is ever sent to our backend.
+- Your activity, partner, medication and health data is stored on your device, and, only if you enable the optional cloud backup, in your own personal cloud storage. The app also sends limited technical and preference data to our backend as described in the [Privacy Policy](/privacy). No sexual activity, partner, medication or health data is ever sent to our backend.
 - We grant you a personal, non-exclusive, non-transferable, revocable licence to use LoveLust for your own personal, non-commercial use, subject to these Terms.
 
 ## 3. Subscriptions and Billing
@@ -75,7 +75,7 @@ You may stop using LoveLust at any time by deleting the app and, where applicabl
 
 ## 12. Changes to the Terms
 
-We may update these Terms. We will notify you of material changes in-app or by posting updated Terms with a new effective date. Continued use after a material change constitutes acceptance of the updated Terms; if you do not agree, stop using the app. Changes affecting data processing that relies on consent will not take effect on the basis of continued use alone — fresh consent will be obtained as described in the Privacy Policy.
+We may update these Terms. We will notify you of material changes in-app or by posting updated Terms with a new effective date. Continued use after a material change constitutes acceptance of the updated Terms; if you do not agree, stop using the app. Changes affecting data processing that relies on consent will not take effect on the basis of continued use alone; fresh consent will be obtained as described in the Privacy Policy.
 
 ## 13. Governing Law and Jurisdiction
 
