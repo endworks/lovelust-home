@@ -2,7 +2,6 @@
 
 import { useTranslation } from "react-i18next";
 import PhoneMockup from "../PhoneMockup";
-import RatingStars from "../RatingStars";
 import StoreBadge from "../StoreBadge";
 
 interface HeroSectionProps {
@@ -128,22 +127,26 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
             <StoreBadge platform="googlePlay" />
           </div>
 
-          {/* Star rating */}
+          {/* Social proof — link to the real, verifiable store listings
+              instead of a hardcoded rating that contradicts the actual
+              stores at the install handoff. See premortem failure mode #4. */}
           <div
             style={{
               display: "flex",
               alignItems: "center",
               gap: "0.625rem",
+              fontSize: "var(--text-sm)",
+              color: "var(--text-muted)",
             }}
           >
-            <RatingStars rating={4.9} size={16} />
-            <span
-              style={{ fontSize: "var(--text-sm)", color: "var(--text-muted)" }}
+            <a
+              href={process.env.NEXT_PUBLIC_APPSTORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "var(--c-primary)", textDecoration: "underline" }}
             >
-              <strong style={{ color: "var(--text)" }}>4.9</strong>
-              {" · "}
-              {t("ThousandsOfUsers")}
-            </span>
+              {t("SeeReviews")}
+            </a>
           </div>
         </div>
 

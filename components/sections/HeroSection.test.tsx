@@ -16,11 +16,18 @@ describe("HeroSection", () => {
     expect(screen.getByText("HeroDescription")).toBeInTheDocument();
   });
 
-  it("renders store buttons", () => {
+  it("renders both store badges", () => {
     render(<HeroSection isDark={false} />);
-    // StoreButton is a child, we can check for its presence or the platform specific buttons
-    // Since StoreButton likely renders an anchor or button with specific text/role
-    expect(screen.getAllByRole("link")).toHaveLength(2);
+    // StoreBadge renders images with the platform name as alt text.
+    expect(screen.getAllByAltText("App Store").length).toBeGreaterThan(0);
+    expect(screen.getByAltText("Google Play")).toBeInTheDocument();
+  });
+
+  it("links to the real store reviews instead of a hardcoded rating", () => {
+    render(<HeroSection isDark={false} />);
+    // setup.ts makes t() return the key.
+    expect(screen.getByText("SeeReviews")).toBeInTheDocument();
+    expect(screen.queryByText("4.9")).not.toBeInTheDocument();
   });
 
   it("renders the phone mockup", () => {
