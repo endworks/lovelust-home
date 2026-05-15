@@ -19,14 +19,13 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const faqEn = fs.readFileSync(
-    path.join(process.cwd(), "content/faq/en.md"),
-    "utf-8",
-  );
-  const faqEs = fs.readFileSync(
-    path.join(process.cwd(), "content/faq/es.md"),
-    "utf-8",
-  );
+  const legalEmail = process.env.NEXT_PUBLIC_LEGAL_EMAIL ?? "";
+  const faqEn = fs
+    .readFileSync(path.join(process.cwd(), "content/faq/en.md"), "utf-8")
+    .replaceAll("{{LEGAL_EMAIL}}", legalEmail);
+  const faqEs = fs
+    .readFileSync(path.join(process.cwd(), "content/faq/es.md"), "utf-8")
+    .replaceAll("{{LEGAL_EMAIL}}", legalEmail);
 
   const faqItems = parseFaq(faqEn, { collapseNewlines: true });
 
