@@ -1,16 +1,27 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useTheme } from "../hooks/useTheme";
 import { usePageTracking } from "../hooks/usePageTracking";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import HeroSection from "../components/sections/HeroSection";
 import FeaturesSection from "../components/sections/FeaturesSection";
-import AppPreviewSection from "../components/sections/AppPreviewSection";
-import ValuesSection from "../components/sections/ValuesSection";
-import TestimonialsSection from "../components/sections/TestimonialsSection";
-import FaqSection from "../components/sections/FaqSection";
-import CtaSection from "../components/sections/CtaSection";
+
+// Below-fold sections: still SSR'd (kept for SEO / no layout shift) but
+// their client JS is code-split so it doesn't block the first paint on
+// cold venue cellular. See premortem failure mode #3.
+const AppPreviewSection = dynamic(
+  () => import("../components/sections/AppPreviewSection"),
+);
+const ValuesSection = dynamic(
+  () => import("../components/sections/ValuesSection"),
+);
+const TestimonialsSection = dynamic(
+  () => import("../components/sections/TestimonialsSection"),
+);
+const FaqSection = dynamic(() => import("../components/sections/FaqSection"));
+const CtaSection = dynamic(() => import("../components/sections/CtaSection"));
 
 interface Testimonial {
   quote: string;
