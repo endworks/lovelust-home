@@ -13,8 +13,12 @@ export default function Header({
   isDark: boolean;
   toggleDark: () => void;
 }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Above-the-fold language toggle. The Footer switcher is below a fold
+  // campaign visitors never reach. See premortem failure mode #5.
+  const nextLang = i18n.language.startsWith("es") ? "en" : "es";
 
   const navLinks = [
     { href: "/#features", label: t("NavFeatures") },
@@ -91,6 +95,23 @@ export default function Header({
                 ) : (
                   <MoonIcon size={16} weight="fill" />
                 )}
+              </button>
+              <button
+                onClick={() => i18n.changeLanguage(nextLang)}
+                aria-label={`Switch to ${nextLang === "es" ? "Español" : "English"}`}
+                style={{
+                  background: "none",
+                  border: "none",
+                  borderRadius: "0.5rem",
+                  padding: "0.5rem 0.5rem",
+                  cursor: "pointer",
+                  fontSize: "var(--text-sm)",
+                  fontWeight: 700,
+                  lineHeight: 1,
+                  color: "var(--text)",
+                }}
+              >
+                {nextLang.toUpperCase()}
               </button>
             </div>
 

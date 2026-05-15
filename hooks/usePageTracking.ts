@@ -1,7 +1,7 @@
 "use client";
 
-import { useAptabase } from "@aptabase/react";
 import { useEffect } from "react";
+import { useTracking } from "./useTracking";
 
 const UTM_KEYS = [
   "utm_source",
@@ -12,7 +12,12 @@ const UTM_KEYS = [
 ] as const;
 const STORAGE_KEY = "utm_params";
 
-function getUtmProps(): Record<string, string> {
+/**
+ * UTM params from the landing URL, persisted across SPA navigation via
+ * sessionStorage. Exported so conversion events (e.g. store_click) carry the
+ * same attribution as the page event.
+ */
+export function getUtmProps(): Record<string, string> {
   if (typeof window === "undefined") return {};
 
   const fromUrl: Record<string, string> = {};
@@ -42,9 +47,9 @@ function getUtmProps(): Record<string, string> {
  * via sessionStorage) so attribution survives client-side route changes.
  */
 export function usePageTracking(pageName: string) {
-  const { trackEvent } = useAptabase();
+  const track = useTracking();
 
   useEffect(() => {
-    trackEvent("page", { page: pageName, ...getUtmProps() }).catch(() => {});
-  }, [trackEvent, pageName]);
+    track("page", { page: pageName, ...getUtmProps() });
+  }, [track, pageName]);
 }

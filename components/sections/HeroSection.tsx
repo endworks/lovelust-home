@@ -1,15 +1,64 @@
 "use client";
 
+import { StarIcon } from "@phosphor-icons/react";
 import { useTranslation } from "react-i18next";
+import type { StoreRating, StoreRatings } from "../../lib/storeRatings";
 import PhoneMockup from "../PhoneMockup";
 import RatingStars from "../RatingStars";
 import StoreBadge from "../StoreBadge";
 
-interface HeroSectionProps {
-  isDark: boolean;
+const chipStyle: React.CSSProperties = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: "0.4rem",
+  padding: "0.3rem 0.7rem",
+  borderRadius: "999px",
+  border: "1px solid var(--border)",
+  fontSize: "var(--text-sm)",
+  color: "var(--text)",
+  textDecoration: "none",
+  whiteSpace: "nowrap",
+};
+
+function StoreChip({
+  label,
+  rating,
+}: {
+  label: string;
+  rating: StoreRating | null;
+}) {
+  return (
+    <span style={chipStyle}>
+      {rating ? (
+        <>
+          <RatingStars rating={rating.rating} size={13} />
+          <strong>{rating.rating.toFixed(1)}</strong>
+          {rating.count > 0 && (
+            <span style={{ color: "var(--text-muted)" }}>
+              ({rating.count.toLocaleString()})
+            </span>
+          )}
+          <span style={{ color: "var(--text-muted)" }}>· {label}</span>
+        </>
+      ) : (
+        <>
+          <StarIcon size={14} weight="fill" color="var(--accent)" />
+          {label}
+        </>
+      )}
+    </span>
+  );
 }
 
-export default function HeroSection({ isDark }: HeroSectionProps) {
+interface HeroSectionProps {
+  isDark: boolean;
+  storeRatings: StoreRatings;
+}
+
+export default function HeroSection({
+  isDark,
+  storeRatings,
+}: HeroSectionProps) {
   const { t, i18n } = useTranslation();
 
   return (
@@ -128,22 +177,19 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
             <StoreBadge platform="googlePlay" />
           </div>
 
-          {/* Star rating */}
+          {/* Social proof — link out to the real, verifiable store
+              listings instead of a hardcoded rating that contradicts the
+              actual stores at the install handoff. Premortem failure #4. */}
           <div
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "0.625rem",
+              gap: "0.5rem",
+              flexWrap: "wrap",
             }}
           >
-            <RatingStars rating={4.9} size={16} />
-            <span
-              style={{ fontSize: "var(--text-sm)", color: "var(--text-muted)" }}
-            >
-              <strong style={{ color: "var(--text)" }}>4.9</strong>
-              {" · "}
-              {t("ThousandsOfUsers")}
-            </span>
+            <StoreChip label="App Store" rating={storeRatings.appStore} />
+            <StoreChip label="Google Play" rating={storeRatings.googlePlay} />
           </div>
         </div>
 

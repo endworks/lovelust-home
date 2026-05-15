@@ -7,7 +7,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```bash
 yarn dev           # Start Next.js dev server
 yarn build         # Production build (standalone output)
-yarn build:pages   # Static export for GitHub Pages (sets basePath + trailingSlash)
 yarn lint          # ESLint via next lint
 yarn test          # Vitest unit tests (jsdom)
 yarn test:ui       # Vitest with UI
@@ -39,10 +38,10 @@ Long-form content (FAQ, Privacy Policy, Terms) is authored as Markdown in `conte
 
 ### Styling
 
-**No Tailwind / CSS framework** — all layout is inline `style={{}}` with a few utility classes. Design tokens are CSS custom properties defined in `src/index.css` (imported via `app/globals.css`):
+**No Tailwind / CSS framework** — all layout is inline `style={{}}` with a few utility classes. Design tokens are CSS custom properties defined in the `:root` of `app/globals.css`:
 
-- `--c-primary: #f61e6d` (pink/fuchsia — Love)
-- `--c-secondary: #9933ff` (purple — Lust)
+- `--accent: #f61e6d` (pink/fuchsia — primary brand color; `--accent-dark`, plus alpha variants `--accent-06/-0d/-12/-15/-18`)
+- `--secondary: #73575c` (muted mauve; `--secondary-08`, `--secondary-bg`)
 - `--bg`, `--text`, `--text-muted`, `--border` — switch between light/dark via `.dark` class on `<html>`
 
 Dark mode is system-preference-only (no manual toggle persisted). An inline `<script>` in `<head>` reads `prefers-color-scheme` and adds the `dark` class before React hydrates.
@@ -57,12 +56,12 @@ Dark mode is system-preference-only (no manual toggle persisted). An inline `<sc
 
 Aptabase (`@aptabase/react`) wraps the app in `app/providers.tsx`. Page tracking is called via `usePageTracking(pageName)` inside each `*Client.tsx`.
 
-### Build modes
+### Build mode
 
-`next.config.ts` switches between two outputs based on `NEXT_STATIC_EXPORT=true`:
-
-- Default: `output: "standalone"` — for Docker/self-hosted deployment
-- Static export: `output: "export"` + `trailingSlash: true` + `basePath` — for GitHub Pages (`yarn build:pages`)
+`next.config.ts` always builds `output: "standalone"` (Docker/self-hosted Node
+server). This is required: the campaign QR short URLs (`/card-26`, `/erospain-26`,
+…) are server-side 301 redirects. A static export would silently drop them and
+404 every already-printed QR code. Do not reintroduce a static-export build.
 
 ### SEO files
 
@@ -80,7 +79,13 @@ All prefixed `NEXT_PUBLIC_`. Key ones:
 - `NEXT_PUBLIC_APP_URL` — canonical site URL (falls back to `https://lovelust.health`)
 - `NEXT_PUBLIC_APPSTORE_URL` / `NEXT_PUBLIC_GOOGLE_PLAY_STORE_URL` — store links
 - `NEXT_PUBLIC_APTABASE_APP_ID` — analytics key
-- `NEXT_PUBLIC_BASE_PATH` — set automatically by `build:pages` script
+- `NEXT_PUBLIC_ASA_PROVIDER_TOKEN` — optional Apple `pt` provider token added
+  to App Store links for install attribution (campaign `ct` is derived from UTM)
+- Hero rating (`lib/storeRatings.ts`): App Store rating is auto-fetched from
+  Apple's iTunes Lookup API (id parsed from `NEXT_PUBLIC_APPSTORE_URL`, or
+  `NEXT_PUBLIC_APPSTORE_ID`), cached 24h. Google Play has no official API:
+  `NEXT_PUBLIC_PLAY_RATING` / `NEXT_PUBLIC_PLAY_RATING_COUNT` — keep in sync
+  with the Play Console. Missing/failed values fall back to a plain chip.
 
 ### Testing
 

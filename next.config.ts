@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
-const isStaticExport = process.env.NEXT_STATIC_EXPORT === "true";
-
+// Campaign short URLs printed on physical media (QR codes). These MUST resolve
+// in production — they are server-side 301 redirects, so the app is always
+// deployed as a Node server (`output: "standalone"`). Do not reintroduce a
+// static-export build: it silently drops every redirect below and 404s all
+// already-printed QR codes. See premortem failure mode #2.
 const campaignRedirects: { source: string; destination: string }[] = [
   {
     source: "/card-26",
@@ -51,23 +54,14 @@ const campaignRedirects: { source: string; destination: string }[] = [
 ];
 
 const nextConfig: NextConfig = {
-  output: isStaticExport ? "export" : "standalone",
-  trailingSlash: isStaticExport,
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH || "",
-  images: {
-    unoptimized: isStaticExport,
+  output: "standalone",
+  async redirects() {
+    return campaignRedirects.map(({ source, destination }) => ({
+      source,
+      destination,
+      statusCode: 301,
+    }));
   },
-  ...(isStaticExport
-    ? {}
-    : {
-        async redirects() {
-          return campaignRedirects.map(({ source, destination }) => ({
-            source,
-            destination,
-            statusCode: 301,
-          }));
-        },
-      }),
 };
 
 export default nextConfig;

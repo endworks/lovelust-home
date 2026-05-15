@@ -14,12 +14,18 @@ export default function ThemeAwareScreenshot({
   priority = false,
   style = {},
   className = "",
+  // The phone chassis renders at <=320px, but the source PNG is 1206px wide.
+  // Without `sizes`, next/image serves the full-res image — megabytes on
+  // cold venue cellular. This makes it ship a ~320px WebP instead. See
+  // premortem failure mode #3.
+  sizes = "(max-width: 768px) 240px, 320px",
 }: {
   language: string;
   name: string;
   priority?: boolean;
   style?: React.CSSProperties;
   className?: string;
+  sizes?: string;
 }) {
   const lang = language === "es" ? "es" : "en";
   const dark = `/screenshots/${name}-dark-${lang}.png`;
@@ -33,6 +39,7 @@ export default function ThemeAwareScreenshot({
         width={1206}
         height={2622}
         priority={priority}
+        sizes={sizes}
         className={`dark-only ${className}`}
         style={{ ...style, display: "block" }}
       />
@@ -42,6 +49,7 @@ export default function ThemeAwareScreenshot({
         width={1206}
         height={2622}
         priority={priority}
+        sizes={sizes}
         className={`light-only ${className}`}
         style={{ ...style, display: "block" }}
       />

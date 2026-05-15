@@ -1,13 +1,11 @@
 {
   "name": "lovelust-web",
-  "homepage": "https://endworks.github.io/lovelust-home",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:pages": "cross-env NEXT_PUBLIC_BASE_PATH=/lovelust-home NEXT_STATIC_EXPORT=true next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
@@ -38,7 +36,6 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
     "@vitest/ui": "4.1.6",
-    "cross-env": "^10.1.0",
     "eslint": "^9.39.2",
     "eslint-config-next": "^16.2.6",
     "eslint-plugin-react-hooks": "^7.1.1",

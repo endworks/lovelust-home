@@ -2,6 +2,9 @@
 
 import { AptabaseProvider } from "@aptabase/react";
 import i18n from "../src/i18n";
+import Analytics from "../components/Analytics";
+import ConsentBanner from "../components/ConsentBanner";
+import { ConsentProvider } from "../components/ConsentContext";
 
 export default function Providers({
   children,
@@ -17,12 +20,19 @@ export default function Providers({
     i18n.changeLanguage(lng);
   }
 
+  // AptabaseProvider mounting sends nothing on its own (cookieless, no
+  // identifiers until trackEvent). Every event is gated on consent via
+  // useTracking; GA is only injected post-consent by <Analytics />.
   return (
-    <AptabaseProvider
-      appKey={process.env.NEXT_PUBLIC_APTABASE_APP_ID!}
-      options={{ host: "https://analytics.end.works" }}
-    >
-      {children}
-    </AptabaseProvider>
+    <ConsentProvider>
+      <AptabaseProvider
+        appKey={process.env.NEXT_PUBLIC_APTABASE_APP_ID!}
+        options={{ host: "https://analytics.end.works" }}
+      >
+        {children}
+        <Analytics />
+        <ConsentBanner />
+      </AptabaseProvider>
+    </ConsentProvider>
   );
 }

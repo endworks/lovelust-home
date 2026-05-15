@@ -154,5 +154,11 @@
   "SupportedStablecoinsDescription": "We currently accept USDC on the following networks:",
   "SupportedStablecoinsFooter": "If you're donating USDC, please make sure you send it to the correct address and network listed above.",
   "MadeWithLove": "Made with ♥ for your privacy",
-  "AesCfbEncrypted": "AES-CFB Encrypted"
+  "AesCfbEncrypted": "AES-CFB Encrypted",
+  "ConsentTitle": "Analytics consent",
+  "ConsentText": "We use anonymous, cookieless analytics to improve LoveLust. Accept to also allow optional analytics, or decline to opt out entirely.",
+  "ConsentPrivacyLink": "Privacy Policy",
+  "ConsentAccept": "Accept",
+  "ConsentDecline": "Decline",
+  "SeeReviews": "Read real reviews on the App Store & Google Play"
 }

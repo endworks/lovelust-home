@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Nunito, Pacifico } from "next/font/google";
-import Script from "next/script";
+import { headers } from "next/headers";
 import "./globals.css";
 import Providers from "./providers";
 
@@ -125,10 +125,10 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Use a static default language for the server-side render.
-  // The client-side i18next detector in src/i18n.ts will automatically
-  // switch to the user's preferred language after hydration.
-  const lng = "en";
+  // Language is resolved on the server by middleware (?lng → cookie →
+  // Accept-Language) so the first paint is already correct — no English
+  // flash for Spanish campaign traffic. See premortem failure mode #5.
+  const lng = (await headers()).get("x-ll-lng") === "es" ? "es" : "en";
 
   return (
     <html
@@ -139,22 +139,8 @@ export default async function RootLayout({
       <head>
         {/* Inline theme script runs before React — prevents any dark/light flash */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="gtag-init" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
-              `}
-            </Script>
-          </>
-        )}
+        {/* Google Analytics is loaded post-consent by <Analytics /> — never
+            in <head> unconditionally. See premortem failure mode #6. */}
       </head>
       <body className="antialiased font-sans">
         <Providers lng={lng}>{children}</Providers>
