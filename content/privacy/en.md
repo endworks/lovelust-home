@@ -47,7 +47,7 @@ We use **Aptabase** for aggregate, anonymous product analytics (e.g. which scree
 
 If you enable encrypted cloud backup, your activity, partner, medication, settings, and photo data is encrypted **on your device** with a key derived from your passphrase, before upload to **your own** Google Drive or iCloud (a private app folder).
 
-You set a backup passphrase when you enable cloud backup. **end.works cannot decrypt your cloud backup — only you hold the passphrase.** Keep it safe: if you lose it, your backup cannot be recovered.
+You set a backup passphrase when you enable cloud backup. **The LoveLust Company SL cannot decrypt your cloud backup — only you hold the passphrase.** Keep it safe: if you lose it, your backup cannot be recovered.
 
 LoveLust servers never receive your backup or your passphrase. The backup lives in your personal cloud storage account.
 

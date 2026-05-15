@@ -197,7 +197,8 @@ export default function Footer() {
         {/* Bottom row: copyright + made by */}
         <div className="footer-bottom">
           <p style={{ fontSize: "var(--text-sm)", color: "var(--text-muted)" }}>
-            © {new Date().getFullYear()} end.works LLC. {t("AllRightsReserved")}
+            © {new Date().getFullYear()} The LoveLust Company SL.{" "}
+            {t("AllRightsReserved")}
           </p>
           <p
             style={{

@@ -47,7 +47,7 @@ Utilizamos **Aptabase** para una analítica de producto agregada y anónima (p. 
 
 Si habilita la copia de seguridad cifrada en la nube, sus datos de actividad, parejas, medicación, ajustes y fotos se cifran **en su dispositivo** con una clave derivada de su frase de contraseña, antes de subirse a **su propio** Google Drive o iCloud (una carpeta privada de la aplicación).
 
-Usted establece una frase de contraseña de copia de seguridad al habilitar la copia en la nube. **end.works no puede descifrar su copia de seguridad en la nube: solo usted posee la frase de contraseña.** Consérvela en lugar seguro: si la pierde, su copia de seguridad no podrá recuperarse.
+Usted establece una frase de contraseña de copia de seguridad al habilitar la copia en la nube. **The LoveLust Company SL no puede descifrar su copia de seguridad en la nube: solo usted posee la frase de contraseña.** Consérvela en lugar seguro: si la pierde, su copia de seguridad no podrá recuperarse.
 
 Los servidores de LoveLust nunca reciben su copia de seguridad ni su frase de contraseña. La copia de seguridad reside en su cuenta personal de almacenamiento en la nube.
 
