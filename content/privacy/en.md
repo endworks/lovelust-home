@@ -82,19 +82,17 @@ Local data is encrypted on your device using strong, industry-standard encryptio
 
 ## 7. Third-Party Services and Processors
 
-| Service                         | Purpose                                             | Privacy Policy                      |
-| ------------------------------- | --------------------------------------------------- | ----------------------------------- |
-| RevenueCat                      | Subscription management                             | https://www.revenuecat.com/privacy  |
-| Aptabase                        | Anonymous analytics (consent-gated)                 | https://aptabase.com/legal/privacy  |
-| Firebase Crashlytics (Google)   | Crash & error diagnostics                           | https://policies.google.com/privacy |
-| Firebase Remote Config (Google) | Feature configuration                               | https://policies.google.com/privacy |
-| Google Sign-In                  | Authentication for Google Drive cloud backup        | https://policies.google.com/privacy |
-| Apple HealthKit                 | Optional health integration (iOS, when enabled)     | https://www.apple.com/legal/privacy |
-| Google Health Connect           | Optional health integration (Android, when enabled) | https://policies.google.com/privacy |
-| Expo Notifications              | Push-notification delivery (push token)             | https://expo.dev/privacy            |
-| Expo Updates                    | Over-the-air app updates                            | https://expo.dev/privacy            |
-| Google Play Services            | Android billing & platform services                 | https://policies.google.com/privacy |
-| LoveLust backend                | Notifications & communication preferences           | This policy, Section 1              |
+- **RevenueCat** — Subscription management. [Privacy policy](https://www.revenuecat.com/privacy)
+- **Aptabase** — Anonymous analytics (consent-gated). [Privacy policy](https://aptabase.com/legal/privacy)
+- **Firebase Crashlytics (Google)** — Crash & error diagnostics. [Privacy policy](https://policies.google.com/privacy)
+- **Firebase Remote Config (Google)** — Feature configuration. [Privacy policy](https://policies.google.com/privacy)
+- **Google Sign-In** — Authentication for Google Drive cloud backup. [Privacy policy](https://policies.google.com/privacy)
+- **Apple HealthKit** — Optional health integration (iOS, when enabled). [Privacy policy](https://www.apple.com/legal/privacy)
+- **Google Health Connect** — Optional health integration (Android, when enabled). [Privacy policy](https://policies.google.com/privacy)
+- **Expo Notifications** — Push-notification delivery (push token). [Privacy policy](https://expo.dev/privacy)
+- **Expo Updates** — Over-the-air app updates. [Privacy policy](https://expo.dev/privacy)
+- **Google Play Services** — Android billing & platform services. [Privacy policy](https://policies.google.com/privacy)
+- **LoveLust backend** — Notifications & communication preferences. See Section 1 of this policy.
 
 We do not sell your data to any third party. We do not use advertising networks.
 
