@@ -20,8 +20,15 @@ i18n
       escapeValue: false,
     },
 
+    // Match the server's choice (middleware: ?lng → ll_lng cookie →
+    // Accept-Language) before falling back to navigator, and write the
+    // cookie on changeLanguage so the next SSR agrees. See failure mode #5.
     detection: {
-      order: ["navigator"],
+      order: ["querystring", "cookie", "navigator"],
+      lookupQuerystring: "lng",
+      lookupCookie: "ll_lng",
+      caches: ["cookie"],
+      cookieMinutes: 60 * 24 * 365,
     },
     debug: false,
 
