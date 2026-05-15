@@ -38,10 +38,10 @@ Long-form content (FAQ, Privacy Policy, Terms) is authored as Markdown in `conte
 
 ### Styling
 
-**No Tailwind / CSS framework** — all layout is inline `style={{}}` with a few utility classes. Design tokens are CSS custom properties defined in `src/index.css` (imported via `app/globals.css`):
+**No Tailwind / CSS framework** — all layout is inline `style={{}}` with a few utility classes. Design tokens are CSS custom properties defined in the `:root` of `app/globals.css`:
 
-- `--c-primary: #f61e6d` (pink/fuchsia — Love)
-- `--c-secondary: #9933ff` (purple — Lust)
+- `--accent: #f61e6d` (pink/fuchsia — primary brand color; `--accent-dark`, plus alpha variants `--accent-06/-0d/-12/-15/-18`)
+- `--secondary: #73575c` (muted mauve; `--secondary-08`, `--secondary-bg`)
 - `--bg`, `--text`, `--text-muted`, `--border` — switch between light/dark via `.dark` class on `<html>`
 
 Dark mode is system-preference-only (no manual toggle persisted). An inline `<script>` in `<head>` reads `prefers-color-scheme` and adds the `dark` class before React hydrates.
