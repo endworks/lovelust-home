@@ -23,10 +23,10 @@ describe("HeroSection", () => {
     expect(screen.getByAltText("Google Play")).toBeInTheDocument();
   });
 
-  it("links to the real store reviews instead of a hardcoded rating", () => {
+  it("shows store chips instead of a hardcoded rating", () => {
     render(<HeroSection isDark={false} />);
-    // setup.ts makes t() return the key.
-    expect(screen.getByText("SeeReviews")).toBeInTheDocument();
+    expect(screen.getByText("App Store")).toBeInTheDocument();
+    expect(screen.getByText("Google Play")).toBeInTheDocument();
     expect(screen.queryByText("4.9")).not.toBeInTheDocument();
   });
 

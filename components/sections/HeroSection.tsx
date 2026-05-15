@@ -1,8 +1,22 @@
 "use client";
 
+import { StarIcon } from "@phosphor-icons/react";
 import { useTranslation } from "react-i18next";
 import PhoneMockup from "../PhoneMockup";
 import StoreBadge from "../StoreBadge";
+
+const chipStyle: React.CSSProperties = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: "0.4rem",
+  padding: "0.3rem 0.7rem",
+  borderRadius: "999px",
+  border: "1px solid var(--border)",
+  fontSize: "var(--text-sm)",
+  color: "var(--text)",
+  textDecoration: "none",
+  whiteSpace: "nowrap",
+};
 
 interface HeroSectionProps {
   isDark: boolean;
@@ -127,25 +141,34 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
             <StoreBadge platform="googlePlay" />
           </div>
 
-          {/* Social proof — link to the real, verifiable store listings
-              instead of a hardcoded rating that contradicts the actual
-              stores at the install handoff. See premortem failure mode #4. */}
+          {/* Social proof — link out to the real, verifiable store
+              listings instead of a hardcoded rating that contradicts the
+              actual stores at the install handoff. Premortem failure #4. */}
           <div
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "0.625rem",
-              fontSize: "var(--text-sm)",
-              color: "var(--text-muted)",
+              gap: "0.5rem",
+              flexWrap: "wrap",
             }}
           >
             <a
               href={process.env.NEXT_PUBLIC_APPSTORE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "var(--accent)", textDecoration: "underline" }}
+              style={chipStyle}
             >
-              {t("SeeReviews")}
+              <StarIcon size={14} weight="fill" color="var(--accent)" />
+              App Store
+            </a>
+            <a
+              href={process.env.NEXT_PUBLIC_GOOGLE_PLAY_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={chipStyle}
+            >
+              <StarIcon size={14} weight="fill" color="var(--accent)" />
+              Google Play
             </a>
           </div>
         </div>
