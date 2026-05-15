@@ -44,7 +44,7 @@ export default function ConsentBanner() {
         {t("ConsentText")}{" "}
         <a
           href="/privacy"
-          style={{ color: "var(--c-primary)", textDecoration: "underline" }}
+          style={{ color: "var(--accent)", textDecoration: "underline" }}
         >
           {t("ConsentPrivacyLink")}
         </a>
@@ -74,7 +74,7 @@ export default function ConsentBanner() {
             padding: "0.55rem 1rem",
             borderRadius: "999px",
             border: "none",
-            background: "var(--c-primary)",
+            background: "var(--accent)",
             color: "#fff",
             fontWeight: 700,
             fontSize: "0.85rem",

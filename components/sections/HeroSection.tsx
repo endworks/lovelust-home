@@ -143,7 +143,7 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
               href={process.env.NEXT_PUBLIC_APPSTORE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "var(--c-primary)", textDecoration: "underline" }}
+              style={{ color: "var(--accent)", textDecoration: "underline" }}
             >
               {t("SeeReviews")}
             </a>
