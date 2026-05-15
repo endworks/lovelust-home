@@ -3,6 +3,7 @@
 import { CaretDownIcon } from "@phosphor-icons/react";
 import { useState } from "react";
 import { parseFaq } from "../lib/parseFaq";
+import MarkdownContent from "./MarkdownContent";
 
 interface FaqListProps {
   content: string;
@@ -106,7 +107,7 @@ function FaqItem({
       <div
         style={{
           overflow: "hidden",
-          maxHeight: isOpen ? "600px" : "0",
+          maxHeight: isOpen ? "1500px" : "0",
           transition: "max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
         }}
       >
@@ -119,16 +120,9 @@ function FaqItem({
               marginBottom: "0.75rem",
             }}
           />
-          <p
-            style={{
-              color: "var(--text-muted)",
-              lineHeight: 1.8,
-              margin: 0,
-              fontSize: "var(--text-base)",
-            }}
-          >
-            {answer}
-          </p>
+          <div style={{ fontSize: "var(--text-base)" }}>
+            <MarkdownContent content={answer} />
+          </div>
         </div>
       </div>
     </div>
