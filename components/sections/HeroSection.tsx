@@ -21,16 +21,14 @@ const chipStyle: React.CSSProperties = {
 };
 
 function StoreChip({
-  href,
   label,
   rating,
 }: {
-  href?: string;
   label: string;
   rating: StoreRating | null;
 }) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" style={chipStyle}>
+    <span style={chipStyle}>
       {rating ? (
         <>
           <RatingStars rating={rating.rating} size={13} />
@@ -48,7 +46,7 @@ function StoreChip({
           {label}
         </>
       )}
-    </a>
+    </span>
   );
 }
 
@@ -190,16 +188,8 @@ export default function HeroSection({
               flexWrap: "wrap",
             }}
           >
-            <StoreChip
-              href={process.env.NEXT_PUBLIC_APPSTORE_URL}
-              label="App Store"
-              rating={storeRatings.appStore}
-            />
-            <StoreChip
-              href={process.env.NEXT_PUBLIC_GOOGLE_PLAY_STORE_URL}
-              label="Google Play"
-              rating={storeRatings.googlePlay}
-            />
+            <StoreChip label="App Store" rating={storeRatings.appStore} />
+            <StoreChip label="Google Play" rating={storeRatings.googlePlay} />
           </div>
         </div>
 
