@@ -7,7 +7,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```bash
 yarn dev           # Start Next.js dev server
 yarn build         # Production build (standalone output)
-yarn build:pages   # Static export for GitHub Pages (sets basePath + trailingSlash)
 yarn lint          # ESLint via next lint
 yarn test          # Vitest unit tests (jsdom)
 yarn test:ui       # Vitest with UI
@@ -57,12 +56,12 @@ Dark mode is system-preference-only (no manual toggle persisted). An inline `<sc
 
 Aptabase (`@aptabase/react`) wraps the app in `app/providers.tsx`. Page tracking is called via `usePageTracking(pageName)` inside each `*Client.tsx`.
 
-### Build modes
+### Build mode
 
-`next.config.ts` switches between two outputs based on `NEXT_STATIC_EXPORT=true`:
-
-- Default: `output: "standalone"` — for Docker/self-hosted deployment
-- Static export: `output: "export"` + `trailingSlash: true` + `basePath` — for GitHub Pages (`yarn build:pages`)
+`next.config.ts` always builds `output: "standalone"` (Docker/self-hosted Node
+server). This is required: the campaign QR short URLs (`/card-26`, `/erospain-26`,
+…) are server-side 301 redirects. A static export would silently drop them and
+404 every already-printed QR code. Do not reintroduce a static-export build.
 
 ### SEO files
 
@@ -80,7 +79,6 @@ All prefixed `NEXT_PUBLIC_`. Key ones:
 - `NEXT_PUBLIC_APP_URL` — canonical site URL (falls back to `https://lovelust.health`)
 - `NEXT_PUBLIC_APPSTORE_URL` / `NEXT_PUBLIC_GOOGLE_PLAY_STORE_URL` — store links
 - `NEXT_PUBLIC_APTABASE_APP_ID` — analytics key
-- `NEXT_PUBLIC_BASE_PATH` — set automatically by `build:pages` script
 
 ### Testing
 

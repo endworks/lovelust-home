@@ -35,3 +35,7 @@ out
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# Premortem analysis artifacts (local only)
+premortem-report-*.html
+premortem-transcript-*.md
