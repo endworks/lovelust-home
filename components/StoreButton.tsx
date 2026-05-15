@@ -3,6 +3,7 @@
 import { AppStoreLogoIcon, GooglePlayLogoIcon } from "@phosphor-icons/react";
 import { useTranslation } from "react-i18next";
 import { useStoreClick } from "../hooks/useStoreClick";
+import { useStoreUrl } from "../hooks/useStoreUrl";
 
 type Platform = "appStore" | "googlePlay";
 type Variant = "primary" | "cta";
@@ -23,12 +24,13 @@ export default function StoreButton({
   const onStoreClick = useStoreClick(platform);
   const isBeta = process.env.NEXT_PUBLIC_BETA === "true";
 
-  const href =
+  const baseHref =
     platform === "appStore"
       ? isBeta
         ? process.env.NEXT_PUBLIC_TESTFLIGHT_URL
         : process.env.NEXT_PUBLIC_APPSTORE_URL
       : process.env.NEXT_PUBLIC_GOOGLE_PLAY_STORE_URL;
+  const href = useStoreUrl(platform, baseHref);
 
   const Icon = platform === "appStore" ? AppStoreLogoIcon : GooglePlayLogoIcon;
 

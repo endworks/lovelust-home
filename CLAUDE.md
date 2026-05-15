@@ -79,6 +79,8 @@ All prefixed `NEXT_PUBLIC_`. Key ones:
 - `NEXT_PUBLIC_APP_URL` — canonical site URL (falls back to `https://lovelust.health`)
 - `NEXT_PUBLIC_APPSTORE_URL` / `NEXT_PUBLIC_GOOGLE_PLAY_STORE_URL` — store links
 - `NEXT_PUBLIC_APTABASE_APP_ID` — analytics key
+- `NEXT_PUBLIC_ASA_PROVIDER_TOKEN` — optional Apple `pt` provider token added
+  to App Store links for install attribution (campaign `ct` is derived from UTM)
 
 ### Testing
 
