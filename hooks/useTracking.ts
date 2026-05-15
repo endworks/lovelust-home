@@ -3,6 +3,7 @@
 import { useAptabase } from "@aptabase/react";
 import { useCallback } from "react";
 import { useConsent } from "../components/ConsentContext";
+import { isAllowedEvent, sanitizeProps } from "../lib/analytics";
 
 /**
  * Tier 1 analytics: Aptabase (cookieless, no persistent identifiers,
@@ -23,7 +24,8 @@ export function useTracking() {
   return useCallback(
     (name: string, props?: Record<string, string>) => {
       if (status === "denied") return;
-      trackEvent(name, props).catch(() => {});
+      if (!isAllowedEvent(name)) return;
+      trackEvent(name, sanitizeProps(props)).catch(() => {});
     },
     [trackEvent, status],
   );
