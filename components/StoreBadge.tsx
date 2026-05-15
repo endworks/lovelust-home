@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
+import { useStoreClick } from "../hooks/useStoreClick";
 
 type Platform = "appStore" | "googlePlay";
 
@@ -15,6 +16,7 @@ interface StoreBadgeProps {
  */
 export default function StoreBadge({ platform }: StoreBadgeProps) {
   const { i18n } = useTranslation();
+  const onStoreClick = useStoreClick(platform);
   const isSpanish = i18n.language.startsWith("es");
   const suffix = isSpanish ? "Spanish" : "";
 
@@ -41,6 +43,7 @@ export default function StoreBadge({ platform }: StoreBadgeProps) {
       rel="noopener noreferrer"
       className="store-badge-link"
       style={commonStyle}
+      onClick={onStoreClick}
     >
       {platform === "googlePlay" ? (
         <Image

@@ -12,7 +12,12 @@ const UTM_KEYS = [
 ] as const;
 const STORAGE_KEY = "utm_params";
 
-function getUtmProps(): Record<string, string> {
+/**
+ * UTM params from the landing URL, persisted across SPA navigation via
+ * sessionStorage. Exported so conversion events (e.g. store_click) carry the
+ * same attribution as the page event.
+ */
+export function getUtmProps(): Record<string, string> {
   if (typeof window === "undefined") return {};
 
   const fromUrl: Record<string, string> = {};
