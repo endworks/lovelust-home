@@ -2,7 +2,9 @@
 
 import { StarIcon } from "@phosphor-icons/react";
 import { useTranslation } from "react-i18next";
+import type { StoreRating, StoreRatings } from "../../lib/storeRatings";
 import PhoneMockup from "../PhoneMockup";
+import RatingStars from "../RatingStars";
 import StoreBadge from "../StoreBadge";
 
 const chipStyle: React.CSSProperties = {
@@ -18,11 +20,47 @@ const chipStyle: React.CSSProperties = {
   whiteSpace: "nowrap",
 };
 
-interface HeroSectionProps {
-  isDark: boolean;
+function StoreChip({
+  href,
+  label,
+  rating,
+}: {
+  href?: string;
+  label: string;
+  rating: StoreRating | null;
+}) {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" style={chipStyle}>
+      {rating ? (
+        <>
+          <RatingStars rating={rating.rating} size={13} />
+          <strong>{rating.rating.toFixed(1)}</strong>
+          {rating.count > 0 && (
+            <span style={{ color: "var(--text-muted)" }}>
+              ({rating.count.toLocaleString()})
+            </span>
+          )}
+          <span style={{ color: "var(--text-muted)" }}>· {label}</span>
+        </>
+      ) : (
+        <>
+          <StarIcon size={14} weight="fill" color="var(--accent)" />
+          {label}
+        </>
+      )}
+    </a>
+  );
 }
 
-export default function HeroSection({ isDark }: HeroSectionProps) {
+interface HeroSectionProps {
+  isDark: boolean;
+  storeRatings: StoreRatings;
+}
+
+export default function HeroSection({
+  isDark,
+  storeRatings,
+}: HeroSectionProps) {
   const { t, i18n } = useTranslation();
 
   return (
@@ -152,24 +190,16 @@ export default function HeroSection({ isDark }: HeroSectionProps) {
               flexWrap: "wrap",
             }}
           >
-            <a
+            <StoreChip
               href={process.env.NEXT_PUBLIC_APPSTORE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={chipStyle}
-            >
-              <StarIcon size={14} weight="fill" color="var(--accent)" />
-              App Store
-            </a>
-            <a
+              label="App Store"
+              rating={storeRatings.appStore}
+            />
+            <StoreChip
               href={process.env.NEXT_PUBLIC_GOOGLE_PLAY_STORE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={chipStyle}
-            >
-              <StarIcon size={14} weight="fill" color="var(--accent)" />
-              Google Play
-            </a>
+              label="Google Play"
+              rating={storeRatings.googlePlay}
+            />
           </div>
         </div>
 

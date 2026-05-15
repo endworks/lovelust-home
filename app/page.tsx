@@ -2,6 +2,7 @@ import fs from "fs";
 import type { Metadata } from "next";
 import path from "path";
 import { parseFaq } from "../lib/parseFaq";
+import { getStoreRatings } from "../lib/storeRatings";
 import HomeClient from "./HomeClient";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://lovelust.health";
@@ -26,6 +27,8 @@ export default async function Page() {
   const faqEs = fs
     .readFileSync(path.join(process.cwd(), "content/faq/es.md"), "utf-8")
     .replaceAll("{{LEGAL_EMAIL}}", legalEmail);
+
+  const storeRatings = await getStoreRatings();
 
   const faqItems = parseFaq(faqEn, { collapseNewlines: true });
 
@@ -127,7 +130,12 @@ export default async function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <HomeClient faqEn={faqEn} faqEs={faqEs} testimonials={testimonials} />
+      <HomeClient
+        faqEn={faqEn}
+        faqEs={faqEs}
+        testimonials={testimonials}
+        storeRatings={storeRatings}
+      />
     </>
   );
 }

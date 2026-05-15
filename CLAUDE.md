@@ -81,6 +81,11 @@ All prefixed `NEXT_PUBLIC_`. Key ones:
 - `NEXT_PUBLIC_APTABASE_APP_ID` — analytics key
 - `NEXT_PUBLIC_ASA_PROVIDER_TOKEN` — optional Apple `pt` provider token added
   to App Store links for install attribution (campaign `ct` is derived from UTM)
+- Hero rating (`lib/storeRatings.ts`): App Store rating is auto-fetched from
+  Apple's iTunes Lookup API (id parsed from `NEXT_PUBLIC_APPSTORE_URL`, or
+  `NEXT_PUBLIC_APPSTORE_ID`), cached 24h. Google Play has no official API:
+  `NEXT_PUBLIC_PLAY_RATING` / `NEXT_PUBLIC_PLAY_RATING_COUNT` — keep in sync
+  with the Play Console. Missing/failed values fall back to a plain chip.
 
 ### Testing
 

@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import type { StoreRatings } from "../lib/storeRatings";
 import { useTheme } from "../hooks/useTheme";
 import { usePageTracking } from "../hooks/usePageTracking";
 import Header from "../components/Header";
@@ -34,10 +35,12 @@ export default function HomeClient({
   faqEn,
   faqEs,
   testimonials,
+  storeRatings,
 }: {
   faqEn: string;
   faqEs: string;
   testimonials: Testimonial[];
+  storeRatings: StoreRatings;
 }) {
   const { isDark, toggleDark } = useTheme();
 
@@ -53,7 +56,7 @@ export default function HomeClient({
     >
       <Header isDark={isDark} toggleDark={toggleDark} />
 
-      <HeroSection isDark={isDark} />
+      <HeroSection isDark={isDark} storeRatings={storeRatings} />
       <FeaturesSection />
       <AppPreviewSection />
       <ValuesSection />
