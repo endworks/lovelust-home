@@ -183,7 +183,7 @@ export default function FeaturesSection() {
               <ThemeAwareScreenshot
                 language={i18n.language}
                 name="paywall"
-                style={{ width: "100%", height: "auto", opacity: 0.7 }}
+                style={{ width: "100%", height: "auto" }}
               />
             </div>
           </div>

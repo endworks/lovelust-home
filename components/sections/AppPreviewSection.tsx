@@ -6,7 +6,7 @@ import ThemeAwareScreenshot from "../ThemeAwareScreenshot";
 const DESKTOP_PHONES = [
   { name: "activity", width: 220, translateY: "0" },
   { name: "stats", width: 260, translateY: "-2.5rem" },
-  { name: "partner", width: 220, translateY: "0" },
+  { name: "edit", width: 220, translateY: "0" },
 ] as const;
 
 export default function AppPreviewSection() {

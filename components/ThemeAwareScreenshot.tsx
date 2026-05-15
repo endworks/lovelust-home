@@ -6,7 +6,7 @@ import Image from "next/image";
  *
  * Images are served from /public/screenshots/{name}-{theme}-{lang}.png
  *
- * Available names: home, paywall, timeline, stats, partner, activity
+ * Available names: home, paywall, edit, stats, partner, activity
  */
 export default function ThemeAwareScreenshot({
   language,
