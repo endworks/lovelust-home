@@ -79,6 +79,12 @@ export default function TestimonialsSection({
                   lineHeight: 1.7,
                   fontSize: "var(--text-base)",
                   flex: 1,
+                  // Safety net: cap any stray over-long review so one card
+                  // can't tower over the rest of the grid.
+                  display: "-webkit-box",
+                  WebkitLineClamp: 6,
+                  WebkitBoxOrient: "vertical",
+                  overflow: "hidden",
                 }}
               >
                 {quote[lang]}
