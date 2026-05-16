@@ -2,8 +2,10 @@
 
 import { ListIcon, MoonIcon, SunIcon, XIcon } from "@phosphor-icons/react";
 
-import { useState } from "react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { getUtmProps } from "../hooks/usePageTracking";
 import LogoSvg from "./LogoSvg";
 
 export default function Header({
@@ -15,6 +17,15 @@ export default function Header({
 }) {
   const { t, i18n } = useTranslation();
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Forward the visitor's session UTM to /download so the install keeps its
+  // real campaign. Resolved post-mount (UTM lives in the browser) — start with
+  // the bare path to avoid a hydration mismatch.
+  const [downloadHref, setDownloadHref] = useState("/download");
+  useEffect(() => {
+    const qs = new URLSearchParams(getUtmProps()).toString();
+    setDownloadHref(qs ? `/download?${qs}` : "/download");
+  }, []);
 
   // Above-the-fold language toggle. The Footer switcher is below a fold
   // campaign visitors never reach. See premortem failure mode #5.
@@ -39,9 +50,9 @@ export default function Header({
         }}
       >
         <div className="nav-inner">
-          <a href="/#" style={{ textDecoration: "none" }}>
+          <Link href="/#" style={{ textDecoration: "none" }}>
             <LogoSvg height={28} />
-          </a>
+          </Link>
           <div className="nav-controls">
             <nav
               aria-label="Main navigation"
@@ -117,7 +128,7 @@ export default function Header({
 
             <span className="hidden-mobile">
               <a
-                href={process.env.NEXT_PUBLIC_DOWNLOAD_URL}
+                href={downloadHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-headline btn-download"
@@ -191,7 +202,7 @@ export default function Header({
             </a>
           ))}
           <a
-            href={process.env.NEXT_PUBLIC_DOWNLOAD_URL}
+            href={downloadHref}
             target="_blank"
             rel="noopener noreferrer"
             className="font-headline btn-download"
