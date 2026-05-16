@@ -33,7 +33,7 @@ export default async function Page() {
   const faqItems = parseFaq(faqEn, { collapseNewlines: true });
 
   const testimonials: {
-    quote: string;
+    quote: { en: string; es: string };
     name: string;
     platform: string;
     rating: number;
