@@ -8,7 +8,8 @@ const utm = {
   utm_content: "v1",
 };
 
-const PLAY = "https://play.google.com/store/apps/details?id=works.end.LoveLustR";
+const PLAY =
+  "https://play.google.com/store/apps/details?id=works.end.LoveLustR";
 const APPSTORE =
   "https://apps.apple.com/us/app/lovelust-safe-sex-tracker/id6740049675";
 
