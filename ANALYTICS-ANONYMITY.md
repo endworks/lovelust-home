@@ -2,10 +2,10 @@
 
 LoveLust runs **two-tier analytics** (see premortem failure mode #6):
 
-| Tier | Tool | Legal basis | When it runs |
-|------|------|-------------|--------------|
-| 1 | Aptabase (self-hosted, `analytics.end.works`) | Exempt anonymous measurement | By default; honors opt-out (Decline) |
-| 2 | Google Analytics | Consent | Only after Accept |
+| Tier | Tool                                          | Legal basis                  | When it runs                         |
+| ---- | --------------------------------------------- | ---------------------------- | ------------------------------------ |
+| 1    | Aptabase (self-hosted, `analytics.end.works`) | Exempt anonymous measurement | By default; honors opt-out (Decline) |
+| 2    | Google Analytics                              | Consent                      | Only after Accept                    |
 
 Tier 1's exempt basis **only holds if no personal data ever reaches Aptabase.**
 This document is the evidence pack the DPO signs against — not a promise.
@@ -85,7 +85,7 @@ over SaaS GA). Confirm on the instance:
 - Privacy Policy describes Tier 1 (anonymous, exempt, opt-out) and Tier 2
   (consent) accurately.
 
-**Sign-off E (DPO):** ☐ ____________________  Date: __________
+**Sign-off E (DPO):** ☐ ********\_\_\_\_******** Date: ****\_\_****
 
 ---
 

@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import RatingStars from "../RatingStars";
 
 interface Testimonial {
-  quote: string;
+  quote: { en: string; es: string };
   name: string;
   platform: string;
   rating: number;
@@ -15,7 +15,8 @@ export default function TestimonialsSection({
 }: {
   testimonials: Testimonial[];
 }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language?.startsWith("es") ? "es" : "en";
 
   return (
     <section className="section section--alt">
@@ -80,7 +81,7 @@ export default function TestimonialsSection({
                   flex: 1,
                 }}
               >
-                {quote}
+                {quote[lang]}
               </p>
               <div
                 style={{

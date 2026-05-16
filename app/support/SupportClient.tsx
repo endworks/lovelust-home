@@ -290,7 +290,12 @@ function SupportContent({ faqEn, faqEs }: { faqEn: string; faqEs: string }) {
 
       {/* FAQ */}
       <SectionHeading>{t("FAQ")}</SectionHeading>
-      <FaqList content={i18n.language === "es" ? faqEs : faqEn} />
+      <FaqList
+        content={(i18n.language === "es" ? faqEs : faqEn).replaceAll(
+          "{{LEGAL_EMAIL}}",
+          process.env.NEXT_PUBLIC_LEGAL_EMAIL ?? "",
+        )}
+      />
     </div>
   );
 }

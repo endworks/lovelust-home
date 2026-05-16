@@ -3,8 +3,18 @@ import { describe, it, expect } from "vitest";
 import TestimonialsSection from "./TestimonialsSection";
 
 const TESTIMONIALS = [
-  { quote: "Great app!", name: "Alice", platform: "App Store", rating: 5 },
-  { quote: "Very useful.", name: "Bob", platform: "Google Play", rating: 4 },
+  {
+    quote: { en: "Great app!", es: "¡App genial!" },
+    name: "Alice",
+    platform: "App Store",
+    rating: 5,
+  },
+  {
+    quote: { en: "Very useful.", es: "Muy útil." },
+    name: "Bob",
+    platform: "Google Play",
+    rating: 4,
+  },
 ];
 
 describe("TestimonialsSection", () => {

@@ -1,16 +1,25 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
+import nextTypescript from "eslint-config-next/typescript";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
+// Next 16's eslint-config-next ships flat configs directly. The old
+// FlatCompat.extends("next/...") bridge crashes ("Converting circular
+// structure to JSON") against these, so import them straight.
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  // `next lint` used to ignore build output implicitly; flat config does not.
+  {
+    ignores: [
+      ".next/**",
+      "out/**",
+      "build/**",
+      "dist/**",
+      "node_modules/**",
+      "coverage/**",
+      "playwright-report/**",
+      "next-env.d.ts",
+    ],
+  },
+  ...nextCoreWebVitals,
+  ...nextTypescript,
   {
     rules: {
       "react-hooks/exhaustive-deps": "warn",

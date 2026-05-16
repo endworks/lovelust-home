@@ -58,16 +58,20 @@ export default function StoreBadge({ platform }: StoreBadgeProps) {
       ) : (
         <>
           {/* Light Mode: Show white badge (inverted logic) */}
-          <img
+          <Image
             src={`/downloadAppStoreWhite${suffix}.svg`}
             alt="App Store"
+            width={120}
+            height={40}
             className="light-only"
             style={imgStyle}
           />
           {/* Dark Mode: Show black badge (inverted logic) */}
-          <img
+          <Image
             src={`/downloadAppStore${suffix}.svg`}
             alt="App Store"
+            width={120}
+            height={40}
             className="dark-only"
             style={imgStyle}
           />

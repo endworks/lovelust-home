@@ -25,7 +25,7 @@ const FaqSection = dynamic(() => import("../components/sections/FaqSection"));
 const CtaSection = dynamic(() => import("../components/sections/CtaSection"));
 
 interface Testimonial {
-  quote: string;
+  quote: { en: string; es: string };
   name: string;
   platform: string;
   rating: number;

@@ -23,6 +23,7 @@ export default function Footer() {
                 color: "var(--text-muted)",
                 lineHeight: 1.5,
                 maxWidth: 320,
+                fontFamily: "var(--font-accent)",
               }}
             >
               <span>{t("HeroTaglineMain")}</span>
